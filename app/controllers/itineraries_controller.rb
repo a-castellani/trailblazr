@@ -31,10 +31,10 @@ class ItinerariesController < ApplicationController
   #   @itinerary_tag = ItineraryTag.new
   # end
 
-  # def destroy
-  #   @itinerary.destroy
-  #   # redirect_to itineraries_dashboard_path
-  # end
+  def destroy
+    @itinerary.destroy
+    # redirect_to itineraries_dashboard_path
+  end
 
   # def update
   #   # params[:itinerary][:tags].each { |tag| ItineraryTag.create(itinerary: @itinerary, tag_id: tag) }
