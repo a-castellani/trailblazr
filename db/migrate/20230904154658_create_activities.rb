@@ -5,7 +5,7 @@ class CreateActivities < ActiveRecord::Migration[7.0]
       t.string :location
       t.integer :number_of_people
       t.decimal :duration
-      t.text :tags
+      t.text :tags, array: true
       t.string :name
 
       t.timestamps
