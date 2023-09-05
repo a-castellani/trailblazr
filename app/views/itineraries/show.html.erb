@@ -1,1 +1,12 @@
 <h2><%= @itinerary.title %></h2>
+
+<%= link_to "Back to Homepage", itineraries_path, class:"btn btn-primary text-align-center"%>
+<%= link_to "Delete", itinerary_path(@itinerary), style: "text-decoration: none;", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+
+
+<%# Hide the links for unauthorized users: %>
+<% if policy(@itinerary).edit? %>
+  <%= link_to "Edit this itinerary", edit_itinerary_path(@itinerary) %> |
+<% end %>
+
+<%= button_to "Destroy this itinerary", @itinerary, method: :delete if policy(@itinerary).destroy? %>

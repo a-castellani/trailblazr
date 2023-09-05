@@ -7,38 +7,41 @@ class ItinerariesController < ApplicationController
     @itineraries = policy_scope(Itinerary)
   end
 
-  def create
-    # @itinerary_tag = ItineraryTag.new
-    @itinerary = Itinerary.new(params[:id])
-    # @itinerary.user = current_user
-    authorize @itinerary
-    save_changes
-  end
-
   def new
     @itinerary = Itinerary.new
     authorize @itinerary
   end
 
-  def show
+  def create
+    # @itinerary_tag = ItineraryTag.new
+    @itinerary = Itinerary.new(itinerary_params)
+    @itinerary.user = current_user
     authorize @itinerary
+    save_changes
+  end
+
+  def show
     @itinerary = Itinerary.find(params[:id])
     # @activity = Activity.new
     # @unavailable_dates = @spaceship.unavailable_dates
+    authorize @itinerary
   end
 
   # def edit
   #   @itinerary_tag = ItineraryTag.new
+  #   authorize @itinerary
   # end
 
   def destroy
     @itinerary.destroy
-    # redirect_to itineraries_dashboard_path
+    # authorize @itinerary
+    redirect_to itineraries_path
   end
 
   # def update
   #   # params[:itinerary][:tags].each { |tag| ItineraryTag.create(itinerary: @itinerary, tag_id: tag) }
   #   @itinerary.update(itinerary_params)
+  #   authorize @itinerary
   #   save_changes
   # end
 
