@@ -1,13 +1,17 @@
-<h1>All Itineraries</h1>
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <h1 class="my-3">All Itineraries</h1>
 
-<div>
-  <% @itineraries.each do |itinerary| %>
-    <ul>
-      <li><%= link_to itinerary.title, itinerary_path(itinerary) %></li>
-    </ul>
-  <% end %>
-</div>
+    <div class="mb-3">
+      <% @itineraries.each do |itinerary| %>
+        <table>
+          <tr><%= link_to itinerary.title, itinerary_path(itinerary) %></tr>
+        </table>
+      <% end %>
+    </div>
 
-<div>
-  <%= link_to "New itinerary", new_itinerary_path, class:"btn btn-primary text-align-center"%>
+    <div>
+      <%= link_to "New itinerary", new_itinerary_path, class:"btn btn-primary text-align-center"%>
+    </div>
+  </div>
 </div>

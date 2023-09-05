@@ -11,23 +11,26 @@ class CollaborationsController < ApplicationController
     authorize @collaboration
   end
 
-  # def create
-  #   @collaboration = Collaboration.new(collaboration_params)
-  #   @collaboration.user = current_user
-  #   authorize @collaboration
-  #   save_changes
-  # end
+  def create
+    @collaboration = Collaboration.new(collaboration_params)
+    authorize @collaboration
+    if @collaboration.save
+      redirect_to collaboration_path(@collaboration)
+    else
+      render :new, status: :unprocessable_entity
+    end
+  end
 
-  # def show
-  #   @collaboration = Collaboration.find(params[:id])
-  #   authorize @collaboration
-  # end
+  def show
+    @collaboration = Collaboration.find(params[:id])
+    authorize @collaboration
+  end
 
-  # def destroy
-  #   @collaboration.destroy
-  #   # authorize @collaboration
-  #   redirect_to collaborations_path
-  # end
+  def destroy
+    @collaboration.destroy
+    # authorize @collaboration
+    redirect_to collaborations_path
+  end
 
   private
 
@@ -37,13 +40,5 @@ class CollaborationsController < ApplicationController
 
   def set_collaboration
     @collaboration = Collaboration.find(params[:id])
-  end
-
-  def save_changes
-    if @collaboration.save
-      redirect_to collaboration_path(@collaboration)
-    else
-      render :new, status: :unprocessable_entity
-    end
   end
 end

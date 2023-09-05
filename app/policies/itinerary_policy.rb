@@ -14,11 +14,15 @@ class ItineraryPolicy < ApplicationPolicy
     true
   end
 
-  # def update?
-  #   record.user == user
-  # end
+  def destroy?
+    record.collaborations.where(user: user, role: "admin")
+  end
 
-  # def destroy?
-  #   record.user == user
-  # end
+  def edit?
+    true
+  end
+
+  def update?
+    true
+  end
 end

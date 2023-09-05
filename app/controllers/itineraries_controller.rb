@@ -3,7 +3,6 @@ class ItinerariesController < ApplicationController
   before_action :set_itinerary, only: %i[show edit update destroy]
 
   def index
-    # @itineraries = Itinerary.all
     @itineraries = policy_scope(Itinerary)
   end
 
@@ -13,37 +12,41 @@ class ItinerariesController < ApplicationController
   end
 
   def create
-    # @itinerary_tag = ItineraryTag.new
     @itinerary = Itinerary.new(itinerary_params)
-    # @itinerary.user = current_user
     authorize @itinerary
-    save_changes
+    if @itinerary.save
+      Collaboration.create(itinerary: @itinerary, user: current_user, role: "admin" )
+      redirect_to itinerary_path(@itinerary)
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   def show
     @itinerary = Itinerary.find(params[:id])
-    # @activity = Activity.new
-    # @unavailable_dates = @spaceship.unavailable_dates
     authorize @itinerary
   end
 
-  # def edit
-  #   @itinerary_tag = ItineraryTag.new
-  #   authorize @itinerary
-  # end
+  def edit
+    authorize @itinerary
+  end
+
+  def update
+    @itinerary.update(itinerary_params)
+    if @itinerary.save
+      Collaboration.create(itinerary: @itinerary, user: current_user, role: "admin" )
+      redirect_to itinerary_path(@itinerary)
+    else
+      render :new, status: :unprocessable_entity
+    end
+    authorize @itinerary
+  end
 
   def destroy
     @itinerary.destroy
-    # authorize @itinerary
+    authorize @itinerary
     redirect_to itineraries_path
   end
-
-  # def update
-  #   # params[:itinerary][:tags].each { |tag| ItineraryTag.create(itinerary: @itinerary, tag_id: tag) }
-  #   @itinerary.update(itinerary_params)
-  #   authorize @itinerary
-  #   save_changes
-  # end
 
   private
 
@@ -51,15 +54,11 @@ class ItinerariesController < ApplicationController
     params.require(:itinerary).permit(:title)
   end
 
-  def set_itinerary
-    @itinerary = Itinerary.find(params[:id])
+  def set_collaboration
+    @collaboration = Collaboration.find(params[:collaboration_id])
   end
 
-  def save_changes
-    if @itinerary.save
-      redirect_to itinerary_path(@itinerary)
-    else
-      render :new, status: :unprocessable_entity
-    end
+  def set_itinerary
+    @itinerary = Itinerary.find(params[:id])
   end
 end
