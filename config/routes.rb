@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get 'selections/index'
   devise_for :users
   root to: "pages#home"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
@@ -7,4 +6,8 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
   resources :activities, only: [:index, :show]
+
+  resources :itineraries do
+    resources :selections, only: %i[index]
+  end
 end

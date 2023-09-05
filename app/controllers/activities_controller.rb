@@ -7,5 +7,4 @@ class ActivitiesController < ApplicationController
     @activity = Activity.find(params[:id])
     authorize @activity
   end
-
 end
