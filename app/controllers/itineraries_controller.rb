@@ -15,7 +15,7 @@ class ItinerariesController < ApplicationController
   def create
     # @itinerary_tag = ItineraryTag.new
     @itinerary = Itinerary.new(itinerary_params)
-    @itinerary.user = current_user
+    # @itinerary.user = current_user
     authorize @itinerary
     save_changes
   end

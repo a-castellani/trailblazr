@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_09_05_135836) do
+ActiveRecord::Schema[7.0].define(version: 2023_09_05_143459) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -43,8 +43,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_05_135836) do
     t.string "title"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "user_id"
-    t.index ["user_id"], name: "index_itineraries_on_user_id"
   end
 
   create_table "messages", force: :cascade do |t|
@@ -93,7 +91,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_05_135836) do
 
   add_foreign_key "collaborations", "itineraries"
   add_foreign_key "collaborations", "users"
-  add_foreign_key "itineraries", "users"
   add_foreign_key "messages", "itineraries"
   add_foreign_key "messages", "selections"
   add_foreign_key "messages", "users"
