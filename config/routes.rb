@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   # root "articles#index"
 
   resources :itineraries, only: [:index, :new, :show, :create, :destroy]
+  resources :collaborations, only: [:index]
 
   resources :activities, only: [:index, :show]
 end
