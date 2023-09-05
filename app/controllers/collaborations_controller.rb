@@ -11,23 +11,23 @@ class CollaborationsController < ApplicationController
     authorize @collaboration
   end
 
-  def create
-    @collaboration = Collaboration.new(collaboration_params)
-    @collaboration.user = current_user
-    authorize @collaboration
-    save_changes
-  end
+  # def create
+  #   @collaboration = Collaboration.new(collaboration_params)
+  #   @collaboration.user = current_user
+  #   authorize @collaboration
+  #   save_changes
+  # end
 
-  def show
-    @collaboration = Collaboration.find(params[:id])
-    authorize @collaboration
-  end
+  # def show
+  #   @collaboration = Collaboration.find(params[:id])
+  #   authorize @collaboration
+  # end
 
-  def destroy
-    @collaboration.destroy
-    # authorize @collaboration
-    redirect_to collaborations_path
-  end
+  # def destroy
+  #   @collaboration.destroy
+  #   # authorize @collaboration
+  #   redirect_to collaborations_path
+  # end
 
   private
 
