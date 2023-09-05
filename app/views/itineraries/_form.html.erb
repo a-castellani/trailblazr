@@ -1,0 +1,9 @@
+<%= simple_form_for(itinerary) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+  <%= f.input :title %>
+  <%= f.button :submit, class: "btn btn-primary"%>
+  <%= link_to "Create Itinerary", itineraries_path(@itinerary), class:"btn btn-primary text-align-center"%>
+  <%= link_to "Back to Homepage", itineraries_path, class:"btn btn-primary text-align-center"%>
+<% end %>
