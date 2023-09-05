@@ -8,4 +8,5 @@ Rails.application.routes.draw do
 
   resources :itineraries
 
+  resources :activities, only: [:index, :show]
 end
