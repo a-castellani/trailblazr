@@ -8,4 +8,8 @@ class SelectionPolicy < ApplicationPolicy
       scope.all
     end
   end
+
+  def destroy?
+    true
+  end
 end

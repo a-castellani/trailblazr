@@ -1,6 +1,6 @@
 class Selection < ApplicationRecord
   belongs_to :itinerary
-  has_many :activities
+  belongs_to :activity
 
   has_many :messages
   has_many :reviews

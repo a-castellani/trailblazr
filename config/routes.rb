@@ -10,4 +10,6 @@ Rails.application.routes.draw do
   resources :itineraries do
     resources :selections, only: %i[index]
   end
+
+  resources :selections, only: %i[destroy]
 end
