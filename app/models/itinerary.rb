@@ -4,4 +4,6 @@ class Itinerary < ApplicationRecord
   has_many :collaborations, dependent: :destroy
   has_many :users, through: :collaborations
   has_many :messages, dependent: :destroy
+
+  validates :title, presence: true
 end

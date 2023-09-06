@@ -1,2 +1,20 @@
-<h1>All collaborations</h1>
-<%= link_to "Back to Homepage", itineraries_path, class:"btn btn-primary text-align-center me-3" %>
+<div class="container">
+  <h1 class="my-3"> <i class="fa-solid fa-users"></i> All collaborations</h1>
+
+  <% @collaborations.each do |collaboration|%>
+    <p>
+
+      <%= collaboration.role %>
+      <%= link_to collaboration_path(collaboration), method: :delete, data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' } do %>
+        <i class="fas fa-trash"></i>
+      <% end %>
+    </p>
+  <% end %>
+
+  <br>
+
+  <%= link_to "Add a friend", new_itinerary_collaboration_path, class:"btn btn-success text-align-center" %>
+
+  <%= link_to "Back", itinerary_path(@itinerary), class:"btn btn-primary text-align-center"%>
+
+</div>
