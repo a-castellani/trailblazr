@@ -6,27 +6,35 @@
     <div>
       <p><strong>TrailBlazrs: </strong></p>
       <% @itinerary.users.each do |user| %>
-        <li><%= "#{user.first_name} #{user.last_name}" %></li>
+        <li><i class="fa-solid fa-user"><%= "#{user.first_name} #{user.last_name}" %></li>
       <% end %>
     </div>
     <div class="my-3">
       <%= link_to "Add TrailBlazrs", @new_itinerary_collaboration_path %>
     </div>
 
-    <div class="d-flex justify-content-start">
-      <%= link_to "Back to Homepage", itineraries_path, class:"btn btn-primary text-align-center me-3" %>
+  <%# Back to All Itineraries %>
+  <div class="d-flex justify-content-start">
+    <%= link_to "Back to All Itineraries", itineraries_path, class:"btn btn-primary text-align-center me-3" %>
 
-      <%# Hide the links for unauthorized users: %>
-      <% if policy(@itinerary).edit? %>
-        <%= link_to "Edit this itinerary", edit_itinerary_path(@itinerary), class: "btn btn-success me-3" %>
-      <% end %>
+    <%# Hide the links for unauthorized users: %>
+    <% if policy(@itinerary).edit? %>
+      <%= link_to "Edit this itinerary", edit_itinerary_path(@itinerary), class: "btn btn-success me-3" %>
+    <% end %>
 
-      <% if policy(@itinerary).destroy? %>
-        <%= button_to "Destroy this itinerary", @itinerary, method: :delete, class: "btn btn-danger me-3", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
-      <% end %>
-    </div>
+    <% if policy(@itinerary).destroy? %>
+      <%= button_to "Destroy this itinerary", @itinerary, method: :delete, class: "btn btn-danger me-3", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+    <% end %>
   </div>
   <div class="col-4">
     <%= render "itineraries/chat" %>
   </div>
 </div>
+
+<%# TO MAKE A _PATH %>
+<%# => prefix_path %>
+<%# a. if the url you are trying to build has no ids, this is enough %>
+<%# example: itineraries_path  %>
+<%# b. if the url you are trying to build needs an id, you need to pass the instance as an argument %>
+<%# example: itinerary_collaborations_path(@itinerary) %>
+<%#  is going to create a url like: /itineraries/40/collaborations %>
