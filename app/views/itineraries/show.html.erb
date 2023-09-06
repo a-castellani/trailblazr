@@ -1,15 +1,17 @@
 <div class="container">
-  <h1 class="my-3"><%= @itinerary.title %></h1>
+  <h1 class="my-3"><i class="fa-solid fa-map-location-dot"></i> <%= @itinerary.title %></h1>
 
   <%# collaborations %>
   <table>
     <th><strong>All collaborations</strong>: </th>
     <% @itinerary.collaborations.each do |collaboration|%>
-      <th><%= collaboration.role %></th>
+      <th><i class="fa-solid fa-user"></th>
+      <th></i><%= collaboration.role %></th>
     <% end %>
   </table><br>
   <%= link_to "All collaborations", itinerary_collaborations_path(@itinerary), class:"btn btn-primary text-align-center me-3 mb-3" %>
 
+  <%# Back to All Itineraries %>
   <div class="d-flex justify-content-start">
     <%= link_to "Back to All Itineraries", itineraries_path, class:"btn btn-primary text-align-center me-3" %>
 

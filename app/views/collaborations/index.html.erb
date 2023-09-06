@@ -1,14 +1,14 @@
 <div class="container">
-  <h1>All collaborations</h1>
+  <h1 class="my-3"> <i class="fa-solid fa-users"></i> All collaborations</h1>
 
   <% @collaborations.each do |collaboration|%>
     <p>
+
       <%= collaboration.role %>
       <%= link_to collaboration_path(collaboration), method: :delete, data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' } do %>
         <i class="fas fa-trash"></i>
       <% end %>
     </p>
-
   <% end %>
 
   <br>
