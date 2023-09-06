@@ -16,7 +16,7 @@
       <% end %>
 
       <% if policy(@itinerary).destroy? %>
-        <%= button_to "Destroy this itinerary", @itinerary, method: :delete, class: "btn btn-danger me-3" %>
+        <%= button_to "Destroy this itinerary", @itinerary, method: :delete, class: "btn btn-danger me-3", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
       <% end %>
     </div>
   </div>
