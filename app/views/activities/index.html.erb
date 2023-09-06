@@ -3,16 +3,9 @@
     <div class="cards">
 
       <% @activities.each do |activity| %>
-        <div class="card">
-          <img src=<%= activity.image_url %> alt=<%= activity.name %>/>
-          <div class="card-infos">
-            <div>
-              <h4><%= activity.name %></h4>
-              <p><%= activity.description %></p>
-            </div>
-            <h4 class="card-pricing"><%= activity.duration.to_i %> hours</h4>
-          </div>
-        </div>
+        <%= link_to activity_path(activity), class: 'text-decoration-none text-white' do %>
+          <%= render "activities/card", activity: activity%>
+        <% end %>
       <% end %>
     </div>
   </div>
