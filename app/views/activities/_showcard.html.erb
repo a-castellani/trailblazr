@@ -1,0 +1,14 @@
+  <div class="row show-card ">
+    <div class="col-12 d-flex">
+      <div class="show-card-img">
+        <h2> <%= @activity.name %></h2>
+        <img src=<%= @activity.image_url %> alt=<%= @activity.name %>>
+      </div>
+      <div class="show-card-description">
+        <p> <%= @activity.description %></p>
+        <p> <i class="fa-solid fa-clock fa-xl"></i> <strong><%= @activity.duration.to_i %> hours</strong></p>
+        <p> <i class="fa-solid fa-person fa-xl"></i> <strong> <%= @activity.number_of_people %></strong> </p>
+        <button class="btn btn-primary">Add to my itinerary</button>
+      </div>
+    </div>
+  </div>
