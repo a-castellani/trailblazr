@@ -4,8 +4,10 @@
 
   <div class="d-flex justify-content-start">
     <div class="form-inputs">
-      <%= f.input :title %>
-      <%= link_to "Back to Homepage", itineraries_path, class:"btn btn-primary text-align-center"%>
+      <%= f.input :title, placeholder: 'Enter title' %>
+
+      <%= link_to "Back to All Itineraries", itineraries_path, class:"btn btn-primary text-align-center"%>
+
       <%= f.button :submit, class: "btn btn-success"%>
     </div>
   </div>

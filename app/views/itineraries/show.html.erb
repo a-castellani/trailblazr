@@ -1,24 +1,33 @@
-<div class="d-flex justify-content-center">
-  <div class="col-8">
-    <h1 class="my-3"><%= @itinerary.title %></h1>
+<div class="container">
+  <h1 class="my-3"><%= @itinerary.title %></h1>
 
-    <%# collaborations %>
-    <p><strong>All collaborations: </strong></p>
-    <%= link_to "Add collaborations", @new_itinerary_collaboration_path %>
-     <%= @itinerary.collaborations %>
+  <%# collaborations %>
+  <table>
+    <th><strong>All collaborations</strong>: </th>
+    <% @itinerary.collaborations.each do |collaboration|%>
+      <th><%= collaboration.role %></th>
+    <% end %>
+  </table><br>
+  <%= link_to "All collaborations", itinerary_collaborations_path(@itinerary), class:"btn btn-primary text-align-center me-3 mb-3" %>
 
-    <div class="d-flex justify-content-start">
-      <%= link_to "Back to Homepage", itineraries_path, class:"btn btn-primary text-align-center me-3" %>
+  <div class="d-flex justify-content-start">
+    <%= link_to "Back to All Itineraries", itineraries_path, class:"btn btn-primary text-align-center me-3" %>
 
-      <%# Hide the links for unauthorized users: %>
-      <% if policy(@itinerary).edit? %>
-        <%= link_to "Edit this itinerary", edit_itinerary_path(@itinerary), class: "btn btn-success me-3" %>
-      <% end %>
+    <%# Hide the links for unauthorized users: %>
+    <% if policy(@itinerary).edit? %>
+      <%= link_to "Edit this itinerary", edit_itinerary_path(@itinerary), class: "btn btn-success me-3" %>
+    <% end %>
 
-      <% if policy(@itinerary).destroy? %>
-        <%= button_to "Destroy this itinerary", @itinerary, method: :delete, class: "btn btn-danger me-3", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
-      <% end %>
-    </div>
+    <% if policy(@itinerary).destroy? %>
+      <%= button_to "Destroy this itinerary", @itinerary, method: :delete, class: "btn btn-danger me-3", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+    <% end %>
   </div>
-
 </div>
+
+<%# TO MAKE A _PATH %>
+<%# => prefix_path %>
+<%# a. if the url you are trying to build has no ids, this is enough %>
+<%# example: itineraries_path  %>
+<%# b. if the url you are trying to build needs an id, you need to pass the instance as an argument %>
+<%# example: itinerary_collaborations_path(@itinerary) %>
+<%#  is going to create a url like: /itineraries/40/collaborations %>
