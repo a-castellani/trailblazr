@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   resources :itineraries do
     resources :collaborations, except: %i[edit update destroy]
   end
+  
   resources :collaborations, only: [:destroy]
   resources :activities, only: [:index, :show]
 end
