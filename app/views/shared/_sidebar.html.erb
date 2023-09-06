@@ -1,13 +1,11 @@
-<aside id='sidebar'>
-  <div class="offcanvas offcanvas-start" tabindex="-1" id="sidebar" aria-labelledby="offcanvasExampleLabel">
+<aside>
+  <div class="offcanvas offcanvas-start" tabindex="1" id="sidebar" aria-labelledby="offcanvasExampleLabel" style="z-index: 1055;">
     <div class="offcanvas-header">
-      <h5 class="offcanvas-title" id="logo">TrailBlazr</h5>
-      <%# <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button> %>
+      <i class="fa-regular fa-compass fa-2xl" data-bs-toggle="offcanvas" data-bs-target="#sidebar" aria-controls="sidebar"></i>      <%# <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button> %>
     </div>
     <div class="offcanvas-body">
       <nav id='mobile-nav'>
-        <h1 class="sidebar-logo">TrailBlazr</h1>
-        <u>
+        <ul>
           <li class="nav-item"><h3>My Itineraries</h3></li>
             <ul class="sub-nav">
               <li class="sub-nav-item"><h4 data-bs-toggle="modal" data-bs-target="#exampleModal">+ Add New</h4></li>
@@ -18,13 +16,14 @@
                 <% end %>
               <% end %>
             </ul>
-          <li class="nav-item"><h3>About Us</h3></li>
+          <li class="nav-item"><h3>Explore</h3></li>
+          <li class="nav-item"><h3>AI</h3></li>
+          <li class="nav-item"><h3>Settings</h3></li>
+          <li class="nav-item"><h3>Selected itinerary</h3></li>
             <ul class="sub-nav">
-              <li class="sub-nav-item"><h4>Inner Page</h4></li>
-              <li class="sub-nav-item"><h4>Inner Page</h4></li>
-              <li class="sub-nav-item"><h4>Inner Page</h4></li>
+              <li class="sub-nav-item"><h4>Wishlist</h4></li>
+              <li class="sub-nav-item"><h4>Iteration over days</h4></li>
             </ul>
-          <li class="nav-item"><h3>Contact Us</h3></li>
         </ul>
     </nav>
   </div>

@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   before_action :authenticate_user!
   before_action :set_new_itinerary
+
   include Pundit::Authorization
 
   after_action :verify_authorized, except: :index, unless: :skip_pundit?
