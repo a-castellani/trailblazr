@@ -5,8 +5,8 @@
   <table>
     <th><strong>All collaborations</strong>: </th>
     <% @itinerary.collaborations.each do |collaboration|%>
-      <th><i class="fa-solid fa-user"></th>
-      <th></i><%= collaboration.role %></th>
+      <th><i class="fa-solid fa-user"></i></th>
+      <th><%= collaboration.role %></th>
     <% end %>
   </table><br>
   <%= link_to "All collaborations", itinerary_collaborations_path(@itinerary), class:"btn btn-primary text-align-center me-3 mb-3" %>

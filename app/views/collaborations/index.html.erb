@@ -1,15 +1,20 @@
 <div class="container">
   <h1 class="my-3"> <i class="fa-solid fa-users"></i> <%= @itinerary.title %> - All collaborations</h1>
 
-  <% @collaborations.each do |collaboration|%>
+  <% @itinerary.collaborations.each do |collaboration|%>
     <p>
-
-      <%= collaboration.role %>
-      <%= link_to collaboration_path(collaboration), method: :delete, data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' } do %>
-        <i class="fas fa-trash"></i>
+      <% if collaboration.role == "admin" %>
+        <i class="fa-solid fa-user fa-2xs"></i> <%= "admin" %>
+      <% else %>
+        <i class="fa-solid fa-user fa-2xs"></i> <%= collaboration.role %>
+        <%= link_to collaboration_path(collaboration), method: :delete, data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' } do %>
+          <i class="fas fa-trash"></i>
+        <% end %>
       <% end %>
     </p>
+
   <% end %>
+
 
   <br>
 
