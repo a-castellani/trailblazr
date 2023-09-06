@@ -3,4 +3,8 @@ class PagesController < ApplicationController
 
   def home
   end
+
+  def dashboard
+    @itineraries = Itinerary.all
+  end
 end
