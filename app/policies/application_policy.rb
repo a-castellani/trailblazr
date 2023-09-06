@@ -49,5 +49,9 @@ class ApplicationPolicy
     private
 
     attr_reader :user, :scope
+
+    def skip_pundit?
+      devise_controller? || params[:controller] =~ /(^(rails_)?admin)|(^pages$)/
+    end
   end
 end
