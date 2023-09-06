@@ -5,6 +5,6 @@ class PagesController < ApplicationController
   end
 
   def dashboard
-    @itineraries = Itinerary.all
+    @itineraries = current_user.itineraries
   end
 end

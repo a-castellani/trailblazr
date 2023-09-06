@@ -1,11 +1,17 @@
-<div class="d-flex justify-content-center">
+<div class="container d-flex justify-content-center">
   <div class="col-8">
     <h1 class="my-3"><%= @itinerary.title %></h1>
 
     <%# collaborations %>
-    <p><strong>All collaborations: </strong></p>
-    <%= link_to "Add collaborations", @new_itinerary_collaboration_path %>
-     <%= @itinerary.collaborations %>
+    <div>
+      <p><strong>TrailBlazrs: </strong></p>
+      <% @itinerary.users.each do |user| %>
+        <li><%= "#{user.first_name} #{user.last_name}" %></li>
+      <% end %>
+    </div>
+    <div class="my-3">
+      <%= link_to "Add TrailBlazrs", @new_itinerary_collaboration_path %>
+    </div>
 
     <div class="d-flex justify-content-start">
       <%= link_to "Back to Homepage", itineraries_path, class:"btn btn-primary text-align-center me-3" %>
@@ -21,8 +27,6 @@
     </div>
   </div>
   <div class="col-4">
-    <h1>Chat</h1>
-    <%= link_to "+ Add TrailBlazrs", "#" %>
+    <%= render "itineraries/chat" %>
   </div>
-
 </div>

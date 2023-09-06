@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
   resources :itineraries do
     resources :collaborations, only: [:index, :new, :show]
+    resources :messages, only: [:create]
   end
 
   resources :activities, only: [:index, :show]
