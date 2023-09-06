@@ -1,0 +1,24 @@
+.show-card {
+  margin: 15px;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  padding: 25px 25px;
+}
+
+.show-card-img > img {
+  height: 300px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.show-card-img {
+  width: 100%;
+  margin: 10px;
+}
+
+.show-card-description {
+  width: 100%;
+  margin-top: 52px;
+  margin-left: 15px;
+}
+

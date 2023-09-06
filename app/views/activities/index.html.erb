@@ -1,5 +1,12 @@
-<ul>
-  <% @activities.each do |activity| %>
-  <li><%= activity.name %></li>
-  <% end %>
-</ul>
+<div class="container">
+  <div class="d-flex">
+    <div class="cards">
+
+      <% @activities.each do |activity| %>
+        <%= link_to activity_path(activity), class: 'text-decoration-none text-white' do %>
+          <%= render "activities/card", activity: activity%>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>

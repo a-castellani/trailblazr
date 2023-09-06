@@ -18,7 +18,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_06_124009) do
     t.string "category"
     t.string "location"
     t.integer "number_of_people"
-    t.text "tags"
+    t.text "tags", array: true
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
