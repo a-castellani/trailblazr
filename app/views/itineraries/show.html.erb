@@ -2,6 +2,11 @@
   <div class="col-8">
     <h1 class="my-3"><%= @itinerary.title %></h1>
 
+    <%# collaborations %>
+    <p><strong>All collaborations: </strong></p>
+    <%= link_to "Add collaborations", @new_itinerary_collaboration_path %>
+     <%= @itinerary.collaborations %>
+
     <div class="d-flex justify-content-start">
       <%= link_to "Back to Homepage", itineraries_path, class:"btn btn-primary text-align-center me-3" %>
 

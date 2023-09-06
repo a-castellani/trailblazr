@@ -1,6 +1,6 @@
 class CollaborationsController < ApplicationController
   skip_before_action :authenticate_user!, only: :show
-  before_action :set_collaboration, only: %i[show edit update destroy]
+  before_action :set_collaboration, only: %i[show edit]
 
   def index
     @collaborations = policy_scope(Collaboration)
@@ -12,12 +12,16 @@ class CollaborationsController < ApplicationController
   end
 
   def create
+    @itinerary = Itinerary.find(itinerary_params)
     @collaboration = Collaboration.new(collaboration_params)
+    @collaboration.itinerary = @itinerary
+    @collaboration.user = current_user
     authorize @collaboration
+
     if @collaboration.save
-      redirect_to collaboration_path(@collaboration)
+      redirect_to itinerary_path(@itinerary, anchor: "collaboration-#{@collaboration.id}")
     else
-      render :new, status: :unprocessable_entity
+      render "itineraries/show"
     end
   end
 
@@ -26,16 +30,10 @@ class CollaborationsController < ApplicationController
     authorize @collaboration
   end
 
-  def destroy
-    @collaboration.destroy
-    # authorize @collaboration
-    redirect_to collaborations_path
-  end
-
   private
 
   def collaboration_params
-    params.require(:collaboration).permit(:title)
+    params.require(:collaboration).permit(:role)
   end
 
   def set_collaboration
