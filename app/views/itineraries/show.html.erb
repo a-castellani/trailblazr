@@ -1,28 +1,36 @@
-<div class="container">
-  <h1 class="my-3"><i class="fa-solid fa-map-location-dot"></i> <%= @itinerary.title %></h1>
+<div class="container d-flex justify-content-center">
+  <div class="col-8">
+    <h1 class="my-3"><%= @itinerary.title %></h1>
 
-  <%# collaborations %>
-  <table>
-    <th><strong>All collaborations</strong>: </th>
-    <% @itinerary.collaborations.each do |collaboration|%>
-      <th><i class="fa-solid fa-user"></i></th>
-      <th><%= collaboration.role %></th>
-    <% end %>
-  </table><br>
-  <%= link_to "All collaborations", itinerary_collaborations_path(@itinerary), class:"btn btn-primary text-align-center me-3 mb-3" %>
+    <%# collaborations %>
+    <div>
+      <p><strong>TrailBlazrs: </strong></p>
+      <% @itinerary.users.each do |user| %>
+        <div>
+          <i class="fa-solid fa-user"></i><%= " #{user.first_name} #{user.last_name}" %>
+        </div>
+      <% end %>
+      </div class="my-3">
+      <%= link_to "Add TrailBlazrs", @new_itinerary_collaboration_path %>
 
-  <%# Back to All Itineraries %>
-  <div class="d-flex justify-content-start">
-    <%= link_to "Back to All Itineraries", itineraries_path, class:"btn btn-primary text-align-center me-3" %>
+          <%# Back to All Itineraries %>
+      <div class="d-flex justify-content-start">
+        <%= link_to "Back to All Itineraries", itineraries_path, class:"btn btn-primary text-align-center me-3" %>
 
-    <%# Hide the links for unauthorized users: %>
-    <% if policy(@itinerary).edit? %>
-      <%= link_to "Edit this itinerary", edit_itinerary_path(@itinerary), class: "btn btn-success me-3" %>
-    <% end %>
+        <%# Hide the links for unauthorized users: %>
+        <% if policy(@itinerary).edit? %>
+          <%= link_to "Edit this itinerary", edit_itinerary_path(@itinerary), class: "btn btn-success me-3" %>
+        <% end %>
 
-    <% if policy(@itinerary).destroy? %>
-      <%= button_to "Destroy this itinerary", @itinerary, method: :delete, class: "btn btn-danger me-3", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
-    <% end %>
+        <% if policy(@itinerary).destroy? %>
+          <%= button_to "Destroy this itinerary", @itinerary, method: :delete, class: "btn btn-danger me-3", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+        <% end %>
+
+      </div>
+    </div>
+
+  <div class="col-4">
+    <%= render "itineraries/chat" %>
   </div>
 </div>
 
