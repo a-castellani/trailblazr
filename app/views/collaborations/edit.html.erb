@@ -1,0 +1,11 @@
+<h2><%= @itinerary.collaboration.role %></h2>
+
+<%= render "itineraries/collaboration_form"%>
+<%# Hide the links for unauthorized users: %>
+<% if policy(@collaboration).edit? %>
+  <%= link_to "Edit this collaboration", edit_itinerary_collaboration_path(@collaboration) %> |
+<% end %>
+
+<% if policy(@itinerary).destroy? %>
+  <%= button_to "Destroy this collaboration", @collaboration, method: :delete, class: "btn btn-danger me-3" %>
+<% end %>
