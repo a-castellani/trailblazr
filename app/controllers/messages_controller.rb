@@ -7,7 +7,11 @@ class MessagesController < ApplicationController
     authorize @message
 
     if @message.save
-      redirect_to itinerary_path(@itinerary)
+      ChatChannel.broadcast_to(
+        @itinerary,
+        render_to_string(partial: "message", locals: {message: @message})
+      )
+      head :ok
     else
       render "itineraries/show", status: :unprocessable_entity
     end
