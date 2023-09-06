@@ -24,6 +24,10 @@ class ItinerariesController < ApplicationController
 
   def show
     @itinerary = Itinerary.find(params[:id])
+
+    # need help
+    @collaboration = Collaboration.new
+
     @message = Message.new
     authorize @itinerary
   end

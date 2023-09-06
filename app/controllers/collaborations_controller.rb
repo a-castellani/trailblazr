@@ -21,11 +21,14 @@ class CollaborationsController < ApplicationController
     @collaboration.user = current_user
     authorize @collaboration
 
-    if @collaboration.save
-      redirect_to itinerary_path(@itinerary, anchor: "collaboration-#{@collaboration.id}")
-    else
-      render :new, status: :unprocessable_entity
-    end
+    @collaboration.save
+    redirect_to itinerary_path(@itinerary)
+
+    # if @collaboration.save
+    #   redirect_to itinerary_path(@itinerary)
+    # else
+    #   render :new, status: :unprocessable_entity
+    # end
   end
 
   def show
@@ -42,7 +45,7 @@ class CollaborationsController < ApplicationController
     else
       flash[:alert] = "Unable to delete collaboration."
     end
-    redirect_to itinerary_collaborations_path(@collaboration.itinerary)  # , notice: "Collaboration was successfully deleted."
+    redirect_to itinerary_path
   end
 
   private
