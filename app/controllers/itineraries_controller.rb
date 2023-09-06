@@ -35,7 +35,6 @@ class ItinerariesController < ApplicationController
   def update
     @itinerary.update(itinerary_params)
     if @itinerary.save
-      Collaboration.create(itinerary: @itinerary, user: current_user, role: "admin" )
       redirect_to itinerary_path(@itinerary)
     else
       render :new, status: :unprocessable_entity

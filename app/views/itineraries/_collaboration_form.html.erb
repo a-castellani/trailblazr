@@ -1,11 +1,14 @@
-<%= simple_form_for[@itinerary, @collaboration] do |f| %>
+<%= simple_form_for([@itinerary, @collaboration]) do |f| %>
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
   <div class="d-flex justify-content-start">
     <div class="form-inputs">
-      <%= f.input :role %>
+      <%= f.input :role, placeholder: 'Enter role' %>
+
       <%= f.button :submit, class: "btn btn-success"%>
+
+      <%= link_to "Back to All Collaborations", itinerary_collaborations_path, class:"btn btn-primary text-align-center"%>
     </div>
   </div>
 <% end %>
