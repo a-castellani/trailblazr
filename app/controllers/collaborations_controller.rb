@@ -21,9 +21,6 @@ class CollaborationsController < ApplicationController
     @collaboration.user = current_user
     authorize @collaboration
 
-    # @collaboration.save
-    # redirect_to itinerary_path(@itinerary)
-
     if @collaboration.save
       redirect_to itinerary_path(@itinerary)
     else
