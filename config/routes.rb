@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   get "dashboard", to: "pages#dashboard"
 
   resources :itineraries do
-    resources :collaborations, except: %i[edit update destroy]
+    resources :collaborations, except: %i[new edit update destroy]
     resources :messages, only: [:create]
     resources :selections, only: %i[index]
   end

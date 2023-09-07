@@ -22,9 +22,10 @@ class CollaborationsController < ApplicationController
     authorize @collaboration
 
     if @collaboration.save
-      redirect_to itinerary_path(@itinerary, anchor: "collaboration-#{@collaboration.id}")
+      redirect_to itinerary_path(@itinerary)
     else
-      render :new, status: :unprocessable_entity
+      @message = Message.new
+      render 'itineraries/show', status: :unprocessable_entity
     end
   end
 
@@ -42,13 +43,13 @@ class CollaborationsController < ApplicationController
     else
       flash[:alert] = "Unable to delete collaboration."
     end
-    redirect_to itinerary_collaborations_path(@collaboration.itinerary)  # , notice: "Collaboration was successfully deleted."
+    redirect_to itinerary_path
   end
 
   private
 
   def collaboration_params
-    params.require(:collaboration).permit(:role)
+    params.require(:collaboration).permit(:role, :email)
   end
 
   def set_collaboration
