@@ -3,4 +3,5 @@ class Collaboration < ApplicationRecord
   belongs_to :itinerary
 
   validates :role, presence: true
+  accepts_nested_attributes_for :user
 end
