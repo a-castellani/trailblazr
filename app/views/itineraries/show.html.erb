@@ -12,7 +12,7 @@
           <% if collaboration.role == "admin" %>
             <i class="fa-solid fa-user"></i> <%= @itinerary.users.first.email %> <%= @itinerary.users.first.last_name %> - <%= "admin" %>
           <% else %>
-            <i class="fa-solid fa-user fa-2xs"></i> <%= "#{collaboration.user.email}" %> - <%= collaboration.role %>
+            <i class="fa-solid fa-user fa-2xs"></i> <%= "#{collaboration.email}" %> - <%= collaboration.role %>
             <%= link_to collaboration_path(collaboration), method: :delete, data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' } do %>
               <i class="fas fa-trash"></i>
             <% end %>
