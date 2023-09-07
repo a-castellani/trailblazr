@@ -7,12 +7,12 @@
         </li>
           <ul class="sub-nav accordion-collapse collapse show " id="collapseOne" data-bs-parent="#accordionOne">
             <li class="sub-nav-item">
-              <h4 id="add-new" data-bs-toggle="modal" data-bs-target="#exampleModal">+ Add New</h4>
+              <p id="add-new" data-bs-toggle="modal" data-bs-target="#exampleModal">+ Add New Itinerary</p>
             </li>
             <%= render "itineraries/form", value: "+ Add New", itinerary: @itinerary %>
             <% unless @itineraries.nil? %>
               <% @itineraries.each do |itinerary| %>
-              <li class="sub-nav-item"><h4> <%= link_to itinerary.title, itinerary_path(itinerary) %></h4></li>
+                <li class="sub-nav-item"><p><%= link_to itinerary.title, itinerary_path(itinerary), class: "text-decoration-none" %></p></li>
               <% end %>
             <% end %>
           </ul>

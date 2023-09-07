@@ -20,7 +20,7 @@ class ApplicationController < ActionController::Base
   end
 
   def set_itineraries
-    @itineraries = policy_scope(Itinerary) if user_signed_in?
+    @itineraries = current_user.itineraries if user_signed_in?
   end
 
   def configure_permitted_parameters
