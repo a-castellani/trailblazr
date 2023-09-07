@@ -2,4 +2,27 @@
   <div>
     <h1>TrailBlazr</h1>
   </div>
+
+  <div class="row">
+    <div class="col-12">
+      <%= form_with url: activities_path, method: :get do %>
+        <%= text_field_tag :mood,
+              params[:mood],
+              class: "form-control",
+              placeholder: "Select a mood"
+        %>
+        <%= text_field_tag :category,
+              params[:category],
+              class: "form-control",
+              placeholder: "Select a type"
+        %>
+        <%= text_field_tag :people,
+              params[:people],
+              class: "form-control",
+              placeholder: "Write number of people"
+        %>
+        <%= submit_tag "Search", name: "", class: "btn btn-primary" %>
+      <% end %>
+    </div>
+  </div>
 </div>

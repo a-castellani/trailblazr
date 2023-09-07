@@ -1,11 +1,14 @@
 <div class="container">
   <div class="d-flex">
     <div class="cards">
-
-      <% @activities.each do |activity| %>
-        <%= link_to activity_path(activity), class: 'text-decoration-none text-white' do %>
-          <%= render "activities/card", activity: activity%>
+      <% if @activities.any? %>
+        <% @activities.each do |activity| %>
+          <%= link_to activity_path(activity), class: 'text-decoration-none text-white' do %>
+            <%= render "activities/card", activity: activity%>
+          <% end %>
         <% end %>
+      <% else %>
+        <em>Sorry, no activities found.</em>
       <% end %>
     </div>
   </div>
