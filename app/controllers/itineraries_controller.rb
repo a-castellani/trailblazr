@@ -34,6 +34,7 @@ class ItinerariesController < ApplicationController
 
     @itinerary = Itinerary.find(params[:id])
     @selections = Selection.where(itinerary_id: @itinerary)
+    @selections_with_days = @selections.group_by(&:day)
   end
 
   def edit

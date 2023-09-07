@@ -21,4 +21,30 @@ class SelectionsController < ApplicationController
     redirect_to itinerary_path(@selection.itinerary_id)
     authorize @selection
   end
+
+  def new
+    @selection = Selection.new
+    @itinerary = Itinerary.find(params[:itinerary_id])
+    @activity = Activity.find(params[:activity_id])
+    authorize @selection
+  end
+
+  def create
+    @itinerary = Itinerary.find(params[:itinerary_id])
+    @activity = Activity.find(params[:activity_id])
+    @selection = Selection.new(params[:selection])
+    # @selection.update(day: params[:selection][:day])
+
+    # @selection.update(selection_params.slice(:day))
+    Selection.create(itinerary_id: @itinerary.id, activity_id: @activity.id)
+    redirect_to itinerary_path(@itinerary)
+
+    authorize @selection
+  end
+
+  private
+
+  def selection_params
+    params.require(:selection).permit(:itinerary_id, :activity_id, :day)
+  end
 end

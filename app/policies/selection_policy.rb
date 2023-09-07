@@ -12,4 +12,12 @@ class SelectionPolicy < ApplicationPolicy
   def destroy?
     true
   end
+
+  def create?
+    true # must be a collaborator with editorial role
+  end
+
+  def new?
+    true # must be a collaborator with editorial role
+  end
 end
