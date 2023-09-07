@@ -2,7 +2,6 @@
   <div class="col-8 mx-3">
     <div class="container">
       <h1 class="my-3"><%= @itinerary.title %></h1>
-
       <%# collaborations %>
       <div>
         <p><strong>TrailBlazrs: </strong></p>
@@ -24,7 +23,6 @@
 
         <%# Back to All Itineraries %>
         <div class="d-flex justify-content-start">
-          <%= link_to "Back to All Itineraries", itineraries_path, class:"btn btn-primary text-align-center me-3" %>
           <%# Hide the links for unauthorized users: %>
           <% if policy(@itinerary).edit? %>
             <%= link_to "Edit this itinerary", edit_itinerary_path(@itinerary), class: "btn btn-success me-3" %>
@@ -34,10 +32,8 @@
           <% end %>
         </div>
       </div>
-
     </div>
   </div>
-
   <div>
     <%= render "itineraries/chat" %>
   </div>
