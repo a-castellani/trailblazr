@@ -1,18 +1,12 @@
 .small-card {
-  height: 120px;
   border-radius: 10px;
+  padding: 10px;
+  
 }
 
 .small-card-img {
   border-radius: 10px;
-  height: 120px;
-}
-
-.small-card-text-limit {
-  font-size: 14px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  height: 60px;
+  object-fit: contain;
 }
 
 .small-card-text-title {
@@ -20,5 +14,5 @@
 }
 
 .small-card-row {
-  width: 500px
+  width: 500px;
 }
