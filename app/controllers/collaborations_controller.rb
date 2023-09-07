@@ -16,16 +16,19 @@ class CollaborationsController < ApplicationController
 
   def create
     @itinerary = Itinerary.find(params[:itinerary_id])
-    @collaboration = @itinerary.collaborations.new(collaboration_params)
-    # raise
+    @collaboration = Collaboration.new(collaboration_params)
+    @collaboration.itinerary = @itinerary
+    @collaboration.user = current_user
     authorize @collaboration
 
-    # need help
-    if @collaboration.save!
-      redirect_to itinerary_path(@itinerary)
-    else
-      render 'itineraries/show', status: :unprocessable_entity
-    end
+    @collaboration.save
+    redirect_to itinerary_path(@itinerary)
+
+    # if @collaboration.save
+    #   redirect_to itinerary_path(@itinerary)
+    # else
+    #   render 'show', status: :unprocessable_entity
+    # end
   end
 
   def show
@@ -48,9 +51,7 @@ class CollaborationsController < ApplicationController
   private
 
   def collaboration_params
-    # params.require(:collaboration).permit(:role, :email, user_attributes: [:email, :password, :password_confirmation])
     params.require(:collaboration).permit(:role)
-
   end
 
   def set_collaboration
