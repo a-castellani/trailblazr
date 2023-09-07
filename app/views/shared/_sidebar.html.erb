@@ -3,13 +3,13 @@
     <ul>
       <div class="accordion" id="accordionOne">
         <li class="nav-item accordion-item">
-          <h3 class="accordion-button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">My Itineraries</h3>
+          <h3 data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">My Itineraries</h3>
         </li>
-          <ul class="sub-nav accordion-collapse collapse show " id="collapseOne" data-bs-parent="#accordionOne">
+          <ul class="sub-nav accordion-collapse collapse" id="collapseOne" data-bs-parent="#accordionOne">
             <li class="sub-nav-item">
-              <p id="add-new" data-bs-toggle="modal" data-bs-target="#exampleModal">+ Add New Itinerary</p>
+              <p id="add-new" data-bs-toggle="modal" data-bs-target="#exampleModal">Add New Itinerary</p>
             </li>
-            <%= render "itineraries/form", value: "+ Add New", itinerary: Itinerary.new %>
+            <%= render "itineraries/form", itinerary: Itinerary.new %>
             <% unless @itineraries.nil? %>
               <% @itineraries.each do |itinerary| %>
                 <li class="sub-nav-item"><p><%= link_to itinerary.title, itinerary_path(itinerary), class: "text-decoration-none" %></p></li>
@@ -22,9 +22,9 @@
       <li class="nav-item"><h3>Settings</h3></li>
       <div class="accordion d-none" id="accordionTwo">
         <li class="nav-item accordion-item">
-          <h3 class="accordion-button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">Selected itinerary</h3>
+          <h3 data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">Selected itinerary</h3>
         </li>
-          <ul class="sub-nav accordion-collapse collapse show " id="collapseTwo" data-bs-parent="#accordionTwo">
+          <ul class="sub-nav accordion-collapse collapse" id="collapseTwo" data-bs-parent="#accordionTwo">
             <li class="sub-nav-item"><h4>Wishlist</h4></li>
             <li class="sub-nav-item"><h4>Iteration over days</h4></li>
             <li class="sub-nav-item"><h4>Add day</h4></li>
