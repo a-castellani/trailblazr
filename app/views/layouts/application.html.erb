@@ -14,8 +14,8 @@
   <div class="container-fluid" data-controller="sidebar-toggler">
     <div class="row section" >
       <%= render "shared/navbar" %>
-      <% unless controller_name == 'pages' && action_name == 'home' %>
-        <div class="col-3 d-none" data-sidebar-toggler-target="sidebar">
+      <%# <% unless controller_name == 'devise-sessions' || controller_name == 'pages' && action_name == 'home' %> %>
+        <div class="col-3" data-sidebar-toggler-target="sidebar">
           <%= render "shared/sidebar" %>
         </div>
       <% end %>
