@@ -11,13 +11,15 @@
   </head>
 
   <body>
-  <div class="container-fluid">
-    <div class="row section" data-controller="sidebar-toggler">
+  <div class="container-fluid" data-controller="sidebar-toggler">
+    <div class="row section" >
       <%= render "shared/navbar" %>
-      <div class="col-3 d-none" data-sidebar-toggler-target="sidebar">
-        <%= render "shared/sidebar" %>
-      </div>
-      <div class="col-6">
+      <% unless controller_name == 'pages' && action_name == 'home' %>
+        <div class="col-3 d-none" data-sidebar-toggler-target="sidebar">
+          <%= render "shared/sidebar" %>
+        </div>
+      <% end %>
+      <div class="" data-sidebar-toggler-target="body">
         <%= yield %>
       </div>
     </div>
