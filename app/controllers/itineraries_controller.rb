@@ -4,7 +4,7 @@ class ItinerariesController < ApplicationController
   before_action :set_itinerary, only: %i[show edit update destroy]
 
   def index
-    @itineraries = policy_scope(Itinerary)
+    @itineraries = policy_scope(current_user.itineraries)
   end
 
   def new
@@ -25,9 +25,9 @@ class ItinerariesController < ApplicationController
 
   def show
     @itinerary = Itinerary.find(params[:id])
-
+    @owner = @itinerary.collaborations.find_by(role: "admin").user
     # need help
-    @collaboration = Collaboration.new(itinerary: @itinerary, user: User.new)
+    @collaboration = Collaboration.new(itinerary: @itinerary)
 
     @message = Message.new
     authorize @itinerary
