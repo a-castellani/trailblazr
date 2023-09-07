@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   before_action :authenticate_user!
   before_action :set_new_itinerary
+  before_action :set_itineraries
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   include Pundit::Authorization
@@ -16,6 +17,10 @@ class ApplicationController < ActionController::Base
 
   def set_new_itinerary
     @itinerary = Itinerary.new
+  end
+
+  def set_itineraries
+    @itineraries = policy_scope(Itinerary) if user_signed_in?
   end
 
   def configure_permitted_parameters

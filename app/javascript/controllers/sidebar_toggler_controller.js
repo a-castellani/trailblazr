@@ -9,6 +9,6 @@ export default class extends Controller {
   }
   fire() {
     console.log("Hiya");
-    this.sidebarTarget.classList.toggle();
+    this.sidebarTarget.classList.toggle("d-none");
   }
 }

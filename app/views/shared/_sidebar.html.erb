@@ -1,25 +1,35 @@
- <div class="col-sm-4 col-auto px-0 collapse collapse-horizontal overflow-hidden" id="sidebar">
-
+ <div class="sidebar">
   <nav id='dashboard'>
     <ul>
-      <li class="nav-item"><h3>My Itineraries</h3></li>
-        <ul class="sub-nav">
-          <li class="sub-nav-item"><h4 id="add-new" data-bs-toggle="modal" data-bs-target="#exampleModal">+ Add New</h4></li>
-          <%= render "itineraries/form", value: "+ Add New", itinerary: @itinerary %>
-          <% unless @itineraries.nil? %>
-            <% @itineraries.each do |itinerary| %>
-            <li class="sub-nav-item"><h4> <%= link_to itinerary.title, itinerary_path(itinerary) %></h4></li>
+      <div class="accordion" id="accordionOne">
+        <li class="nav-item accordion-item">
+          <h3 class="accordion-button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">My Itineraries</h3>
+        </li>
+          <ul class="sub-nav accordion-collapse collapse show " id="collapseOne" data-bs-parent="#accordionOne">
+            <li class="sub-nav-item">
+              <h4 id="add-new" data-bs-toggle="modal" data-bs-target="#exampleModal">+ Add New</h4>
+            </li>
+            <%= render "itineraries/form", value: "+ Add New", itinerary: @itinerary %>
+            <% unless @itineraries.nil? %>
+              <% @itineraries.each do |itinerary| %>
+              <li class="sub-nav-item"><h4> <%= link_to itinerary.title, itinerary_path(itinerary) %></h4></li>
+              <% end %>
             <% end %>
-          <% end %>
-        </ul>
-      <li class="nav-item"><h3>Explore</h3></li>
+          </ul>
+      </div>
+      <li class="nav-item"><h3 class="button"><%= link_to 'Explore', activities_path %></h3></li>
       <li class="nav-item"><h3>AI</h3></li>
       <li class="nav-item"><h3>Settings</h3></li>
-      <li class="nav-item"><h3>Selected itinerary</h3></li>
-        <ul class="sub-nav">
-          <li class="sub-nav-item"><h4>Wishlist</h4></li>
-          <li class="sub-nav-item"><h4>Iteration over days</h4></li>
-        </ul>
+      <div class="accordion" id="accordionTwo">
+        <li class="nav-item accordion-item">
+          <h3 class="accordion-button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">Selected itinerary</h3>
+        </li>
+          <ul class="sub-nav accordion-collapse collapse show " id="collapseTwo" data-bs-parent="#accordionTwo">
+            <li class="sub-nav-item"><h4>Wishlist</h4></li>
+            <li class="sub-nav-item"><h4>Iteration over days</h4></li>
+            <li class="sub-nav-item"><h4>Add day</h4></li>
+          </ul>
+      </div>
     </ul>
   </nav>
 </div>
