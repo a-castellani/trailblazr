@@ -5,7 +5,7 @@
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
   <div class="d-flex justify-content-start">
     <div class="form-inputs">
-      <%= f.input :role, placeholder: 'Enter role' %>
+      <%= f.input :role, collection: ['admin', 'edit', 'viewer', 'public'], prompt: 'Select role', label: 'Role' %>
       <%= f.input :email, placeholder: 'Enter email' %>
       <%= f.button :submit, class: "btn btn-success"%>
     </div>
