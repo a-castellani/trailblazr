@@ -8,17 +8,10 @@ class CollaborationsController < ApplicationController
     @itinerary = Itinerary.find(params[:itinerary_id])
   end
 
-  # def new
-  #   @collaboration = Collaboration.new
-  #   @itinerary = Itinerary.find(params[:itinerary_id])
-  #   authorize @collaboration
-  # end
-
   def create
     @itinerary = Itinerary.find(params[:itinerary_id])
     @collaboration = Collaboration.new(collaboration_params)
     @collaboration.itinerary = @itinerary
-    # @collaboration.user = current_user
     @collaboration.user = User.find_by(email: collaboration_params[:email])
     authorize @collaboration
 
