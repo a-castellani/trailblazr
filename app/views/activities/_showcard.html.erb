@@ -8,7 +8,12 @@
         <p> <%= @activity.description %></p>
         <p> <i class="fa-solid fa-clock fa-xl"></i> <strong><%= @activity.duration.to_i %> hours</strong></p>
         <p> <i class="fa-solid fa-person fa-xl"></i> <strong> <%= @activity.number_of_people %></strong> </p>
-        <button class="btn btn-primary">Add to my itinerary</button>
+        <button class="btn btn-primary">Add to an itinerary</button>
+
+        <%= simple_form_for [@activity, @selection] do |f| %>
+          <%= f.association :itinerary, collection: current_user.itineraries %>
+          <%= f.submit "Add" %>
+        <% end %>
       </div>
     </div>
   </div>

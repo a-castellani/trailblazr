@@ -10,9 +10,11 @@ Rails.application.routes.draw do
     resources :messages, only: [:create]
     resources :selections, only: %i[index]
   end
-  
+
   resources :collaborations, only: [:destroy]
-  resources :activities, only: [:index, :show]
+  resources :activities, only: [:index, :show] do
+    resources :selections, only: %i[create]
+  end
 
   resources :selections, only: %i[destroy]
 end

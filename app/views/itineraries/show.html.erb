@@ -10,7 +10,6 @@
           <i class="fa-solid fa-user"></i><%= " #{user.first_name} #{user.last_name}" %>
         </div>
       <% end %>
-      </div class="my-3">
       <%= link_to "Add TrailBlazrs", @new_itinerary_collaboration_path %>
 
           <%# Back to All Itineraries %>
@@ -28,6 +27,7 @@
 
       </div>
     </div>
+  </div>
 
   <div class="col-4">
     <%= render "itineraries/chat" %>
@@ -41,3 +41,12 @@
 <%# b. if the url you are trying to build needs an id, you need to pass the instance as an argument %>
 <%# example: itinerary_collaborations_path(@itinerary) %>
 <%#  is going to create a url like: /itineraries/40/collaborations %>
+
+ <%#    <div class="activities"> %>
+    <%#     <h3>My Wishlist</h3> %>
+    <%#     <div> %>
+  <%#         <% @itinerary.activities.each do |activity| %>
+     <%#        <%= render "activities/smallcard", activity: activity %>
+        <%#   <% end %>
+   <%#      </div>
+      </div> %>
