@@ -18,7 +18,7 @@ class SelectionsController < ApplicationController
   def destroy
     @selection = Selection.find_by(activity_id: params[:id])
     @selection.destroy
-    redirect_to itinerary_selections_path(@selection.itinerary_id)
+    redirect_to itinerary_path(@selection.itinerary_id)
     authorize @selection
   end
 end

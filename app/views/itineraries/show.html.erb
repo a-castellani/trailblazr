@@ -34,6 +34,32 @@
   </div>
 </div>
 
+<div class="row small-card-row justify-content-center mx-auto">
+    <% @selections.each do |selection| %>
+
+    <div class="col-8">
+      <div class="card small-card mb-2 shadow">
+      <div class="d-flex justify-content-between align-items-center mb-1">
+        <h6 class="fw-bold small-card-text-title me-3 mb-0 pb-0"><%= selection.activity.name.truncate(27, separator: ' ') %></h6>
+        <%= link_to selection_path(selection.activity), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}  do %>
+          <i class="fa-regular fa-trash-can text-danger"></i>
+        <% end %>
+      </div>
+
+      <p class="card-text fw-bold"><%= selection.activity.description.truncate(90, separator: ' ') %></p>
+    </div>
+    </div>
+
+    <div class="col-4">
+      <%= image_tag selection.activity.image_url, class: 'small-card-img shadow w-100' %>
+    </div>
+
+
+
+    <% end %>
+    <div>
+
+
 <%# TO MAKE A _PATH %>
 <%# => prefix_path %>
 <%# a. if the url you are trying to build has no ids, this is enough %>

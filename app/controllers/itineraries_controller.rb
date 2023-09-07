@@ -23,9 +23,17 @@ class ItinerariesController < ApplicationController
   end
 
   def show
-    @itinerary = Itinerary.find(params[:id])
+    # @itinerary = Itinerary.find(params[:id])
     @message = Message.new
     authorize @itinerary
+
+    @selections = policy_scope(Selection)
+
+    # @selections = Selection.where(itinerary_id: params[:itinerary_id]) # replace with params[id] when get itinerary
+    # @itinerary = Itinerary.find(params[:itinerary_id])
+
+    @itinerary = Itinerary.find(params[:id])
+    @selections = Selection.where(itinerary_id: @itinerary)
   end
 
   def edit
