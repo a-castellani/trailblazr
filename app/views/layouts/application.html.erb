@@ -10,9 +10,17 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body><%= render "shared/navbar" %>
-  <%= render "shared/sidebar" %>
-<%= render "shared/flashes" %>
+  <body>
+  <div class="section">
+    <%= render "shared/navbar" %>
+  </div>
+  <div data-controller="sidebar-toggler">
+    <i class="fa-regular fa-compass fa-2xl" data-action="click->sidebar-toggler#fire"></i>
+    <div data-sidebar-toggler-target="sidebar">
+    <%= render "shared/sidebar" %>
+    </div>
+  </div>
+  <%= render "shared/flashes" %>
 
     <%= yield %>
   </body>

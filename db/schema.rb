@@ -25,8 +25,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_06_124009) do
     t.datetime "updated_at", null: false
     t.integer "price"
     t.string "image_url"
-    t.string "desription_title"
     t.text "description"
+    t.string "description_title"
   end
 
   create_table "collaborations", force: :cascade do |t|
