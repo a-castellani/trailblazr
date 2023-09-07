@@ -5,24 +5,13 @@
 
   <div class="row">
     <div class="col-12">
-      <%= form_with url: activities_path, method: :get do %>
-        <%= text_field_tag :tag,
-              params[:tag],
-              class: "form-control",
-              placeholder: "Select a mood"
-        %>
-        <%= text_field_tag :category,
-              params[:category],
-              class: "form-control",
-              placeholder: "Select a type"
-        %>
-        <%= text_field_tag :people,
-              params[:people],
-              class: "form-control",
-              placeholder: "Write number of people"
-        %>
-        <%= submit_tag "Search", name: "", class: "btn btn-primary" %>
+      <%= form_tag(activities_path, method: "get") do  %>
+            <%= select_tag(:tags, options_for_select(@tags.collect{ |tag| [tag, tag]})) %>
+            <%= select_tag(:category, options_for_select(@categories.collect{ |category| [category, category]})) %>
+            <%= text_field_tag :number_of_people, params[:number_of_people], class: "form-control", placeholder: "Write number of people"%>
+        <%= submit_tag("Search", :class => "btn btn-primary" )%>
       <% end %>
+
     </div>
   </div>
 </div>
