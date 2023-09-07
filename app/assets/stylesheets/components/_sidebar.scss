@@ -1,0 +1,23 @@
+
+* {
+  list-style: none;
+  text-decoration: none;
+}
+
+
+
+.sidebar{
+  position: fixed;
+  left: 0;
+  padding: 20px 0;
+  transition: transform 0.5s ease;
+  z-index: 1055;
+
+  h3 {
+    font-size: 1rem;
+  }
+}
+
+.accordion-item {
+  border: none;
+}

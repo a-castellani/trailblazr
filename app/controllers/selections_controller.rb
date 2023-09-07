@@ -15,6 +15,32 @@ class SelectionsController < ApplicationController
     @selections = Selection.where(itinerary_id: @itinerary)
   end
 
+  def create
+    @selection = Selection.new(selection_params)
+    @activity = Activity.find(params[:activity_id])
+    @selection.activity = @activity
+    authorize @selection
+
+    if @selection.save
+      redirect_to itinerary_path(@selection.itinerary)
+    else
+      render "activities/show", status: :unprocessable_entity
+    end
+  end
+
+  # def create
+  #   @itinerary = Itinerary.find(params[:itinerary_id])
+  #   @activity = Activity.find(params[:activity_id])
+  #   @selection = Selection.new(params[:selection])
+  #   # @selection.update(day: params[:selection][:day])
+
+  #   # @selection.update(selection_params.slice(:day))
+  #   Selection.create(itinerary_id: @itinerary.id, activity_id: @activity.id)
+  #   redirect_to itinerary_path(@itinerary)
+
+  #   authorize @selection
+  # end
+
   def destroy
     @selection = Selection.find_by(activity_id: params[:id])
     @selection.destroy
@@ -26,19 +52,6 @@ class SelectionsController < ApplicationController
     @selection = Selection.new
     @itinerary = Itinerary.find(params[:itinerary_id])
     @activity = Activity.find(params[:activity_id])
-    authorize @selection
-  end
-
-  def create
-    @itinerary = Itinerary.find(params[:itinerary_id])
-    @activity = Activity.find(params[:activity_id])
-    @selection = Selection.new(params[:selection])
-    # @selection.update(day: params[:selection][:day])
-
-    # @selection.update(selection_params.slice(:day))
-    Selection.create(itinerary_id: @itinerary.id, activity_id: @activity.id)
-    redirect_to itinerary_path(@itinerary)
-
     authorize @selection
   end
 

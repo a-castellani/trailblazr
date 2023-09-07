@@ -1,9 +1,10 @@
+
 class ItinerariesController < ApplicationController
   skip_before_action :authenticate_user!, only: :show
   before_action :set_itinerary, only: %i[show edit update destroy]
 
   def index
-    @itineraries = policy_scope(Itinerary)
+    @itineraries = policy_scope(current_user.itineraries)
   end
 
   def new
@@ -15,7 +16,7 @@ class ItinerariesController < ApplicationController
     @itinerary = Itinerary.new(itinerary_params)
     authorize @itinerary
     if @itinerary.save
-      Collaboration.create(itinerary: @itinerary, user: current_user, role: "admin" )
+      Collaboration.create(itinerary: @itinerary, user: current_user, role: "admin", email: current_user.email )
       redirect_to itinerary_path(@itinerary)
     else
       render :new, status: :unprocessable_entity
@@ -24,6 +25,11 @@ class ItinerariesController < ApplicationController
 
   def show
     # @itinerary = Itinerary.find(params[:id])
+    @itinerary = Itinerary.find(params[:id])
+    @owner = @itinerary.collaborations.find_by(role: "admin").user
+    # need help
+    @collaboration = Collaboration.new(itinerary: @itinerary)
+
     @message = Message.new
     authorize @itinerary
 
@@ -32,7 +38,6 @@ class ItinerariesController < ApplicationController
     # @selections = Selection.where(itinerary_id: params[:itinerary_id]) # replace with params[id] when get itinerary
     # @itinerary = Itinerary.find(params[:itinerary_id])
 
-    @itinerary = Itinerary.find(params[:id])
     @selections = Selection.where(itinerary_id: @itinerary)
     @selections_with_days = @selections.group_by(&:day)
   end

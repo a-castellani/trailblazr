@@ -2,4 +2,16 @@
   <div>
     <h1>TrailBlazr</h1>
   </div>
+
+  <div class="row">
+    <div class="col-12">
+      <%= form_tag(activities_path, method: "get") do  %>
+            <%= select_tag(:tags, options_for_select(@tags.collect{ |tag| [tag, tag]})) %>
+            <%= select_tag(:category, options_for_select(@categories.collect{ |category| [category, category]})) %>
+            <%= text_field_tag :number_of_people, params[:number_of_people], class: "form-control", placeholder: "Write number of people"%>
+        <%= submit_tag("Search", :class => "btn btn-primary" )%>
+      <% end %>
+
+    </div>
+  </div>
 </div>

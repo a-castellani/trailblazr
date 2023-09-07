@@ -10,9 +10,20 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body><%= render "shared/navbar" %>
-<%= render "shared/flashes" %>
-
-    <%= yield %>
+  <body>
+  <div class="container-fluid" data-controller="sidebar-toggler">
+    <div class="row section" >
+      <%= render "shared/navbar" %>
+      <% unless controller_name == 'pages' && action_name == 'home' %>
+        <div class="col-3" data-sidebar-toggler-target="sidebar">
+          <%= render "shared/sidebar" %>
+        </div>
+      <% end %>
+      <div class="col-9" data-sidebar-toggler-target="body">
+        <%= yield %>
+      </div>
+    </div>
+    <%= render "shared/flashes" %>
+  </div>
   </body>
 </html>
