@@ -1,5 +1,7 @@
+<%# no need %>
+
 <div class="container">
-  <h1 class="my-3"> <i class="fa-solid fa-users"></i> All collaborations</h1>
+  <h4 class="my-3"><i class="fa-solid fa-plus fa-2xs"></i> New Collaborations</h4>
 
   <% @itinerary.collaborations.each do |collaboration|%>
     <p>
@@ -10,11 +12,5 @@
       <% end %>
     </p>
   <% end %>
-
-  <br>
-
-  <%= link_to "Add a friend", new_itinerary_collaboration_path, class:"btn btn-success text-align-center" %>
-
-  <%= link_to "Back", itinerary_path(@itinerary), class:"btn btn-primary text-align-center"%>
 
 </div>

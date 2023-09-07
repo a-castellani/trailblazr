@@ -14,8 +14,4 @@ class PagesController < ApplicationController
     end
     @categories = @all_categories.uniq
   end
-
-  def dashboard
-    @itineraries = current_user.itineraries
-  end
 end
