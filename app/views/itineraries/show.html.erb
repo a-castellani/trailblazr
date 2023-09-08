@@ -1,26 +1,30 @@
 <div class="container d-flex justify-content-between">
   <div class="col-6 mx-3" data-controller="toggle">
-    <div class="container d-flex">
-      <h3 class="my-3"><%= @itinerary.title %></h3>
+    <div class="container d-flex" >
+      <h3 class="my-3 me-3"><%= @itinerary.title.capitalize %></h3>
       <% if current_user == @owner %>
         <div class="d-flex justify-content-start">
           <%# Hide the links for unauthorized users: %>
           <% if policy(@itinerary).edit? %>
-            <%= button_to edit_itinerary_path(@itinerary), method: :get, remote: true, class: "btn btn-default" do %>
-                <i class="fa-solid fa-pen"></i>
-            <% end %>
+            <div class="d-flex align-items-center">
+              <%= button_to edit_itinerary_path(@itinerary), method: :get, remote: true, class: "btn btn-default" do %>
+                  <i class="fa-solid fa-pen"></i>
+              <% end %>
+            </div>
           <% end %>
           <% if policy(@itinerary).destroy? %>
-            <%= button_to @itinerary, method: :delete, remote: true, data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-default" do %>
-                <i class="fa-regular fa-trash-can"></i>
+            <div class="d-flex align-items-center">
+              <%= button_to @itinerary, method: :delete, remote: true, data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-default" do %>
+                  <i class="fa-regular fa-trash-can"></i>
               <% end %>
+            </div>
           <% end %>
         </div>
       <% end %>
     </div>
 
     <%# collaborations %>
-    <div>
+    <div class="container">
       <p data-toggle-target="button" data-action="click->toggle#toggle"><strong>Collaborators: </strong><% if current_user == @owner %><i class="fa-solid fa-user-plus"></i><% end %></p>
       <div>
         <i class="fa-solid fa-user"></i><%= " #{@owner.first_name} #{@owner.last_name}" %>
@@ -37,11 +41,11 @@
       <% end %>
     </div>
 
-      <% if current_user == @owner %>
-        <div class="d-none" data-toggle-target="form">
-          <%= render "itineraries/collaboration_form" %>
-        </div>
-      <% end %>
+    <% if current_user == @owner %>
+      <div class="container d-none" data-toggle-target="form">
+        <%= render "itineraries/collaboration_form" %>
+      </div>
+    <% end %>
 
   </div>
 
