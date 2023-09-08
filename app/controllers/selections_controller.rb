@@ -41,11 +41,40 @@ class SelectionsController < ApplicationController
   #   authorize @selection
   # end
 
-  def destroy
-    @selection = Selection.find_by(activity_id: params[:id])
-    @selection.destroy
-    redirect_to itinerary_path(@selection.itinerary_id)
+  # GET selections/:id/edit
+  def edit
+    @selection = Selection.find(params[:id])
     authorize @selection
+  end
+
+  # PATCH slections/:id
+  def update
+    @selection = Selection.find(params[:id])
+    authorize @selection
+    if @selection.update(selection_params)
+      redirect_to itinerary_path(@selection.itinerary), notice: "Activity added to day plan"
+    else
+      render :edit, status: :unprocessable_entity
+    end
+  end
+
+  def destroy_wish_list_selection
+    @wish_list_selection = Selection.find_by(activity_id: params[:id])
+
+    if  @wish_list_selection.destroy
+      redirect_to itinerary_path(@wish_list_selection.itinerary_id)
+    end
+
+    authorize @wish_list_selection
+  end
+
+  def destroy_day_selection
+    @day_selection = Selection.find(params[:id])
+
+    if @day_selection.destroy
+      redirect_to itinerary_path(@day_selection)
+    end
+    authorize @day_selection
   end
 
   def new
@@ -53,6 +82,27 @@ class SelectionsController < ApplicationController
     @itinerary = Itinerary.find(params[:itinerary_id])
     @activity = Activity.find(params[:activity_id])
     authorize @selection
+  end
+
+  # GET /selections/:id/select_day
+  def select_day
+    @selection = Selection.find(params[:id])
+    authorize @selection, :update?
+  end
+
+  # PATCH /selections/:id/clone_with_new_day
+  def clone_with_new_day
+    @selection = Selection.find(params[:id])
+    authorize @selection, :update?
+
+    @selection_clone = @selection.dup # make a new selection
+    @selection_clone.day = params[:selection][:day]
+
+    if @selection_clone.save
+      redirect_to itinerary_path(@selection_clone.itinerary), notice: "Activity added to day plan"
+    else
+      render :edit, status: :unprocessable_entity
+    end
   end
 
   private

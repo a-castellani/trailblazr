@@ -412,12 +412,18 @@ users = [
     password: 'password',
     first_name: 'Paul',
     last_name: 'Vickers'
+  },
+  {
+    email: 'dareos@email.com',
+    password: 'password',
+    first_name: 'Dareos',
+    last_name: 'Le Wagon Teacher'
   }
 ]
 
 itineraries = [
   {
-    title: 'Andres Journey'
+    title: "Andres's Journey"
   },
   {
     title: "Cedric's Journey"
@@ -430,6 +436,9 @@ itineraries = [
   },
   {
     title: "Paul's Journey"
+  },
+  {
+    title: "Dareos's Journey"
   }
 ]
 
@@ -446,7 +455,7 @@ itineraries.each do |itinerary|
 end
 
 Itinerary.all.each do |itinerary|
-  rand_num = rand(3..7)
+  rand_num = rand(5..10)
   activities = Activity.all.sample(rand_num)
   activities.each do |activity|
     Selection.create(itinerary_id: itinerary.id, activity_id: activity.id)

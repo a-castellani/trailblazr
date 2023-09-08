@@ -20,4 +20,8 @@ class SelectionPolicy < ApplicationPolicy
   def new?
     true # must be a collaborator with editorial role
   end
+
+  def update?
+    true
+  end
 end

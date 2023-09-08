@@ -6,16 +6,21 @@ Rails.application.routes.draw do
   resources :itineraries do
     resources :collaborations, except: %i[new edit update destroy]
     resources :messages, only: [:create]
-    resources :selections, only: %i[index create new]
-    resources :activities do
-      resources :selections, only: %i[index create new]
-    end
+    resources :selections, only: %i[index]
+    resources :activities
   end
 
   resources :collaborations, only: [:destroy]
   resources :activities, only: [:index, :show] do
-    resources :selections, only: %i[create]
+    resources :selections, only: %i[new create]
   end
 
-  resources :selections, only: %i[destroy]
+  resources :selections, only: %i[destroy_wish_list_selection destroy_day_selection edit update] do
+    member do
+      get :select_day
+      patch :clone_with_new_day
+      delete :destroy_wish_list_selection
+      delete :destroy_day_selection
+    end
+  end
 end

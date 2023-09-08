@@ -26,7 +26,7 @@ class ItinerariesController < ApplicationController
   def show
     # @itinerary = Itinerary.find(params[:id])
     @itinerary = Itinerary.find(params[:id])
-    @owner = @itinerary.collaborations.find_by(role: "admin").user
+    @owner = @itinerary.collaborations.find_by(role: "admin")
     # need help
     @collaboration = Collaboration.new(itinerary: @itinerary)
 
@@ -39,7 +39,9 @@ class ItinerariesController < ApplicationController
     # @itinerary = Itinerary.find(params[:itinerary_id])
 
     @selections = Selection.where(itinerary_id: @itinerary)
-    @selections_with_days = @selections.group_by(&:day)
+    @selections_with_days = @selections.reject { |s| s.day.nil? }.group_by(&:day).sort_by(&:first)
+    @selections_without_days = Selection.where(itinerary_id: @itinerary, day: nil)
+
   end
 
   def edit
