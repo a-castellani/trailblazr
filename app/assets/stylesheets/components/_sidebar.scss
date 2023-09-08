@@ -15,6 +15,24 @@
 
   h3 {
     font-size: 1rem;
+    text-decoration: none;
+  }
+  h3:hover {
+    color: $light-blue;
+    cursor: pointer;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  #link {
+    text-decoration: none;
+    color: black;
+  }
+
+  #link:hover {
+    color: $light-blue;
   }
 }
 
