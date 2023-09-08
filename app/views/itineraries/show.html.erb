@@ -56,3 +56,9 @@
 <%# b. if the url you are trying to build needs an id, you need to pass the instance as an argument %>
 <%# example: itinerary_collaborations_path(@itinerary) %>
 <%#  is going to create a url like: /itineraries/40/collaborations %>
+<br>
+<%= link_to "primary", edit_itinerary_path(@itinerary), class: "btn btn-primary me-3" %>
+<%= link_to "success", edit_itinerary_path(@itinerary), class: "btn btn-success me-3" %>
+<%= link_to "info", edit_itinerary_path(@itinerary), class: "btn btn-info me-3" %>
+<%= link_to "danger", edit_itinerary_path(@itinerary), class: "btn btn-danger me-3" %>
+<%= link_to "warning", edit_itinerary_path(@itinerary), class: "btn btn-warning me-3" %>
