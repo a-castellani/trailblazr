@@ -1,15 +1,16 @@
 <div class="container d-flex justify-content-center">
-  <div class="col-8">
+  <div class="col-8" data-controller="toggle">
     <h1 class="my-3"><%= @itinerary.title %></h1>
 
     <%# collaborations %>
     <div>
-      <p><strong>Collaborators: </strong></p>
+      <p data-toggle-target="button" data-action="click->toggle#toggle"><strong>Collaborators: </strong><i class="fa-solid fa-user-plus"></i></p>
       <% @itinerary.users.each do |user| %>
         <div>
           <i class="fa-solid fa-user"></i><%= " #{user.first_name} #{user.last_name}" %>
         </div>
       <% end %>
+    </div>
 
       <%# <% @itinerary.collaborations.each do |collaboration|%>
         <%# <p>
@@ -25,7 +26,12 @@
       <% end %><br>
 
       <% if current_user == @owner %>
-        <%= render "itineraries/collaboration_form" %>
+        <div class="d-none" data-toggle-target="form">
+          <%= render "itineraries/collaboration_form" %>
+        </div>
+      <% end %>
+
+      <% if current_user == @owner %>
         <div class="d-flex justify-content-start">
           <%# Hide the links for unauthorized users: %>
           <% if policy(@itinerary).edit? %>
@@ -36,10 +42,6 @@
           <% end %>
         </div>
       <% end %>
-
-
-
-    </div>
   </div>
 
   <div class="col-4">
