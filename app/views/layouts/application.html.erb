@@ -11,16 +11,16 @@
   </head>
 
   <body>
-  <div class="container-fluid", style="width: 100vw;">
-    <div class="row section" data-controller="sidebar-toggler">
+  <div class="container-fluid" data-controller="sidebar-toggler">
+    <div class="row section" >
       <%= render "shared/navbar" %>
-      <div class="col-3" data-sidebar-toggler-target="sidebar">
-        <%= render "shared/sidebar" %>
-      </div>
-      <div style="width: 100vw;" class="d-flex flex-row-reverse">
-        <div class="col-9", style="right: 0px;">
-          <%= yield %>
+      <% unless controller_name == 'pages' && action_name == 'home' %>
+        <div class="col-3" data-sidebar-toggler-target="sidebar">
+          <%= render "shared/sidebar" %>
         </div>
+      <% end %>
+      <div class="col-9" data-sidebar-toggler-target="body">
+        <%= yield %>
       </div>
     </div>
     <%= render "shared/flashes" %>
