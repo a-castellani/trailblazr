@@ -1,6 +1,6 @@
-<div class="container d-flex justify-content-center">
-  <div class="col-8" data-controller="toggle">
-    <div class="d-flex">
+<div class="container d-flex justify-content-between">
+  <div class="col-6 mx-3" data-controller="toggle">
+    <div class="container d-flex">
       <h3 class="my-3"><%= @itinerary.title %></h3>
       <% if current_user == @owner %>
         <div class="d-flex justify-content-start">
@@ -29,15 +29,14 @@
       <% end %>
     </div>
 
-      <%# <% @itinerary.collaborations.each do |collaboration|%>
-        <%# <p>
-          <% if collaboration.role == "admin" %>
-            <%# <i class="fa-solid fa-user"></i> <%= collaboration.email - <%= collaboration.role %>
-          <%# <% else %>
-            <%# <i class="fa-solid fa-user fa-2xs"></i> <%= "#{collaboration.email}" - <%= collaboration.role %>
-            <%# <%= link_to collaboration_path(collaboration), method: :delete, data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' } do %>
-              <%# <i class="fas fa-trash"></i>
+        <% if current_user == @owner %>
+          <%= render "itineraries/collaboration_form" %>
+          <div class="d-flex justify-content-start">
+            <%# Hide the links for unauthorized users: %>
+            <% if policy(@itinerary).edit? %>
+              <%= link_to "Edit this itinerary", edit_itinerary_path(@itinerary), class: "btn btn-success me-3" %>
             <% end %>
+<<<<<<< HEAD
           <%# <% end %>
         <%# </p>
       <% end %><br>
@@ -48,9 +47,18 @@
         </div>
       <% end %>
 
+=======
+            <% if policy(@itinerary).destroy? %>
+              <%= button_to "Destroy this itinerary", @itinerary, method: :delete, class: "btn btn-danger me-3", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+>>>>>>> master
   </div>
 
-  <div class="col-4">
+  <div class="col-6">
     <%= render "itineraries/chat" %>
   </div>
 </div>

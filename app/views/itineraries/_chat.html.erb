@@ -1,6 +1,7 @@
 <div class="chatroom" data-controller="chat-subscription" data-chat-subscription-itinerary-value="<%= @itinerary.id %>">
 
   <h1>Chat</h1>
+
   <div data-chat-subscription-target="messages">
     <% @itinerary.messages.each do |message| %>
       <%= render "messages/message", message: message %>
@@ -13,4 +14,5 @@
       <% end %>
     </div>
   </div>
+
 </div>

@@ -1,4 +1,3 @@
-
 class ItinerariesController < ApplicationController
   skip_before_action :authenticate_user!, only: :show
   before_action :set_itinerary, only: %i[show edit update destroy]
@@ -10,6 +9,14 @@ class ItinerariesController < ApplicationController
   def new
     @itinerary = Itinerary.new
     authorize @itinerary
+
+    if @itinerary.save
+      # Collaboration.create(itinerary: @itinerary, user: current_user, role: "admin" )
+      Collaboration.create(itinerary: @itinerary, user: current_user, role: "admin", email: current_user.email )
+      redirect_to itinerary_path(@itinerary)
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   def create
@@ -26,9 +33,7 @@ class ItinerariesController < ApplicationController
   def show
     @itinerary = Itinerary.find(params[:id])
     @owner = @itinerary.collaborations.find_by(role: "owner").user
-    # need help
     @collaboration = Collaboration.new(itinerary: @itinerary)
-
     @message = Message.new
     authorize @itinerary
   end
