@@ -22,13 +22,18 @@
     <%# collaborations %>
     <div>
       <p data-toggle-target="button" data-action="click->toggle#toggle"><strong>Collaborators: </strong><% if current_user == @owner %><i class="fa-solid fa-user-plus"></i><% end %></p>
+      <div>
+        <i class="fa-solid fa-user"></i><%= " #{@owner.first_name} #{@owner.last_name}" %>
+      </div>
       <% @itinerary.users.each do |user| %>
-        <div>
-          <i class="fa-solid fa-user"></i><%= " #{user.first_name} #{user.last_name}" %>
-          <% unless user == @owner %>
-            <p>hello</p>
-          <% end %>
-        </div>
+        <% unless user == @owner %>
+          <div class="d-flex">
+            <i class="fa-solid fa-user"></i><%= " #{user.first_name} #{user.last_name} " %>
+            <%= button_to user.collaborations.find_by(itinerary_id: @itinerary.id), method: :delete,remote: true, data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }, class: "btn btn-default" do %>
+              <i class="fas fa-trash"></i>
+            <% end %>
+          </div>
+        <% end %>
       <% end %>
     </div>
 
