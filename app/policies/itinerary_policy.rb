@@ -15,7 +15,7 @@ class ItineraryPolicy < ApplicationPolicy
   end
 
   def destroy?
-    record.collaborations.where(user: user, role: "admin")
+    record.collaborations.where(user: user, role: "owner")
   end
 
   def edit?
