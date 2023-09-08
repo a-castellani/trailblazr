@@ -9,6 +9,10 @@ class ActivitiesController < ApplicationController
       sql_subquery = "category LIKE :category"
       @activities = @activities.where(sql_subquery, category: "%#{params[:category]}%")
     end
+    if params[:location].present?
+      sql_subquery = "location ILIKE :location"
+      @activities = @activities.where(sql_subquery, location: "%#{params[:location]}%")
+    end
     if params[:number_of_people].present?
       sql_subquery = "number_of_people >= :number_of_people"
       @activities = @activities.where(sql_subquery, number_of_people: "#{params[:number_of_people].to_i}")
