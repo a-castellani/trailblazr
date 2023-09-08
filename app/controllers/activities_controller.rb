@@ -23,5 +23,6 @@ class ActivitiesController < ApplicationController
     @activity = Activity.find(params[:id])
     @selection = Selection.new
     authorize @activity
+    @itineraries = current_user.itineraries
   end
 end
