@@ -25,6 +25,9 @@
       <% @itinerary.users.each do |user| %>
         <div>
           <i class="fa-solid fa-user"></i><%= " #{user.first_name} #{user.last_name}" %>
+          <% unless user == @owner %>
+            <p>hello</p>
+          <% end %>
         </div>
       <% end %>
     </div>

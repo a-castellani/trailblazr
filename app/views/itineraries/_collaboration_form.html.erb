@@ -7,7 +7,7 @@
     <div class="d-flex justify-content-start">
       <div class="form-inputs d-flex">
         <%= f.input :email, placeholder: 'Enter email' %>
-        <%= f.input :role, collection: ['owner', 'edit', 'viewer', 'public'], prompt: 'Select role', label: 'Permissions' %>
+        <%= f.input :role, collection: ['edit', 'view'], prompt: 'Select role', label: 'Permissions' %>
         <%= f.button :submit, 'Add' %>
       </div>
     </div>
