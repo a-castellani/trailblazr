@@ -13,3 +13,6 @@ export default class extends Controller {
     this.bodyTarget.classList.toggle("col-9")
   }
 }
+
+
+
