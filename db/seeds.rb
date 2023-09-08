@@ -9,6 +9,9 @@ Activity.destroy_all
 User.destroy_all
 Itinerary.destroy_all
 Selection.destroy_all
+Collaboration.destroy_all
+Message.destroy_all
+
 # activities = [
 #   {
 #     country: 'Egypt',
