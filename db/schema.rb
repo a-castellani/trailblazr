@@ -99,6 +99,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_08_105021) do
     t.bigint "activity_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "day"
     t.index ["activity_id"], name: "index_selections_on_activity_id"
     t.index ["itinerary_id"], name: "index_selections_on_itinerary_id"
   end

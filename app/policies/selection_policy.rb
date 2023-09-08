@@ -14,6 +14,14 @@ class SelectionPolicy < ApplicationPolicy
   end
 
   def create?
+    true # must be a collaborator with editorial role
+  end
+
+  def new?
+    true # must be a collaborator with editorial role
+  end
+
+  def update?
     true
   end
 end
