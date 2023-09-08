@@ -3,9 +3,13 @@
     <ul>
       <div class="accordion" id="accordionOne">
         <li class="nav-item accordion-item">
-          <h3 data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">My Itineraries</h3>
+          <h3 data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">My Itineraries<i class="fa-solid fa-plus"></i></h3>
         </li>
+        <% unless controller_name == 'itineraries' && action_name == 'index' %>
           <ul class="sub-nav accordion-collapse collapse" id="collapseOne" data-bs-parent="#accordionOne">
+        <% else %>
+          <ul class="sub-nav accordion-collapse collapse show" id="collapseOne" data-bs-parent="#accordionOne">
+        <% end %>
             <li class="sub-nav-item">
               <p id="add-new" data-bs-toggle="modal" data-bs-target="#exampleModal">Add New Itinerary</p>
             </li>
