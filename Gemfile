@@ -55,6 +55,7 @@ gem "font-awesome-sass", "~> 6.1"
 gem "simple_form", github: "heartcombo/simple_form"
 gem 'psych', '~>3.0'
 gem "pundit"
+gem "cloudinary"
 
 
 group :development, :test do
