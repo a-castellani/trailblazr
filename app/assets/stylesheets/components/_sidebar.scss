@@ -19,10 +19,20 @@
   }
   h3:hover {
     color: $light-blue;
+    cursor: grab;
   }
 
   a {
     text-decoration: none;
+  }
+
+  #link {
+    text-decoration: none;
+    color: black;
+  }
+
+  #link:hover {
+    color: $light-blue;
   }
 }
 
