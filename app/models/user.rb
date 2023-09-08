@@ -8,4 +8,5 @@ class User < ApplicationRecord
   has_many :collaborations
   has_many :itineraries, through: :collaborations
   has_many :reviews
+  has_one_attached :photo
 end
