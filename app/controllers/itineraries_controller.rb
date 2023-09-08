@@ -23,7 +23,7 @@ class ItinerariesController < ApplicationController
     @itinerary = Itinerary.new(itinerary_params)
     authorize @itinerary
     if @itinerary.save
-      Collaboration.create(itinerary: @itinerary, user: current_user, role: "admin", email: current_user.email )
+      Collaboration.create(itinerary: @itinerary, user: current_user, role: "owner", email: current_user.email )
       redirect_to itinerary_path(@itinerary)
     else
       render :new, status: :unprocessable_entity
@@ -32,7 +32,7 @@ class ItinerariesController < ApplicationController
 
   def show
     @itinerary = Itinerary.find(params[:id])
-    @owner = @itinerary.collaborations.find_by(role: "admin").user
+    @owner = @itinerary.collaborations.find_by(role: "owner").user
     @collaboration = Collaboration.new(itinerary: @itinerary)
     @message = Message.new
     authorize @itinerary

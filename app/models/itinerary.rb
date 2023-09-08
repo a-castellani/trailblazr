@@ -14,13 +14,13 @@ class Itinerary < ApplicationRecord
   # end
   # Don't use validates_associated on both ends of your associations. They would call each other in an infinite loop.
   # validates_associated :collaborations
-  # validate :at_least_admin_collaboration
+  # validate :at_least_owner_collaboration
 
   # private
 
-  # def at_least_admin_collaboration
+  # def at_least_owner_collaboration
   #   if collaborations.empty?
-  #     errors.add(:base, "An itinerary must have an admin")
+  #     errors.add(:base, "An itinerary must have an owner")
   #   end
   # end
 end

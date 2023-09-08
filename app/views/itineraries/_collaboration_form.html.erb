@@ -1,13 +1,15 @@
-<h4 class="my-3"><i class="fa-solid fa-plus fa-2xs"></i> New Collaborations</h4>
-<%= simple_form_for([@itinerary, @collaboration]) do |f| %>
+<div>
+  <h3 class="my-3" style="font-size: 1rem"><i class="fa-solid fa-plus fa-2xs"></i> New Collaboration:</h3>
+  <%= simple_form_for([@itinerary, @collaboration]) do |f| %>
 
-  <%= f.error_notification %>
-  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
-  <div class="d-flex justify-content-start">
-    <div class="form-inputs">
-      <%= f.input :role, collection: ['admin', 'edit', 'viewer', 'public'], prompt: 'Select role', label: 'Role' %>
-      <%= f.input :email, placeholder: 'Enter email' %>
-      <%= f.button :submit, class: "btn btn-success"%>
+    <%= f.error_notification %>
+    <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+    <div class="d-flex justify-content-start">
+      <div class="form-inputs d-flex">
+        <%= f.input :email, placeholder: 'Enter email' %>
+        <%= f.input :role, collection: ['owner', 'edit', 'viewer', 'public'], prompt: 'Select role', label: 'Permissions' %>
+        <%= f.button :submit, 'Add' %>
+      </div>
     </div>
-  </div>
-<% end %><br>
+  <% end %><br>
+</div>
