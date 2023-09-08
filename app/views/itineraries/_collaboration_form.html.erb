@@ -6,9 +6,11 @@
     <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
     <div class="d-flex justify-content-start">
       <div class="form-inputs d-flex">
-        <%= f.input :email, placeholder: 'Enter email' %>
-        <%= f.input :role, collection: ['owner', 'edit', 'viewer', 'public'], prompt: 'Select role', label: 'Permissions' %>
-        <%= f.button :submit, 'Add' %>
+        <div class="d-flex align-items-end">
+          <%= f.input :email, placeholder: 'Enter email' %>
+          <%= f.input :role, collection: ['owner', 'edit', 'viewer', 'public'], prompt: 'Select role', label: 'Permissions'%>
+          <%= f.button :submit, 'Add', class: "btn btn-primary mb-3", style: "font-weight: bold;"%>
+        </div>
       </div>
     </div>
   <% end %><br>
