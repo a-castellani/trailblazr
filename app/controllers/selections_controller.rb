@@ -28,14 +28,86 @@ class SelectionsController < ApplicationController
     end
   end
 
-  def destroy
-    @selection = Selection.find_by(activity_id: params[:id])
-    @selection.destroy
-    redirect_to itinerary_selections_path(@selection.itinerary_id)
+  # def create
+  #   @itinerary = Itinerary.find(params[:itinerary_id])
+  #   @activity = Activity.find(params[:activity_id])
+  #   @selection = Selection.new(params[:selection])
+  #   # @selection.update(day: params[:selection][:day])
+
+  #   # @selection.update(selection_params.slice(:day))
+  #   Selection.create(itinerary_id: @itinerary.id, activity_id: @activity.id)
+  #   redirect_to itinerary_path(@itinerary)
+
+  #   authorize @selection
+  # end
+
+  # GET selections/:id/edit
+  def edit
+    @selection = Selection.find(params[:id])
     authorize @selection
   end
 
+  # PATCH slections/:id
+  def update
+    @selection = Selection.find(params[:id])
+    authorize @selection
+    if @selection.update(selection_params)
+      redirect_to itinerary_path(@selection.itinerary), notice: "Activity added to day plan"
+    else
+      render :edit, status: :unprocessable_entity
+    end
+  end
+
+  # def destroy_wish_list_selection
+  #   @wish_list_selection = Selection.find_by(activity_id: params[:id])
+
+  #   if  @wish_list_selection.destroy
+  #     redirect_to itinerary_path(@wish_list_selection.itinerary_id)
+  #   end
+
+  #   authorize @wish_list_selection
+  # end
+
+  def destroy
+    @day_selection = Selection.find(params[:id])
+
+    if @day_selection.destroy
+      redirect_to itinerary_path(@day_selection)
+    end
+    authorize @day_selection
+  end
+
+  def new
+    @selection = Selection.new
+    @itinerary = Itinerary.find(params[:itinerary_id])
+    @activity = Activity.find(params[:activity_id])
+    authorize @selection
+  end
+
+  # GET /selections/:id/select_day
+  def select_day
+    @selection = Selection.find(params[:id])
+    authorize @selection, :update?
+  end
+
+  # PATCH /selections/:id/clone_with_new_day
+  def clone_with_new_day
+    @selection = Selection.find(params[:id])
+    authorize @selection, :update?
+
+    @selection_clone = @selection.dup # make a new selection
+    @selection_clone.day = params[:selection][:day]
+
+    if @selection_clone.save
+      redirect_to itinerary_path(@selection_clone.itinerary), notice: "Activity added to day plan"
+    else
+      render :edit, status: :unprocessable_entity
+    end
+  end
+
+  private
+
   def selection_params
-    params.require(:selection).permit(:itinerary_id)
+    params.require(:selection).permit(:itinerary_id, :activity_id, :day)
   end
 end
