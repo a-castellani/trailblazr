@@ -58,17 +58,17 @@ class SelectionsController < ApplicationController
     end
   end
 
-  def destroy_wish_list_selection
-    @wish_list_selection = Selection.find_by(activity_id: params[:id])
+  # def destroy_wish_list_selection
+  #   @wish_list_selection = Selection.find_by(activity_id: params[:id])
 
-    if  @wish_list_selection.destroy
-      redirect_to itinerary_path(@wish_list_selection.itinerary_id)
-    end
+  #   if  @wish_list_selection.destroy
+  #     redirect_to itinerary_path(@wish_list_selection.itinerary_id)
+  #   end
 
-    authorize @wish_list_selection
-  end
+  #   authorize @wish_list_selection
+  # end
 
-  def destroy_day_selection
+  def destroy
     @day_selection = Selection.find(params[:id])
 
     if @day_selection.destroy

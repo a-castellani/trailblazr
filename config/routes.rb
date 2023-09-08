@@ -15,12 +15,10 @@ Rails.application.routes.draw do
     resources :selections, only: %i[new create]
   end
 
-  resources :selections, only: %i[destroy_wish_list_selection destroy_day_selection edit update] do
+  resources :selections, only: %i[destroy edit update] do
     member do
       get :select_day
       patch :clone_with_new_day
-      delete :destroy_wish_list_selection
-      delete :destroy_day_selection
     end
   end
 end
