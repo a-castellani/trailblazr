@@ -18,6 +18,23 @@
           </ul>
       </div>
       <li class="nav-item"><h3 class="button"><%= link_to 'Explore', activities_path, class: "text-decoration-none"  %></h3></li>
+
+      <div class="accordion" id="accordionThree">
+        <li class="nav-item accordion-item">
+          <h3 data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">Search</h3>
+        </li>
+        <ul class="sub-nav accordion-collapse collapse" id="collapseThree" data-bs-parent="#accordionThree">
+          <%= form_tag(activities_path, method: "get") do  %>
+            <%= select_tag(:tags, options_for_select(@tags.collect{ |tag| [tag, tag]}), class: "form-control", :prompt => "What's your mood?") %>
+            <%= select_tag(:category, options_for_select(@categories.collect{ |category| [category, category]}), class: "form-control", :prompt => "What do you want to do?") %>
+            <%= select_tag(:location, options_for_select(@locations.collect{ |location| [location, location]}), class: "form-control", :prompt => "Where?") %>
+            <%= text_field_tag :number_of_people, params[:number_of_people], class: "form-control", placeholder: "How many people?"%>
+            <%= submit_tag("Search", :class => "btn btn-primary" )%>
+          <% end %>
+        </ul>
+      </div>
+
+
       <li class="nav-item"><h3>AI</h3></li>
       <li class="nav-item"><h3>Settings</h3></li>
       <div class="accordion d-none" id="accordionTwo">
