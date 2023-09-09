@@ -24,5 +24,11 @@ class ActivitiesController < ApplicationController
     @selection = Selection.new
     authorize @activity
     @itineraries = current_user.itineraries
+    @all_reviews = []
+    @all_selections = @activity.selections
+    @all_selections.each do |selection|
+      @all_reviews << selection.reviews
+    end
+    @reviews = @all_reviews.flatten
   end
 end
