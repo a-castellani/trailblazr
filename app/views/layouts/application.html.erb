@@ -8,6 +8,8 @@
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.11.0/mapbox-gl.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.css" type="text/css">
   </head>
 
   <body>
@@ -18,7 +20,7 @@
       controller_name == 'passwords' ||
       controller_name == 'registrations' ||
       controller_name == 'pages' && action_name == 'home' %>
-        <div class="col-3" data-sidebar-toggler-target="sidebar">
+        <div class="col-2" data-sidebar-toggler-target="sidebar">
           <%= render "shared/sidebar" %>
         </div>
       <% end %>
