@@ -56,6 +56,9 @@ class SelectionsController < ApplicationController
     else
       last_day = @selections_with_days.last[0]
       @days = (1..last_day + 1)
+      # @days.each_with_index do |day, index|
+      #     day = index + 1
+      #   end
     end
 
     authorize @selection
