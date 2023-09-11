@@ -17,6 +17,9 @@ class CollaborationsController < ApplicationController
     authorize @collaboration
 
     if @collaboration.save
+      CollabNotification.with(role: @collaboration.role, itinerary_title: @itinerary.title,
+                              itinerary_owner: @user, type: create).deliver(@collaboration.user)
+      raise
       UserMailer.with(user: @collaboration.user, itinerary: @itinerary).hello.deliver_now
       # render json: @user, status: :created
       redirect_to itinerary_path(@itinerary)
@@ -37,6 +40,8 @@ class CollaborationsController < ApplicationController
 
     if @collaboration.destroy
       flash[:notice] = "Collaboration was successfully deleted."
+      CollabNotification.with(itinerary_title: @itinerary.title,
+                              itinerary_owner: @user, type: destroy).deliver(@collaboration.user)
     else
       flash[:alert] = "Unable to delete collaboration."
     end

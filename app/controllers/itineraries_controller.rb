@@ -33,8 +33,8 @@ class ItinerariesController < ApplicationController
   def show
     # @itinerary = Itinerary.find(params[:id])
     @itinerary = Itinerary.find(params[:id])
-    raise
     @owner = @itinerary.collaborations.find_by(role: "owner").user
+    @collaboration = Collaboration.new(itinerary: @itinerary)
     @message = Message.new
     authorize @itinerary
 
