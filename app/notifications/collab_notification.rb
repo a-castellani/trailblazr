@@ -13,10 +13,10 @@ class CollabNotification < Noticed::Base
 
   # Add required params
   #
-  param :role
-  param :itinerary_title
-  param :itinerary_owner
+  param :collaboration
+  param :itinerary
   param :type
+  param :itinerary_owner
 
   # Define helper methods to make rendering easier.
   #

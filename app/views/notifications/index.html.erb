@@ -1,13 +1,4 @@
 <h1>Notifications</h1>
 <ul>
-  <% @notifications.each do |notification| %>
-    <% if notification.params[:type] == "create" %>
-      <li>- <strong><%= notification.params[:itinerary_owner].first_name %> <%= notification.params[:itinerary_owner].last_name %></strong> has added you to the itinerary
-          <strong><%= notification.params[:itinerary_title]%></strong> as <em><%= notification.params[:role].capitalize %></em></li>
-    <% end %>
-    <% if notification.params[:type] == "destroy" %>
-      <li>- <strong><%= notification.params[:itinerary_owner].first_name %> <%= notification.params[:itinerary_owner].last_name %></strong> has removed you from the itinerary
-          <strong><%= notification.params[:itinerary_title]%></strong></li>
-    <% end %>
-  <% end %>
+  <%= render @notifications %>
 </ul>
