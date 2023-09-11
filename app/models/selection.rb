@@ -5,6 +5,8 @@ class Selection < ApplicationRecord
   has_many :messages
   has_many :reviews
 
+  # validates :activity, uniqueness: { scope: :selection }
+
   # accepts_nested_attributes_for :itinerary
   # accepts_nested_attributes_for :activity
 
