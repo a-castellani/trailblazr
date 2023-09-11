@@ -4,22 +4,30 @@ import { Controller } from "@hotwired/stimulus"
 export default class extends Controller {
   static targets = ["text", "leaf", "hill1", "hill4", "hill5"]
 
+  initialize() {
+    this.handleScroll = this.handleScroll.bind(this)
+  }
+
   connect() {
     // console.log("hello hello");
-    // console.log(this.hill4Target);
+    console.log(this.hill4Target);
 
-    window.addEventListener("scroll", this.scroll);
+    window.addEventListener("scroll", this.handleScroll);
   }
 
-  disconnect() {
-    window.removeEventListener("scroll", this.scroll);
-  }
-
-  scroll() {
+  handleScroll() {
   console.log("scrollin' la vida loca");
-    // const value = window.scrollY;
-    // console.log(this.value);
+  console.log(window.scrollY);
+    const value = window.scrollY;
+    console.log(value);
+    console.log("this is test target");
     console.log(this.textTarget);
+    console.log(this.leafTarget);
+    console.log(this.hill1Target);
+    console.log(this.hill4Target);
+    console.log(this.hill5Target);
+
+
 
     this.textTarget.style.marginTop = value * 2.5 + "px";
     this.leafTarget.style.top = value * -1.5 + "px";
