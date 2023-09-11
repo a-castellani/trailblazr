@@ -17,10 +17,7 @@
             <%= link_to "My Itineraries", itineraries_path , class: "nav-link" %>
           </li>
           <li class="nav-item">
-            <%= button_to notifications_path, method: :get, remote: true, class: "icon-button" do %>
-                <span class="material-icons"><i class="fa-regular fa-bell"></i></span>
-                <span class="icon-button__badge">2</span>
-            <% end %>
+            <%= render 'notifications/notification_badge', user: current_user %>
           </li>
           <li class="nav-item dropdown">
           <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
