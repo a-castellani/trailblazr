@@ -2,6 +2,6 @@
 <p><%= @selection.activity.name %></p>
 
 <%= simple_form_for @selection do |f| %>
-  <%= f.input :day %>
+  <%= f.input :day, collection: 1...10 %>
   <%= f.submit %>
 <% end %>
