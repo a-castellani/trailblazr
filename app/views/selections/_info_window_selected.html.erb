@@ -1,3 +1,7 @@
-<i class="fa-regular fa-calendar-days" style="color: #456D8B;"></i> Day <%= selection.day %><br>
+<i class="fa-regular fa-calendar-days" style="color: #456D8B;"></i> Day
+<% selection.same_activity_for_diff_days.each do |selection|%>
+  - <%= selection.day %>
+<% end %>
+<br>
 <i class="fa-solid fa-location-dot" style="color: #456D8B;"></i> <%= selection.activity.location %><br>
 <i class="fa-solid fa-map-location-dot mb-0" style="color: #456D8B;"></i> <%= selection.activity.name %><br>

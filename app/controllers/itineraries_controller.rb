@@ -53,19 +53,10 @@ class ItinerariesController < ApplicationController
         lat: selection.activity.latitude,
         lng: selection.activity.longitude,
         info_window_html: render_to_string(partial: "selections/info_window_selected", locals: {selection: selection}),
-        marker_html: render_to_string(partial: "activities/marker"),
-        route_html: render_to_string(partial: "activities/route")
+        marker_html: render_to_string(partial: "activities/marker")
+        # route_html: render_to_string(partial: "activities/route")
       }
     end
-
-    # @markers = @activities.map do |activity|
-    #   {
-    #     lat: activity.latitude,
-    #     lng: activity.longitude,
-    #     info_window_html: render_to_string(partial: "selections/info_window_selected", locals: {activity: activity}),
-    #     marker_html: render_to_string(partial: "activities/marker")
-    #   }
-    # end
   end
 
   def edit
