@@ -43,7 +43,21 @@ class SelectionsController < ApplicationController
 
   # GET selections/:id/edit
   def edit
+    # @itinerary = Itinerary.find(params[:itinerary_id])
     @selection = Selection.find(params[:id])
+
+    @selections = Selection.where(itinerary_id: @selection.itinerary_id)
+
+    @selections_with_days = @selections.reject { |s| s.day.nil? }.group_by(&:day).sort_by(&:first)
+
+    @days = []
+    if @selections_with_days.empty?
+      @days << 1
+    else
+      last_day = @selections_with_days.last[0]
+      @days = (1..last_day + 1)
+    end
+
     authorize @selection
   end
 

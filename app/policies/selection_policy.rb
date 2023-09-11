@@ -24,4 +24,8 @@ class SelectionPolicy < ApplicationPolicy
   def update?
     true
   end
+
+  def edit?
+    true
+  end
 end
