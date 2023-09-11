@@ -6,7 +6,6 @@ export default class extends Controller {
   connect() {
     console.log("Hello from toggle controller")
     console.log(this.buttonTarget)
-    console.log(this.formTarget)
   }
 
   toggle() {
