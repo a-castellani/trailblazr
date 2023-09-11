@@ -24,6 +24,11 @@ body {
   color: #fff;
 }
 
+#div-text {
+ display: flex;
+ justify-content: center;
+ align-items: center;
+}
 .parallax {
   position: relative;
   display: flex;
