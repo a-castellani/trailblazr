@@ -19,6 +19,7 @@ Rails.application.routes.draw do
     member do
       get :select_day
       patch :clone_with_new_day
+      delete :delete_days
     end
   end
 end
