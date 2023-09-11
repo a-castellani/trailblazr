@@ -16,6 +16,7 @@ class CollaborationsController < ApplicationController
     authorize @collaboration
 
     if @collaboration.save
+      raise
       redirect_to itinerary_path(@itinerary)
     else
       @message = Message.new
