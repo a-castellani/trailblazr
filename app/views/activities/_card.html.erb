@@ -1,10 +1,10 @@
-<div class="card">
+<div class="card" style="position: relative;">
   <img src=<%= activity.image_url %> alt=<%= activity.name %>/>
   <div class="card-infos">
     <div>
-      <h4><%= activity.name.truncate(27, separator: ' ') %></h4>
-      <p><%= activity.description.truncate(100, separator: ' ') %></p>
+      <h4><%= activity.name.truncate(26, separator: ' ') %></h4>
+      <p class="mt-1" style="text-align: justify;"><%= activity.description.truncate(150, separator: ' ') %></p>
     </div>
-    <h4 class="card-pricing"><%= activity.duration.to_i %>h</h4>
   </div>
+  <h4 class="card-pricing m-2" style="position: absolute; bottom: 0; right: 0;"><%= activity.duration.to_i %>h</h4>
 </div>
