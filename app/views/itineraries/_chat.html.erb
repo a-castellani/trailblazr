@@ -10,7 +10,11 @@
 
   <div data-chat-subscription-target="messages">
     <% @itinerary.messages.reverse_each do |message| %>
-      <%= render "messages/message", message: message %>
+      <% if message.user == current_user %>
+        <%= render "messages/my_message", message: message %>
+      <% else %>
+        <%= render "messages/message", message: message %>
+      <% end %>
     <% end %>
 
   </div>

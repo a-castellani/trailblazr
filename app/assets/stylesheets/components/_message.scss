@@ -1,0 +1,18 @@
+.message {
+  border-radius: 3px;
+  padding: 1px 9px;
+  margin-top: 8px;
+  width: 90%;
+}
+
+.my_message {
+  background-color: $dark-green;
+  color: $sand;
+  text-align: right;
+}
+
+.collaborator_message {
+  background-color: $sand;
+  color: $dark-green;
+  text-align: left;
+}
