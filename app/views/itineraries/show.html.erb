@@ -1,5 +1,5 @@
 <div>
-  <div class="container d-flex justify-content-between">
+  <div class="container d-flex justify-content-between" >
     <div class="col-6 mx-3" data-controller="toggle">
       <div class="d-flex" >
         <h3 class="my-3 me-3"><%= @itinerary.title.capitalize %></h3>
@@ -14,9 +14,9 @@
               </div>
             <% end %>
             <% if policy(@itinerary).destroy? %>
-              <div class="d-flex align-items-center">
-                <%= button_to @itinerary, method: :delete, remote: true, data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-default" do %>
-                    <i class="fa-regular fa-trash-can"></i>
+              <div class="d-flex align-items-center" data-controller="sweet-alert">
+                <%= button_to @itinerary, method: :delete, remote: true,  data: {turbo_method: :delete, sweet_alert_target: :delete }, class: "btn btn-default" do %>
+                    <i class="fa-regular fa-trash-can" data-action="click->sweet-alert#fireAlert" ></i>
                 <% end %>
               </div>
             <% end %>
@@ -45,9 +45,9 @@
                   <% else %>
                     <%= image_tag "default-img.JPG", crop: :fill, class: "avatar-collaborations", alt: "user photo"%>
                   <% end %>
-                  <div id="delete-btn">
-                    <%= link_to user.collaborations.find_by(itinerary_id: @itinerary.id), method: :delete,remote: true, data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }, class: "button-collaborators" do %>
-                      <i class="fa-solid fa-x fa-2xs"></i>
+                  <div id="delete-btn" data-controller="sweet-alert">
+                    <%= link_to user.collaborations.find_by(itinerary_id: @itinerary.id), method: :delete,remote: true, data: { turbo_method: :delete, sweet_alert_target: :delete }, class: "button-collaborators" do %>
+                      <i class="fa-solid fa-x fa-2xs" data-action="click->sweet-alert#fireAlert"></i>
                     <% end %>
                   </div>
                   <%# <p><%= " #{user.first_name} "</p> %>
@@ -67,6 +67,7 @@
       <div>
         <div class="row small-card-row" data-controller="reviewform">
           <h6>Wish List</h6>
+           <% unless @selections_without_days.nil? %>
           <% @selections_without_days.each do |selection| %>
             <div class="d-flex align-items-center">
               <div class="col-8 me-2">
@@ -74,11 +75,11 @@
                   <div class="d-flex justify-content-between align-items-center mb-1">
                     <h6 class="fw-bold small-card-text-title mb-0 pb-0"><%= selection.activity.name.truncate(30, separator: ' ') %></h6>
                     <div class="d-flex justify-content-between">
-                      <div class="d-flex gap-1" data-controller="add-activity-to-day">
+                      <div class="d-flex gap-1" data-controller="sweet-alert" data-controller="add-activity-to-day">
                         <%= link_to edit_selection_path(selection)  do %>
                           <i class="fa-regular fa-square-plus text-primary" data-action="click->add-activity-to-day#displayForm"></i>
-                          <%= link_to selection_path(selection), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}  do %>
-                            <i class="fa-regular fa-trash-can text-danger mx-1"></i>
+                          <%= link_to selection_path(selection), data: {turbo_method: :delete, sweet_alert_target: :delete }  do %>
+                            <i class="fa-regular fa-trash-can text-danger mx-1" data-action="click->sweet-alert#fireAlert"></i>
                           <% end %>
                         <% end %>
                       </div>
@@ -98,18 +99,21 @@
               <%= render "reviews/reviewform", activity: selection.activity, selection: selection, review: @review%>
             </div>
           <% end %>
+          <% end %>
         <div>
         <%# group_by day hash in controller day on selection model %>
+         <% unless  @selections_with_days.nil? %>
         <% @selections_with_days.each do |day, selection| %>
           <div> <i class="fa-regular fa-calendar-days"></i> Day <%= day %></div>
           <% selection.each do |selection| %>
-            <div class="mb-2">
+            <div class="mb-2" data-controller="sweet-alert">
               <%=selection.activity.name %>
-                <%= link_to selection_path(selection), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}  do %>
-                  <i class="fa-regular fa-trash-can text-danger"></i>
+                <%= link_to selection_path(selection), data: {turbo_method: :delete, sweet_alert_target: :delete}  do %>
+                  <i class="fa-regular fa-trash-can text-danger" data-action="click->sweet-alert#fireAlert"></i>
                 <% end %>
             </div>
           <% end %>
+        <% end %>
         <% end %>
       </div>
     </div>
