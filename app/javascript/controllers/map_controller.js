@@ -9,7 +9,7 @@ export default class extends Controller {
   }
 
   connect() {
-    console.log("Hello from map_controller.js")
+    // console.log("Hello from map_controller.js")
     mapboxgl.accessToken = this.apiKeyValue
 
     this.map = new mapboxgl.Map({
@@ -19,6 +19,7 @@ export default class extends Controller {
 
     this.#addMarkersToMap()
     this.#fitMapToMarkers()
+    this.#addRoutesToMap()
   }
 
   #addMarkersToMap() {
@@ -41,4 +42,37 @@ export default class extends Controller {
     this.map.fitBounds(bounds, { padding: 70, maxZoom: 15, duration: 1000 })
     this.map.addControl(new MapboxGeocoder({ accessToken: mapboxgl.accessToken, mapboxgl: mapboxgl }))
   }
+
+  #addRoutesToMap() {
+    map.on('load', () => {
+      map.addSource('route', {
+        'type': 'geojson',
+        'data': {
+          'type': 'Feature',
+          'properties': {},
+          'geometry': {
+            'type': 'LineString',
+            'coordinates': [
+              [-122.483696, 37.833818],
+              [-122.483482, 37.833174]
+            ]}
+          }
+      });
+    })
+
+    map.addLayer({
+      'id': 'route',
+      'type': 'line',
+      'source': 'route',
+      'layout': {
+        'line-join': 'round',
+        'line-cap': 'round'
+      },
+      'paint': {
+        'line-color': '#888',
+        'line-width': 8
+      }
+    });
+  }
+
 }

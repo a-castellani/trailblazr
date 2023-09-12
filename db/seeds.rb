@@ -5,10 +5,14 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+Review.destroy_all
+Message.destroy_all
+Collaboration.destroy_all
+Selection.destroy_all
+Itinerary.destroy_all
 Activity.destroy_all
 User.destroy_all
-Itinerary.destroy_all
-Selection.destroy_all
+
 # activities = [
 #   {
 #     country: 'Egypt',
@@ -382,44 +386,94 @@ activities = [
   }
 ]
 
-users = [
-  {
-    email: 'andres@email.com',
-    password: 'password',
-    first_name: 'Andres',
-    last_name: 'Castellani'
-  },
-  {
-    email: 'cedric@email.com',
-    password: 'password',
-    first_name: 'Cedric',
-    last_name: 'Garcia'
-  },
-  {
-    email: 'nadia@email.com',
-    password: 'password',
-    first_name: 'Nadia',
-    last_name: 'Ou'
-  },
-  {
-    email: 'sophie@email.com',
-    password: 'password',
-    first_name: 'Sophie',
-    last_name: 'Watson'
-  },
-  {
-    email: 'paul@email.com',
-    password: 'password',
-    first_name: 'Paul',
-    last_name: 'Vickers'
-  },
-  {
-    email: 'dareos@email.com',
-    password: 'password',
-    first_name: 'Dareos',
-    last_name: 'Le Wagon Teacher'
-  }
-]
+# users = [
+#   {
+#     email: 'andres@email.com',
+#     password: 'password',
+#     first_name: 'Andres',
+#     last_name: 'Castellani'
+#   },
+#   {
+#     email: 'cedric@email.com',
+#     password: 'password',
+#     first_name: 'Cedric',
+#     last_name: 'Garcia'
+#   },
+#   {
+#     email: 'nadia@email.com',
+#     password: 'password',
+#     first_name: 'Nadia',
+#     last_name: 'Ou'
+#   },
+#   {
+#     email: 'sophie@email.com',
+#     password: 'password',
+#     first_name: 'Sophie',
+#     last_name: 'Watson'
+#   },
+#   {
+#     email: 'paul@email.com',
+#     password: 'password',
+#     first_name: 'Paul',
+#     last_name: 'Vickers'
+#   },
+#   {
+#     email: 'dareos@email.com',
+#     password: 'password',
+#     first_name: 'Dareos',
+#     last_name: 'Le Wagon Teacher'
+#   }
+# ]
+
+user = User.new(
+  email: 'andres@email.com',
+  password: 'password',
+  first_name: 'Andres',
+  last_name: 'Castellani'
+)
+file = URI.open("https://avatars.githubusercontent.com/u/138031294?v=4")
+user.photo.attach(io: file, filename: "Andres Castellani", content_type: "image/jpeg")
+user.save
+
+user = User.new(
+  email: 'cedric@email.com',
+  password: 'password',
+  first_name: 'Cedric',
+  last_name: 'Garcia'
+)
+file = URI.open("https://avatars.githubusercontent.com/u/109752880?v=4")
+user.photo.attach(io: file, filename: "Cedric Garcia", content_type: "image/jpeg")
+user.save
+
+user = User.new(
+  email: 'nadia@email.com',
+  password: 'password',
+  first_name: 'Nadia',
+  last_name: 'Ou'
+)
+file = URI.open("https://avatars.githubusercontent.com/u/138388517?v=4")
+user.photo.attach(io: file, filename: "Nadia O", content_type: "image/jpeg")
+user.save
+
+user = User.new(
+  email: 'sophie@email.com',
+  password: 'password',
+  first_name: 'Sophie',
+  last_name: 'Watson'
+)
+file = URI.open("https://avatars.githubusercontent.com/u/139381853?v=4")
+user.photo.attach(io: file, filename: "Sophie Watson", content_type: "image/jpeg")
+user.save
+
+user = User.new(
+  email: 'paul@email.com',
+  password: 'password',
+  first_name: 'Paul',
+  last_name: 'Vickers'
+)
+file = URI.open("https://avatars.githubusercontent.com/u/29187254?v=4")
+user.photo.attach(io: file, filename: "Paul Vickers", content_type: "image/jpeg")
+user.save
 
 itineraries = [
   {
@@ -446,9 +500,9 @@ activities.each do |activity|
   Activity.create(name: activity[:name], location: activity[:location], duration: activity[:duration], category: activity[:category], image_url: activity[:image_url], description: activity[:description], number_of_people: activity[:number_of_people], tags: activity[:tags])
 end
 
-users.each do |user|
-  User.create(email: user[:email], password: user[:password], first_name: user[:first_name], last_name: user[:last_name])
-end
+# users.each do |user|
+#   User.new(email: user[:email], password: user[:password], first_name: user[:first_name], last_name: user[:last_name])
+# end
 
 itineraries.each do |itinerary|
   Itinerary.create(title: itinerary[:title])

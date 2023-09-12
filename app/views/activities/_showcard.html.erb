@@ -12,7 +12,7 @@
 
         <div class="d-none flex" data-toggle-target="form">
           <%= simple_form_for [@activity, @selection] do |f| %>
-            <%= f.association :itinerary, collection: current_user.itineraries %>
+            <%= f.association :itinerary, collection: @itineraries, :selected => @last_itinerary %>
             <%= f.submit "Add", class: "btn btn-primary" %>
           <% end %>
         </div>
