@@ -3,7 +3,7 @@ class Selection < ApplicationRecord
   belongs_to :activity
 
   has_many :messages
-  has_many :reviews
+  has_many :reviews, dependent: :destroy
 
   # accepts_nested_attributes_for :itinerary
   # accepts_nested_attributes_for :activity

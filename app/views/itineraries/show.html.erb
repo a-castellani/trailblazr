@@ -29,12 +29,14 @@
         <p data-toggle-target="button" data-action="click->toggle#toggle"><strong>Collaborators: </strong><% if current_user == @owner %><i class="fa-solid fa-user-plus"></i><% end %></p>
         <div class="d-flex">
           <div class="m-2">
-            <% if current_user.photo.attached? %>
-              <%= cl_image_tag current_user.photo.key, class: "avatar-collaborations", alt: "user photo"%>
-            <% else %>
-              <%= image_tag "default-img.JPG", class: "avatar-collaborations", alt: "user photo"%>
+            <% @itinerary.users.each do |user| %>
+                <% if @owner.photo.attached? %>
+                  <%= cl_image_tag @owner.photo.key, class: "avatar-collaborations", alt: "user photo"%>
+                <% else %>
+                  <%= image_tag "default-img.JPG", class: "avatar-collaborations", alt: "user photo"%>
+                <% end %>
+                <%# <p> <%= " #{@owner.first_name} "</p> %>
             <% end %>
-            <%# <p> <%= " #{@owner.first_name} "</p> %>
           </div>
           <% @itinerary.users.each do |user| %>
             <% unless user == @owner %>
