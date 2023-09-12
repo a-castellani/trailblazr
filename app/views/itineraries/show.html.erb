@@ -73,7 +73,7 @@
                 <div class="d-flex justify-content-between align-items-center mb-1">
                   <h6 class="fw-bold small-card-text-title me-3 mb-0 pb-0"><%= selection.activity.name.truncate(27, separator: ' ') %></h6>
                   <div class="d-flex" data-controller="add-activity-to-day">
-                    <%= link_to selection_path(selection)  do %>
+                    <%= link_to activity_selections_path(selection.activity,selection)  do %>
                       <i class="fa-regular fa-square-plus text-primary" data-action="click->add-activity-to-day#displayForm"></i>
                     <% end %>
 
