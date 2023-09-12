@@ -36,12 +36,14 @@ class ActivitiesController < ApplicationController
     authorize @activity
     @itineraries = current_user.itineraries
     @last_itinerary = @itineraries.last
+
     @all_reviews = []
     @all_selections = @activity.selections
     @all_selections.each do |selection|
       @all_reviews << selection.reviews
     end
     @reviews = @all_reviews.flatten
+    # raise
     @markers = @activities.where(id: params[:id]).map do |activity|
       {
         lat: activity.latitude,
