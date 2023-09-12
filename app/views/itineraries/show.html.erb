@@ -67,36 +67,7 @@
       <div>
         <%# group_by day hash in controller day on selection model %>
         <div class="days">
-        <div class="col-8 row small-card-row">
-          <% @selections_with_days.each do |day, selection| %>
-            <div data-controller="reviewform">
-              <div> <i class="fa-regular fa-calendar-days"></i> Day <%= day %></div>
-              <% selection.each do |selection| %>
-
-                <div class="daycard">
-                  <%= image_tag selection.activity.image_url, class: 'img' %>
-                  <div class="d-flex justify-content-between">
-                    <h6><%= selection.activity.name.truncate(20, separator: ' ') %></h6>
-                    <div class="d-flex justify-content-between m-1">
-                      <div class="d-flex" data-controller="add-activity-to-day">
-                        <%= link_to edit_selection_path(selection)  do %>
-                          <i class="fa-solid fa-pen fa-square-plus text-primary" data-action="click->add-activity-to-day#displayForm"></i>
-                        <% end %>
-                        <%= link_to selection_path(selection), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}  do %>
-                           <i class="fa-regular fa-trash-can text-danger mx-1"></i>
-                        <% end %>
-                        <div><i class="fa-solid fa-star fa-sm" data-action="click->reviewform#fire"></i></div>
-                      </div>
-                    </div>
-                  </div>
-                  <p><%= selection.activity.description.truncate(100, separator: ' ') %></p>
-                </div>
-                <div class="review-form d-none" data-reviewform-target="reviewbox">
-                  <%= render "reviews/reviewform", activity: selection.activity, selection: selection, review: @review%>
-                </div>
-              <% end %>
-            </div>
-          <% end %>
+          <%= render "day_card" %>
         </div>
 
         <div class="col-4">
