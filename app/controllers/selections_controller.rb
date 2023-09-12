@@ -50,7 +50,24 @@ class SelectionsController < ApplicationController
 
   # GET selections/:id/edit
   def edit
+    # @itinerary = Itinerary.find(params[:itinerary_id])
     @selection = Selection.find(params[:id])
+
+    @selections = Selection.where(itinerary_id: @selection.itinerary_id)
+
+    @selections_with_days = @selections.reject { |s| s.day.nil? }.group_by(&:day).sort_by(&:first)
+
+    @days = []
+    if @selections_with_days.empty?
+      @days << 1
+    else
+      last_day = @selections_with_days.last[0]
+      @days = (1..last_day + 1)
+      # @days.each_with_index do |day, index|
+      #     day = index + 1
+      #   end
+    end
+
     authorize @selection
   end
 
@@ -74,7 +91,6 @@ class SelectionsController < ApplicationController
 
   #   authorize @wish_list_selection
   # end
-
   # def delete_days
   #   @day_selection = Selection.find(params[:id])
   #   if @day_selection.destroy
@@ -85,14 +101,24 @@ class SelectionsController < ApplicationController
 
   def destroy
     @day_selection = Selection.find(params[:id])
-    @selection = Selection.where(itinerary: @day_selection.itinerary, activity: @day_selection.activity)
-    @selection.destroy_all
 
     if @day_selection.destroy
       redirect_to itinerary_path(@day_selection)
     end
     authorize @day_selection
   end
+
+  # def destroy
+  #   raise
+  #   @day_selection = Selection.find(params[:id])
+  #   @selection = Selection.where(itinerary_id: @day_selection.itinerary, activity_id: @day_selection.activity)
+  #   @selection.destroy_all
+
+  #   if @day_selection.destroy
+  #     redirect_to itinerary_path(@day_selection)
+  #   end
+  #   authorize @day_selection
+  # end
 
   def new
     @selection = Selection.new
