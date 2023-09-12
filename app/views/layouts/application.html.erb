@@ -13,9 +13,11 @@
   </head>
 
   <body>
+    <%= render "shared/flashes" %>
     <% if controller_name == 'pages' && action_name == 'home' %>
       <%= yield %>
     <% else %>
+
       <div class="container-fluid" data-controller="sidebar-toggler">
         <div class="row section" >
           <%= render "shared/navbar" %>
@@ -33,6 +35,5 @@
         </div>
       </div>
     <% end %>
-    <%= render "shared/flashes" %>
   </body>
 </html>
