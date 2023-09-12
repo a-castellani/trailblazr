@@ -1,6 +1,6 @@
 class CollaborationsController < ApplicationController
   skip_before_action :authenticate_user!, only: :show
-  before_action :set_collaboration, only: %i[show edit]
+  before_action :set_collaboration, only: %i[show edit destroy]
 
   def index
     @collaborations = policy_scope(Collaboration)
@@ -17,6 +17,8 @@ class CollaborationsController < ApplicationController
     authorize @collaboration
 
     if @collaboration.save
+      CollabNotification.with(collaboration: @collaboration, itinerary: @itinerary,
+                              itinerary_owner: @user, type: "create").deliver(@collaboration.user)
       UserMailer.with(user: @collaboration.user, itinerary: @itinerary).hello.deliver_now
       # render json: @user, status: :created
       redirect_to itinerary_path(@itinerary)
@@ -32,9 +34,7 @@ class CollaborationsController < ApplicationController
   end
 
   def destroy
-    @collaboration = Collaboration.find(params[:id])
     authorize @collaboration
-
     if @collaboration.destroy
       flash[:notice] = "Collaboration was successfully deleted."
     else
