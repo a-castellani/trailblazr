@@ -10,7 +10,6 @@ header {
   top: 0;
   left: 0;
   width: 100%;
-  padding: 5px 100px;
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -20,10 +19,8 @@ header {
 .logo {
   color: #359381;
   pointer-events: none;
-  margin-right: 290px;
-  // justify-content: center;
-  padding-right: 20px;
-
+  margin-right: 500px;
+  padding: 10px 15px;
 }
 .home-nav {
   display: flex;
@@ -35,9 +32,9 @@ header {
   text-decoration: none;
   color: #359381;
   border-radius: 20px;
-  padding: 6px 15px;
+  padding: 10px 15px;
   margin: 0 10px;
-  font-weight: 600;
+  font-weight: bolder;
 }
 
 .home-nav a:hover {
