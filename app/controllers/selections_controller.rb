@@ -120,6 +120,27 @@ class SelectionsController < ApplicationController
     authorize @selection
   end
 
+  # GET /selections/:id/select_day
+  def select_day
+    @selection = Selection.find(params[:id])
+    authorize @selection, :update?
+  end
+
+  # PATCH /selections/:id/clone_with_new_day
+  def clone_with_new_day
+    @selection = Selection.find(params[:id])
+    authorize @selection, :update?
+
+    @selection_clone = @selection.dup # make a new selection
+    @selection_clone.day = params[:selection][:day]
+
+    if @selection_clone.save
+      redirect_to itinerary_path(@selection_clone.itinerary), notice: "Activity added to day plan"
+    else
+      render :edit, status: :unprocessable_entity
+    end
+  end
+
   private
 
   def selection_params
