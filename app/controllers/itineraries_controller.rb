@@ -1,6 +1,7 @@
 class ItinerariesController < ApplicationController
   skip_before_action :authenticate_user!, only: :show
   before_action :set_itinerary, only: %i[show edit update destroy]
+  before_action :set_selections_with_days, only: %i[index edit]
 
   def index
     @itineraries = policy_scope(current_user.itineraries)
@@ -93,5 +94,11 @@ class ItinerariesController < ApplicationController
 
   def set_itinerary
     @itinerary = Itinerary.find(params[:id])
+  end
+
+  def set_selections_with_days
+    @selections = Selection.where(itinerary_id: @itinerary)
+    @selections_with_days = @selections.reject { |s| s.day.nil? }.group_by(&:day).sort_by(&:first)
+    @days = @selections_with_days.last[0] + 1
   end
 end
