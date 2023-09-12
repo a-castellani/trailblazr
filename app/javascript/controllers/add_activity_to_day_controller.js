@@ -5,11 +5,11 @@ export default class extends Controller {
   static targets = ["form"]
 
   connect() {
-    console.log('add activity to day connected')
+    // console.log('add activity to day connected')
   }
 
   displayForm() {
-    console.log('display form called')
+    // console.log('display form called')
     this.formTarget.classList.remove("d-none")
   }
 }

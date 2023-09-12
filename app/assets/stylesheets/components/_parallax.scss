@@ -3,14 +3,14 @@ body {
   overflow-x: hidden;
 }
 
-#home-login {
+.home-nav {
   display: flex;
   justify-content: center;
   align-items: flex-start;
   z-index: 100;
 }
 
-#home-login a {
+.home-nav a {
   text-decoration: none;
   color: #359381;
   border-radius: 20px;
@@ -19,7 +19,7 @@ body {
   font-weight: 400;
 }
 
-#home-login a:hover {
+.home-nav a:hover {
   background-color: #359381;
   color: #fff;
 }
@@ -39,12 +39,12 @@ body {
 
 #text {
   position: absolute;
-  font-size: 5rem;
+  font-size: 7rem;
   color: #fff;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
   font-family: $headers-font;
   letter-spacing: 1rem;
-  font-size: 120px;
+
 }
 
 .parallax img {
@@ -55,9 +55,21 @@ body {
   pointer-events: none;
 }
 
+// #plant {
+//   z-index: 100;
+// }
+
+// #connect {
+//   position: absolute;
+//   background-color: #003329;
+//   height: 70vh;
+//   z-index: 1;
+// }
+
 .sec {
   position: relative;
   height: 100vh;
   background-color: #003329;
   padding: 100px;
+  z-index: 5;
 }
