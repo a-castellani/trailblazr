@@ -1,12 +1,15 @@
 .small-card {
-  border-radius: 10px;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
   padding: 10px;
-  height: 100px;
+  height: 60px;
 }
 
 .small-card-img {
-  border-radius: 10px;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
   object-fit: contain;
+  max-height: 55px;
 }
 
 .small-card-text-title {
