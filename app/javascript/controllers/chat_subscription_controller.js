@@ -9,11 +9,11 @@ export default class extends Controller {
   }
 
   connect() {
-    console.log("hello")
+    // console.log("hello")
     this.channel = createConsumer().subscriptions.create(
       { channel: "ChatChannel", id: this.itineraryValue },
       { received: data => this.messagesTarget.insertAdjacentHTML("beforeend", data)}
     )
-    console.log(`Subscribed to chat in itinerary ID: ${this.itineraryValue}`)
+    // console.log(`Subscribed to chat in itinerary ID: ${this.itineraryValue}`)
   }
 }
