@@ -1,7 +1,6 @@
 class ItinerariesController < ApplicationController
   skip_before_action :authenticate_user!, only: :show
   before_action :set_itinerary, only: %i[show edit update destroy]
-  before_action :set_selections_with_days, only: %i[edit]
 
   def index
     @itineraries = policy_scope(current_user.itineraries)
@@ -39,21 +38,13 @@ class ItinerariesController < ApplicationController
     @message = Message.new
     authorize @itinerary
 
-    # @selections = policy_scope(Selection)
-
-    # @selections = Selection.where(itinerary_id: params[:itinerary_id]) # replace with params[id] when get itinerary
-    # @itinerary = Itinerary.find(params[:itinerary_id])
     @selections = Selection.where(itinerary_id: @itinerary)
     if @selections
       @selections_with_days = @selections.reject { |s| s.day.nil? }.group_by(&:day).sort_by(&:first)
-      # raise
       @selections_without_days = Selection.where(itinerary_id: @itinerary, day: nil)
     end
 
     @review = Review.new
-    # authorize @review
-    # @selection = Selection.find(params[:selection_id])
-    # @activity = Activity.find(params[:activity_id])
 
     # The `geocoded` scope filters only activities with coordinates
     @markers = (@selections_with_days.map { |p| p[1] }.flatten).map do |selection|
@@ -99,11 +90,5 @@ class ItinerariesController < ApplicationController
 
   def set_itinerary
     @itinerary = Itinerary.find(params[:id])
-  end
-
-  def set_selections_with_days
-    @selections = Selection.where(itinerary_id: @itinerary)
-    @selections_with_days = @selections.reject { |s| s.day.nil? }.group_by(&:day).sort_by(&:first)
-    @days = @selections_with_days.last[0] + 1
   end
 end
