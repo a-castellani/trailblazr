@@ -35,6 +35,7 @@ class ActivitiesController < ApplicationController
     @selection = Selection.new
     authorize @activity
     @itineraries = current_user.itineraries
+    @last_itinerary = @itineraries.last
     @all_reviews = []
     @all_selections = @activity.selections
     @all_selections.each do |selection|
@@ -49,5 +50,25 @@ class ActivitiesController < ApplicationController
         marker_html: render_to_string(partial: "marker")
       }
     end
+  end
+
+  def new
+    @activity = Activity.new
+    authorize @activity
+  end
+
+  def create
+    @activity = Activity.new(activity_params)
+    authorize @activity
+    if @activity.save
+      redirect_to activity_path(@activity)
+    else
+      render :new, status: :unprocessable_entity
+    end
+  end
+
+  private
+  def activity_params
+    params.require(:activity).permit(:name, :category, :description, :location, :duration, :number_of_people)
   end
 end

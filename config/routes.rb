@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   end
 
   resources :collaborations, only: [:destroy]
-  resources :activities, only: [:index, :show] do
+  resources :activities, only: [:index, :show, :new, :create] do
     resources :selections, only: %i[new create] do
       resources :reviews, only: %i[new create]
     end

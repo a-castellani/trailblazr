@@ -45,6 +45,11 @@ class ItinerariesController < ApplicationController
     @selections = Selection.where(itinerary_id: @itinerary)
     @selections_with_days = @selections.reject { |s| s.day.nil? }.group_by(&:day).sort_by(&:first)
     @selections_without_days = Selection.where(itinerary_id: @itinerary, day: nil)
+
+    @review = Review.new
+    # authorize @review
+    # @selection = Selection.find(params[:selection_id])
+    # @activity = Activity.find(params[:activity_id])
   end
 
   def edit

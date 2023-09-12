@@ -4,9 +4,9 @@ import { Controller } from "@hotwired/stimulus"
 export default class extends Controller {
   static targets = ["button", "form"]
   connect() {
-    console.log("Hello from toggle controller")
-    console.log(this.buttonTarget)
-    console.log(this.formTarget)
+    // console.log("Hello from toggle controller")
+    // console.log(this.buttonTarget)
+    // console.log(this.formTarget)
   }
 
   toggle() {

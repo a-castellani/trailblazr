@@ -13,8 +13,7 @@ class ReviewsController < ApplicationController
     authorize @review
     @review.save
     @selection = Selection.find(params[:selection_id])
-    redirect_to activities_path
-    # redirect_to itinerary_path(@selection.itinerary)
+    redirect_to itinerary_path(@selection.itinerary)
   end
 
   private
