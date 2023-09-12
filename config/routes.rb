@@ -23,4 +23,6 @@ Rails.application.routes.draw do
       patch :clone_with_new_day
     end
   end
+
+  resources :notifications, only: [:index]
 end
