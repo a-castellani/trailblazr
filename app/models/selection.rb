@@ -17,8 +17,8 @@ class Selection < ApplicationRecord
   def reorder_days
     selections = self.itinerary.selections
     selection_index = selections.order(:day).find_index { |i| i == self }
-    selections.each_with_index do |selection, index|
-      if index > selection_index
+    selections.order(:day).each_with_index do |selection, index|
+      if index > selection_index && selection.day != self.day
         selection.update!(day: index)
       end
     end
