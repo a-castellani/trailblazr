@@ -6,6 +6,7 @@ class Selection < ApplicationRecord
   has_many :reviews
 
   before_destroy :reorder_days
+  validates :activity, uniqueness: { scope: :itinerary }
 
   # accepts_nested_attributes_for :itinerary
   # accepts_nested_attributes_for :activity

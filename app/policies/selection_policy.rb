@@ -28,4 +28,8 @@ class SelectionPolicy < ApplicationPolicy
   def edit?
     true
   end
+  
+  def delete_days?
+    destroy?
+  end
 end
