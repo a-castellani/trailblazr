@@ -1,15 +1,18 @@
+<header>
+  <% if user_signed_in? %>
+    <h4 class="logo">Hello <%= @user.first_name %> !</h4>
+    <nav class="home-nav">
+        <%= link_to "My Itineraries", itineraries_path %>
+        <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete} %>
+    </nav>
+  <% else %>
+    <nav class="home-nav">
+      <%= link_to "Login", new_user_session_path %>
+    </nav>
+  <% end %>
+</header>
 
-<% unless user_signed_in? %>
-  <div class="home-nav">
-    <%= link_to "Login", new_user_session_path %>
-  </div>
-<% else %>
-  <div class="home-nav">
-    <%= link_to "My Itineraries", itineraries_path %>
-  </div>
-<% end %>
-
-<section class="parallax" >
+<section class="parallax p-0 m-0" >
   <div data-controller="parallax" data-action="scroll->parallax#handleScroll">
     <div>
       <%= image_tag("hill1.png", id: "hill1", data: { parallax_target: "hill1" }) %>

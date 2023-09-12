@@ -10,7 +10,7 @@ export default class extends Controller {
 
   connect() {
     // console.log("hello hello");
-    console.log(this.hill4Target);
+    // console.log(this.hill4Target);
 
     window.addEventListener("scroll", this.handleScroll);
   }
@@ -20,15 +20,15 @@ export default class extends Controller {
   console.log(window.scrollY);
     const value = window.scrollY;
     console.log(value);
-    console.log("this is test target");
-    console.log(this.textTarget);
-    console.log(this.leafTarget);
-    console.log(this.hill1Target);
-    console.log(this.hill4Target);
-    console.log(this.hill5Target);
+    // console.log("this is test target");
+    // console.log(this.textTarget);
+    // console.log(this.leafTarget);
+    // console.log(this.hill1Target);
+    // console.log(this.hill4Target);
+    // console.log(this.hill5Target);
 
 
-
+if (value <= 550) {
     this.textTarget.style.marginTop = value * 2.5 + "px";
     this.leafTarget.style.top = value * -1.5 + "px";
     this.leafTarget.style.left = value * 1.5 + "px";
@@ -36,4 +36,5 @@ export default class extends Controller {
     this.hill4Target.style.left = value * -1.5 + "px";
     this.hill1Target.style.top = value * 1.5 + "px";
   }
+}
 }

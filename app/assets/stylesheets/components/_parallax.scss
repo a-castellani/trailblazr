@@ -1,13 +1,34 @@
+
 body {
   min-height: 100vh;
   overflow-x: hidden;
+  margin: 0;
 }
 
+header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 5px 100px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  z-index: 100;
+}
+
+.logo {
+  color: #359381;
+  pointer-events: none;
+  margin-right: 290px;
+  // justify-content: center;
+  padding-right: 20px;
+
+}
 .home-nav {
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  z-index: 100;
 }
 
 .home-nav a {
@@ -16,7 +37,7 @@ body {
   border-radius: 20px;
   padding: 6px 15px;
   margin: 0 10px;
-  font-weight: 400;
+  font-weight: 600;
 }
 
 .home-nav a:hover {
@@ -35,6 +56,8 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
+  width: 106vw;
+  left: 0;
 }
 
 #text {
@@ -55,9 +78,6 @@ body {
   pointer-events: none;
 }
 
-// #plant {
-//   z-index: 100;
-// }
 
 // #connect {
 //   position: absolute;
@@ -69,6 +89,7 @@ body {
 .sec {
   position: relative;
   height: 100vh;
+  width: 100vw;
   background-color: #003329;
   padding: 100px;
   z-index: 5;
