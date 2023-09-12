@@ -88,16 +88,17 @@
                   <p class="card-text fw-bold"><%= selection.activity.description.truncate(150, separator: ' ') %></p>
                 </div>
               </div>
-              <div class="col-4">
-                <%= image_tag selection.activity.image_url, class: 'small-card-img shadow w-100 mb-2' %>
-              </div>
             </div>
+            <div class="col-4">
+              <%= image_tag selection.activity.image_url, class: 'small-card-img shadow w-100' %>
+            </div>
+
 
             <div class="review-form d-none" data-reviewform-target="reviewbox">
               <%= render "reviews/reviewform", activity: selection.activity, selection: selection, review: @review%>
             </div>
           <% end %>
-        <div><br>
+        <div>
         <%# group_by day hash in controller day on selection model %>
         <% @selections_with_days.each do |day, selection| %>
           <div> <i class="fa-regular fa-calendar-days"></i> Day <%= day %></div>
