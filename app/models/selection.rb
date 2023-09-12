@@ -3,9 +3,10 @@ class Selection < ApplicationRecord
   belongs_to :activity
 
   has_many :messages
-  has_many :reviews
+  has_many :reviews, dependent: :destroy
 
-  validates :activity, uniqueness: { scope: :itinerary }
+  # need help with this, when add this line, in 'Add activity to itinerary' -> click 'update'  will go to 'Edit'
+  validates :itinerary, uniqueness: { scope: :activity, message: "already contains this activity." }
 
   # accepts_nested_attributes_for :itinerary
   # accepts_nested_attributes_for :activity

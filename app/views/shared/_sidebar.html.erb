@@ -27,7 +27,7 @@
         <li class="nav-item accordion-item">
           <h3 data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">Search <i class="fa-solid fa-magnifying-glass fa-2xs"></i></h3>
         </li>
-        <ul class="sub-nav accordion-collapse collapse" id="collapseThree" data-bs-parent="#accordionThree">
+        <div class="sub-nav accordion-collapse collapse" id="collapseThree" data-bs-parent="#accordionThree">
           <%= form_tag(activities_path, method: "get") do  %>
             <%= select_tag(:tags, options_for_select(@tags.collect{ |tag| [tag, tag]}), class: "form-control mb-1", :prompt => "What's your mood?") %>
             <%= select_tag(:category, options_for_select(@categories.collect{ |category| [category, category]}), class: "form-control mb-1", :prompt => "What do you want to do?") %>
@@ -35,7 +35,7 @@
             <%= text_field_tag :number_of_people, params[:number_of_people], class: "form-control mb-1", placeholder: "How many people?"%>
             <%= submit_tag("Search", :class => "btn btn-primary mb-2" )%>
           <% end %>
-        </ul>
+        </div>
       </div>
 
 
