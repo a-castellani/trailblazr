@@ -1,7 +1,11 @@
 
 <% unless user_signed_in? %>
-  <div id="home-login">
+  <div class="home-nav">
     <%= link_to "Login", new_user_session_path %>
+  </div>
+<% else %>
+  <div class="home-nav">
+    <%= link_to "My Itineraries", itineraries_path %>
   </div>
 <% end %>
 
@@ -31,11 +35,13 @@
     <div>
       <%= image_tag("leaf.png" ,id: "leaf",  data: { parallax_target: "leaf" }) %>
     </div>
-    <div data-parallax-target="plant">
+    <div id="connect">
+    <div>
       <%= image_tag("plant.png", id: "plant") %>
     </div>
   </div>
 </section>
+    </div>
 
 <section class="sec">
   <div class="row">
@@ -54,6 +60,6 @@
   </div>
 
 </section>
-<%# 
+<%#
 <div class="banner">
 </div> %>
