@@ -17,13 +17,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :selections, only: %i[destroy edit update] do
-    member do
-      get :select_day
-      patch :clone_with_new_day
-      delete :delete_days
-    end
-  end
+  resources :selections, only: %i[destroy edit update]
 
   resources :notifications, only: [:index]
 end
