@@ -1,0 +1,36 @@
+.daycard {
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  height: 220px;
+  width: 200px;
+  border-radius: 5px;
+}
+
+.daycard > img {
+  max-height: 125px;
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.daycard h6 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 7px;
+}
+
+.daycard p {
+  font-size: 12px;
+  opacity: .7;
+  margin: 7px;
+}
+
+
+// .card .card-infos {
+//   padding: 16px;
+//   display: flex;
+//   justify-content: space-between;
+//   align-items: flex-end;
+//   position: relative;
+// }
