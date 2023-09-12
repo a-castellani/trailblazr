@@ -5,4 +5,8 @@ class NotificationPolicy < ApplicationPolicy
       scope.where(recipient: user)
     end
   end
+
+  def toggle_read?
+    record.recipient == user
+  end
 end

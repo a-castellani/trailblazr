@@ -24,6 +24,13 @@ class SelectionsController < ApplicationController
     if @selection.save
       redirect_to itinerary_path(@selection.itinerary)
     else
+      @all_reviews = []
+      @all_selections = @activity.selections
+      @all_selections.each do |selection|
+        @all_reviews << selection.reviews
+      end
+      @reviews = @all_reviews.flatten
+
       render "activities/show", status: :unprocessable_entity
     end
   end

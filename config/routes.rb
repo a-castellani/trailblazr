@@ -19,5 +19,9 @@ Rails.application.routes.draw do
 
   resources :selections, only: %i[destroy edit update]
 
-  resources :notifications, only: [:index]
+  resources :notifications, only: [:index] do
+    member do
+      patch :toggle_read
+    end
+  end
 end
