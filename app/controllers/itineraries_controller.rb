@@ -44,12 +44,24 @@ class ItinerariesController < ApplicationController
     # @itinerary = Itinerary.find(params[:itinerary_id])
     @selections = Selection.where(itinerary_id: @itinerary)
     @selections_with_days = @selections.reject { |s| s.day.nil? }.group_by(&:day).sort_by(&:first)
+    # raise
     @selections_without_days = Selection.where(itinerary_id: @itinerary, day: nil)
 
     @review = Review.new
     # authorize @review
     # @selection = Selection.find(params[:selection_id])
     # @activity = Activity.find(params[:activity_id])
+
+    # The `geocoded` scope filters only activities with coordinates
+    @markers = (@selections_with_days.map { |p| p[1] }.flatten).map do |selection|
+      {
+        lat: selection.activity.latitude,
+        lng: selection.activity.longitude,
+        info_window_html: render_to_string(partial: "selections/info_window_selected", locals: {selection: selection}),
+        marker_html: render_to_string(partial: "activities/marker")
+        # route_html: render_to_string(partial: "activities/route")
+      }
+    end
   end
 
   def edit
