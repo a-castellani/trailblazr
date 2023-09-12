@@ -24,5 +24,9 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :notifications, only: [:index]
+  resources :notifications, only: [:index] do
+    member do
+      patch :toggle_read
+    end
+  end
 end
