@@ -24,6 +24,13 @@ class SelectionsController < ApplicationController
     if @selection.save
       redirect_to itinerary_path(@selection.itinerary)
     else
+      @all_reviews = []
+      @all_selections = @activity.selections
+      @all_selections.each do |selection|
+        @all_reviews << selection.reviews
+      end
+      @reviews = @all_reviews.flatten
+
       render "activities/show", status: :unprocessable_entity
     end
   end
@@ -68,8 +75,18 @@ class SelectionsController < ApplicationController
   #   authorize @wish_list_selection
   # end
 
+  # def delete_days
+  #   @day_selection = Selection.find(params[:id])
+  #   if @day_selection.destroy
+  #     redirect_to itinerary_path(@day_selection)
+  #   end
+  #   authorize @day_selection
+  # end
+
   def destroy
     @day_selection = Selection.find(params[:id])
+    @selection = Selection.where(itinerary: @day_selection.itinerary, activity: @day_selection.activity)
+    @selection.destroy_all
 
     if @day_selection.destroy
       redirect_to itinerary_path(@day_selection)
