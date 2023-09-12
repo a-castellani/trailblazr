@@ -12,8 +12,17 @@ export default class extends Controller {
     // console.log("hello")
     this.channel = createConsumer().subscriptions.create(
       { channel: "ChatChannel", id: this.itineraryValue },
-      { received: data => this.messagesTarget.insertAdjacentHTML("beforeend", data)}
+      { received: data => this.#insertMessageAndScrollDown(data)}
     )
-    // console.log(`Subscribed to chat in itinerary ID: ${this.itineraryValue}`)
+  }
+
+  #insertMessageAndScrollDown(data) {
+    console.log("scrolling...")
+    this.messagesTarget.insertAdjacentHTML("afterbegin", data)
+    this.messagesTarget.scrollTo(0, this.messagesTarget.scrollHeight)
+  }
+
+  resetForm(event) {
+    event.target.reset()
   }
 }

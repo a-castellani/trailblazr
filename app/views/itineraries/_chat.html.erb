@@ -1,18 +1,22 @@
 <div class="chatroom" data-controller="chat-subscription" data-chat-subscription-itinerary-value="<%= @itinerary.id %>">
 
   <h1>Chat</h1>
+  <div class="message-box">
+    <%= simple_form_for [@itinerary, @message], html: { data: { action: "turbo:submit-end->chat-subscription#resetForm" }, class: "d-flex" } do |f| %>
+      <%= f.input :content, class: "col-10", label: false, placeholder: "Type your message here..."%>
+      <%= f.submit "Send", class: "btn btn-primary mb-3" %>
+    <% end %>
+  </div>
 
   <div data-chat-subscription-target="messages">
-    <% @itinerary.messages.each do |message| %>
-      <%= render "messages/message", message: message %>
+    <% @itinerary.messages.reverse_each do |message| %>
+      <% if message.user == current_user %>
+        <%= render "messages/my_message", message: message %>
+      <% else %>
+        <%= render "messages/message", message: message %>
+      <% end %>
     <% end %>
 
-    <div>
-      <%= simple_form_for [@itinerary, @message], html: {class: "d-flex"} do |f| %>
-        <%= f.input :content, label: false, placeholder: "Type your message here..."%>
-        <%= f.submit "Send", class: "btn btn-primary mb-3" %>
-      <% end %>
-    </div>
   </div>
 
 </div>

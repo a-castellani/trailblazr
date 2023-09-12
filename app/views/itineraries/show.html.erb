@@ -65,47 +65,49 @@
 
       <%# selections %>
       <div>
-        <div class="row small-card-row" data-controller="reviewform">
-          <h6>Wish List</h6>
-          <% @selections_without_days.each do |selection| %>
-            <div class="col-8">
-              <div class="card small-card mb-2 shadow">
-                <div class="d-flex justify-content-between align-items-center mb-1">
-                  <h6 class="fw-bold small-card-text-title me-3 mb-0 pb-0"><%= selection.activity.name.truncate(27, separator: ' ') %></h6>
-                  <div class="d-flex" data-controller="add-activity-to-day">
-                    <%= link_to select_day_selection_path(selection)  do %>
-                      <i class="fa-regular fa-square-plus text-primary" data-action="click->add-activity-to-day#displayForm"></i>
-                    <% end %>
-                    <%= link_to selection_path(selection.activity), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}  do %>
-                      <i class="fa-regular fa-trash-can text-danger d-none"></i>
-                    <% end %>
-                    <i class="fa-solid fa-star fa-sm" data-action="click->reviewform#fire"></i>
+        <%# group_by day hash in controller day on selection model %>
+        <div class="col-8 row small-card-row">
+          <% @selections_with_days.each do |day, selection| %>
+            <div data-controller="reviewform">
+              <div> <i class="fa-regular fa-calendar-days"></i> Day <%= day %></div>
+              <% selection.each do |selection| %>
+                <div class="mb-2">
+                  <div class="d-flex align-items-center">
+                    <div class="col-8 me-2">
+                      <div class="card small-card mb-2 shadow">
+                        <div class="d-flex justify-content-between align-items-center mb-1">
+                          <h6 class="fw-bold small-card-text-title mb-0 pb-0"><%= selection.activity.name.truncate(30, separator: ' ') %></h6>
+                          <div class="d-flex justify-content-between">
+                            <div class="d-flex gap-1" data-controller="add-activity-to-day">
+                              <%= link_to edit_selection_path(selection)  do %>
+                                <i class="fa-solid fa-pen fa-square-plus text-primary" data-action="click->add-activity-to-day#displayForm"></i>
+                                <%= link_to selection_path(selection), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}  do %>
+                                  <i class="fa-regular fa-trash-can text-danger mx-1"></i>
+                                <% end %>
+                              <% end %>
+                            </div>
+                            <div><i class="fa-solid fa-star fa-sm" data-action="click->reviewform#fire"></i></div>
+                          </div>
+                        </div>
+                        <p class="card-text fw-bold"><%= selection.activity.description.truncate(150, separator: ' ') %></p>
+                      </div>
+                    </div>
+                    <div class="col-4">
+                      <%= image_tag selection.activity.image_url, class: 'small-card-img shadow w-100 mb-2' %>
+                    </div>
+                  </div>
+                  <div class="review-form d-none" data-reviewform-target="reviewbox">
+                    <%= render "reviews/reviewform", activity: selection.activity, selection: selection, review: @review%>
                   </div>
                 </div>
-                <p class="card-text fw-bold"><%= selection.activity.description.truncate(90, separator: ' ') %></p>
-              </div>
+              <% end %>
             </div>
-            <div class="col-4">
-              <%= image_tag selection.activity.image_url, class: 'small-card-img shadow w-100' %>
-            </div>
+          <% end %>
+        </div>
 
-            <div class="review-form d-none" data-reviewform-target="reviewbox">
-              <%= render "reviews/reviewform", activity: selection.activity, selection: selection, review: @review%>
-            </div>
-          <% end %>
-        <div>
-        <%# group_by day hash in controller day on selection model %>
-        <% @selections_with_days.each do |day, selection| %>
-          <div> <i class="fa-regular fa-calendar-days"></i> Day <%= day %></div>
-          <% selection.each do |selection| %>
-            <div class="mb-2">
-              <%=selection.activity.name %>
-                <%= link_to selection_path(selection), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}  do %>
-                  <i class="fa-regular fa-trash-can text-danger"></i>
-                <% end %>
-            </div>
-          <% end %>
-        <% end %>
+        <div class="col-4">
+          <%= render "wish_list_card" %>
+        </div>
       </div>
     </div>
   </div>

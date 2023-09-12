@@ -1,6 +1,16 @@
 .chatroom{
-  color: white;
-  background-color: $light-blue;
+  color: $dark-green;
+  background-color: white;
   margin: 10px;
   padding: 10px;
+  height: 50vh;
+  overflow-y: scroll;
+  border-radius: 4px;
+  box-shadow: 0 0 3px #1C2B264D;
+  h1 {
+    text-align: center;
+  }
+  .message-box {
+    justify-content: center;
+  }
 }
