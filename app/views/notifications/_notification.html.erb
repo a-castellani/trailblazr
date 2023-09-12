@@ -1,0 +1,18 @@
+<% if notification.params[:type] == "create" %>
+  <li>
+    <div>
+      <p class="text-gray">
+        <strong><%= notification.params[:itinerary_owner].first_name %> <%= notification.params[:itinerary_owner].last_name %></strong> has added you to the itinerary
+          <strong><%= notification.params[:itinerary].title%></strong> as <em><%= notification.params[:collaboration].role.capitalize %></em>
+      </p>
+      <div class="flex justify-between mt-1 text-gray-500 text-sm space-x-4">
+        <p>
+          Received on <%= notification.created_at.to_date %>
+        </p>
+        <p>
+          Status: <%= notification.read? ? "Read" : "Unread" %>
+        </p>
+      </div>
+    </div>
+  </li>
+<% end %>

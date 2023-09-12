@@ -9,4 +9,5 @@ class User < ApplicationRecord
   has_many :itineraries, through: :collaborations
   has_many :reviews
   has_one_attached :photo
+  has_many :notifications, as: :recipient, dependent: :destroy
 end

@@ -9,7 +9,7 @@ export default class extends Controller {
   }
 
   connect() {
-    console.log("Hello from map_controller.js")
+    // console.log("Hello from map_controller.js")
     mapboxgl.accessToken = this.apiKeyValue
 
     this.map = new mapboxgl.Map({

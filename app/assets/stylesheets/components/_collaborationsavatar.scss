@@ -1,0 +1,22 @@
+.avatar-collaborations {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  position: relative;
+}
+
+.collaborators .button-collaborators {
+  background-color: rgb(204, 201, 201);
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  position: absolute;
+  top: -10px;
+  left: 25px;
+  text-decoration: none;
+  padding: 0px 7px 1px 4px;
+}
+
+#delete-btn {
+  position: relative;
+}

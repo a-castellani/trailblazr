@@ -1,0 +1,17 @@
+<%= simple_form_for(@activity) do |f| %>
+  <%= f.input :name %>
+  <%= f.input :category %>
+  <%= f.input :description %>
+  <%= f.input :location %>
+  <div class="d-flex justify-content-between">
+    <div class="d-flex col-4">
+      <%= f.input :duration %>
+      <p class="mt-5"> hours</p>
+    </div>
+    <%= f.input :number_of_people %>
+  </div>
+  <%= f.input :photo, as: :file %>
+  <div class="d-flex justify-content-end my-3">
+   <%= f.submit "Add", class: "btn btn-primary" %>
+  </div>
+<% end %>
