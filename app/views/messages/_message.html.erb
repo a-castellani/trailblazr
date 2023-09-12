@@ -1,7 +1,7 @@
 <div class="message collaborator_message">
   <small>
     <strong><%= message.user.first_name %></strong>
-    <em><%= message.created_at.strftime("%d/%m/%Y at %l:%M %p") %></em>
+    <em><%= message.created_at.strftime("%d/%m/%Y, %l:%M %p") %></em>
   </small>
-  <div><p><%= message.content %></p></div>
+  <div class="content"><p><%= message.content %></p></div>
 </div>

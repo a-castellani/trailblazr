@@ -1,18 +1,32 @@
 .message {
-  border-radius: 3px;
-  padding: 1px 9px;
   margin-top: 8px;
-  width: 90%;
+  em {
+    font-size: 11px;
+  }
 }
 
 .my_message {
-  background-color: $dark-green;
-  color: $sand;
   text-align: right;
+  .content {
+    background-color: $dark-green;
+    color: $sand;
+    margin-left: auto;
+    margin-right: 0;
+  }
 }
 
 .collaborator_message {
-  background-color: $sand;
-  color: $dark-green;
   text-align: left;
+  .content {
+    background-color: $sand;
+    color: $dark-green;
+    margin-left: 0;
+    margin-right: auto;
+  }
+}
+
+.content {
+  border-radius: 3px;
+  padding: 2px 9px;
+  width: 60%;
 }

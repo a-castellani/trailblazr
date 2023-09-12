@@ -1,6 +1,6 @@
-<div class="message my_message align-right">
+<div class="message my_message">
   <small>
-    <em><%= message.created_at.strftime("%d/%m/%Y at %l:%M %p") %></em>
+    <em><%= message.created_at.strftime("%d/%m/%Y, %l:%M %p") %></em>
   </small>
-  <div><p><%= message.content %></p></div>
+  <div class="content"><p><%= message.content %></p></div>
 </div>
