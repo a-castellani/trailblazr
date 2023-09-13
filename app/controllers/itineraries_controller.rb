@@ -99,8 +99,10 @@ class ItinerariesController < ApplicationController
   end
 
   def set_selections_with_days
-    @selections = Selection.where(itinerary_id: @itinerary)
-    @selections_with_days = @selections.reject { |s| s.day.nil? }.group_by(&:day).sort_by(&:first)
-    @days = @selections_with_days.last[0] + 1
+    if @itinerary != nil?
+      @selections = Selection.where(itinerary_id: @itinerary)
+      @selections_with_days = @selections.reject { |s| s.day.nil? }.group_by(&:day).sort_by(&:first)
+      @days = @selections_with_days.last[0] + 1
+    end
   end
 end

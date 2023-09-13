@@ -1,94 +1,97 @@
 <div class="d-flex justify-content-between">
   <div class="col-8">
-    <div class="container">
-      <div data-controller="toggle">
-        <div class="d-flex">
-          <%# Display itinerary title, edit and delete %>
-          <div class="d-flex title m-6" >
-            <h3 class="my-3 me-3"><%= @itinerary.title.capitalize %></h3>
-            <% if current_user == @owner %>
-              <div class="d-flex">
-                <%# Hide the links for unauthorized users: %>
-                <% if policy(@itinerary).edit? && policy(@itinerary).destroy?%>
+    <div class="container d-flex justify-content-between">
+      <div class="col-6 mx-3" data-controller="toggle">
+        <div class="d-flex" >
+          <h3 class="my-3 me-3"><%= @itinerary.title.capitalize %></h3>
+          <% if current_user == @owner %>
+            <div class="d-flex justify-content-start">
+              <%# Hide the links for unauthorized users: %>
+              <% if policy(@itinerary).edit? && policy(@itinerary).destroy? %>
+                <div class="d-flex align-items-center">
+                  <%= button_to edit_itinerary_path(@itinerary), method: :get, remote: true, class: "btn btn-default" do %>
+                      <i class="fa-solid fa-pen"></i>
+                  <% end %>
                   <div class="d-flex align-items-center">
-                    <%= link_to edit_itinerary_path(@itinerary), method: :get, remote: true do %>
-                        <i class="fa-solid fa-pen"></i>
-                    <% end %>
-                    <%= link_to @itinerary, method: :delete, remote: true, data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
+                    <%= button_to @itinerary, method: :delete, remote: true, data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-default" do %>
                         <i class="fa-regular fa-trash-can"></i>
                     <% end %>
                   </div>
-                <% end %>
-              </div>
-            <% end %>
-          </div>
+                </div>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
 
-          <%# collaborations %>
-          <div class="m-3">
-            <p data-toggle-target="button" data-action="click->toggle#toggle"><strong>Collaborators: </strong><% if current_user == @owner %><i class="fa-solid fa-user-plus"></i><% end %></p>
-            <div class="d-flex">
-              <div class="m-2">
-                <% @itinerary.users.each do |user| %>
-                    <% if @owner.photo.attached? %>
-                      <%= cl_image_tag @owner.photo.key, class: "avatar-collaborations", alt: "user photo"%>
-                    <% else %>
-                      <%= image_tag "default-img.JPG", class: "avatar-collaborations", alt: "user photo"%>
-                    <% end %>
-                <% end %>
-              </div>
+        <%# collaborations %>
+        <div class="m-3">
+          <p data-toggle-target="button" data-action="click->toggle#toggle"><strong>Collaborators: </strong><% if current_user == @owner %><i class="fa-solid fa-user-plus"></i><% end %></p>
+          <div class="d-flex">
+            <div class="m-2">
               <% @itinerary.users.each do |user| %>
-                <% unless user == @owner %>
-                  <div class="d-flex">
-                    <div class="collaborators m-2">
-                      <% if user.photo.attached? %>
-                        <%= cl_image_tag user.photo.key, crop: :fill, class: "avatar-collaborations", alt: "user photo"%>
-                      <% else %>
-                        <%= image_tag "default-img.JPG", crop: :fill, class: "avatar-collaborations", alt: "user photo"%>
-                      <% end %>
-                      <div id="delete-btn">
-                        <%= link_to user.collaborations.find_by(itinerary_id: @itinerary.id), method: :delete,remote: true, data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }, class: "button-collaborators" do %>
-                          <i class="fa-solid fa-x fa-2xs"></i>
-                        <% end %>
-                      </div>
-                    </div>
-                  </div>
+                <% if @owner.photo.attached? %>
+                  <%= cl_image_tag @owner.photo.key, class: "avatar-collaborations", alt: "user photo"%>
+                <% else %>
+                  <%= image_tag "default-img.JPG", class: "avatar-collaborations", alt: "user photo"%>
                 <% end %>
               <% end %>
             </div>
-            <% if current_user == @owner %>
-              <div class="container d-none" data-toggle-target="form">
-                <%= render "itineraries/collaboration_form" %>
-              </div>
+            <% @itinerary.users.each do |user| %>
+              <% unless user == @owner %>
+                <div class="d-flex">
+                  <div class="collaborators m-2">
+                    <% if user.photo.attached? %>
+                      <%= cl_image_tag user.photo.key, crop: :fill, class: "avatar-collaborations", alt: "user photo"%>
+                    <% else %>
+                      <%= image_tag "default-img.JPG", crop: :fill, class: "avatar-collaborations", alt: "user photo"%>
+                    <% end %>
+
+                    <div id="delete-btn" data-controller="sweet-alert">
+                      <%= link_to user.collaborations.find_by(itinerary_id: @itinerary.id), method: :delete, remote: true, data: { turbo_method: :delete, sweet_alert_target: :delete }, class: "button-collaborators" do %>
+                        <i class="fa-solid fa-x fa-2xs" data-action="click->sweet-alert#fireAlert"></i>
+                      <% end %>
+                    </div>
+                  </div>
+                </div>
+              <% end %>
             <% end %>
           </div>
-        </div>
+          <% if current_user == @owner %>
+            <div class="container d-none" data-toggle-target="form">
+              <%= render "itineraries/collaboration_form" %>
+            </div>
+          <% end %>
+        </div><br>
 
-
-        <div class="d-flex">
-            <%= render "day_card" %>
-        </div>
         <%# selections %>
-
-
+        <div class="d-flex">
+          <div class="daycards">
+            <%= render "day_card" %>
+          </div>
+        </div>
       </div>
     </div>
-
   </div>
 
   <div class="col-4">
-    <div class="wishlist">
+    <div class="wish-card-position m-3">
       <%= render "wish_list_card" %>
     </div>
 
-    <% unless @selections_with_days.empty? %>
-      <div class="col-3" style="width: 400px; height: 500px;"
-            data-controller="map"
-            data-map-markers-value="<%= @markers.to_json %>"
-            data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-      </div>
-    <% end %>
+    <%# mapbox -> no map if empty itinerary %>
+    <div class="ms-1">
+      <% unless @selections_with_days.empty? %>
+        <div class="container mt-3" style="width: 100%; height: 300px;"
+          data-controller="map"
+          data-map-markers-value="<%= @markers.to_json %>"
+          data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+        </div>
+      <% end %>
+    </div>
+
     <div class="chat">
       <%= render "itineraries/chat" %>
     </div>
   </div>
+
 </div>
