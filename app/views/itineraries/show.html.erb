@@ -26,7 +26,7 @@
 
         <%# collaborations %>
         <div class="m-3">
-          <p data-toggle-target="button" data-action="click->toggle#toggle"><strong>Collaborators: </strong><% if current_user == @owner %><i class="fa-solid fa-user-plus"></i><% end %></p>
+          <p data-toggle-target="button" data-action="click->toggle#toggle"><% if current_user == @owner %><i class="fa-solid fa-user-plus"></i><% end %></p>
           <div class="d-flex">
             <div class="m-2">
               <% @itinerary.users.each do |user| %>
@@ -78,7 +78,7 @@
     <div class="position-fix">
       <%= render "wish_list_card" %>
       <%# mapbox -> no map if empty itinerary %>
-      <div class="ms-1">
+      <div class="mapbox-wish">
         <% unless @selections_with_days.empty? %>
           <div class="container mt-3" style="width: 100%; height: 300px;"
             data-controller="map"
