@@ -5,11 +5,10 @@ class MessagesController < ApplicationController
     @message.itinerary = @itinerary
     @message.user = current_user
     authorize @message
-
     if @message.save
       ChatChannel.broadcast_to(
         @itinerary,
-        render_to_string(partial: "message", locals: {message: @message})
+        render_to_string(partial: "message", locals: { message: @message })
       )
       head :ok
     else

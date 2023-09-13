@@ -1,5 +1,5 @@
-<div class="d-flex justify-content-between">
-  <div class="col-8">
+<div class="row justify-content-between">
+  <div class="">
     <div class="container d-flex justify-content-between">
       <div class="col-6 mx-3" data-controller="toggle">
 
@@ -18,27 +18,28 @@
                       <i class="fa-regular fa-trash-can" data-action="click->sweet-alert#fireAlert"></i>
                     <% end %>
                   </div>
-                <% end %>
-              </div>
-            <% end %>
-          </div>
-          <div class="m-3 w-100">
-            <div class="d-flex">
-              <div class="m-1">
-                <% if @owner.photo.attached? %>
-                  <%= cl_image_tag @owner.photo.key, class: "avatar-collaborations", alt: "user photo"%>
-                <% else %>
-                  <%= image_tag "default-img.JPG", class: "avatar-collaborations", alt: "user photo"%>
-                <% end %>
-              </div>
-              <% @itinerary.users.each do |user| %>
-                <% unless user == @owner %>
-                  <div class="d-flex">
-                    <div class="collaborators m-1">
-                      <% if user.photo.attached? %>
-                        <%= cl_image_tag user.photo.key, crop: :fill, class: "avatar-collaborations", alt: "user photo"%>
-                      <% else %>
-                        <%= image_tag "default-img.JPG", crop: :fill, class: "avatar-collaborations", alt: "user photo"%>
+                </div>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
+
+        <%# collaborations %>
+        <div class="m-3">
+          <p data-toggle-target="button" data-action="click->toggle#toggle"><strong>Collaborators: </strong><% if current_user == @owner %><i class="fa-solid fa-user-plus"></i><% end %></p>
+          <div class="d-flex">
+            <div class="m-2">
+              <%= render "itineraries/avatar", user: @owner %>
+            </div>
+            <% @itinerary.users.each do |user| %>
+              <% unless user == @owner %>
+                <div class="d-flex">
+                  <div class="collaborators m-2">
+                    <%= render "itineraries/avatar", user: user %>
+
+                    <div id="delete-btn" data-controller="sweet-alert">
+                      <%= link_to user.collaborations.find_by(itinerary_id: @itinerary.id), method: :delete, remote: true, data: { turbo_method: :delete, sweet_alert_target: :delete }, class: "button-collaborators" do %>
+                        <i class="fa-solid fa-x fa-2xs" data-action="click->sweet-alert#fireAlert"></i>
                       <% end %>
 
                       <div id="delete-btn" data-controller="sweet-alert">
@@ -63,8 +64,6 @@
 
         </div>
 
-        <%# collaborations %>
-
         <%# selections %>
         <div class="d-flex">
           <div class="daycards">
@@ -74,7 +73,6 @@
       </div>
     </div>
   </div>
-
   <div class="col-4">
     <div class="wish-card-position m-3">
       <%= render "wish_list_card" %>
