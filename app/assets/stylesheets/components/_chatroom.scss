@@ -1,15 +1,15 @@
 .chatroom{
   position: fixed;
-  bottom: -5px;
+  bottom: 5px;
   right: 13px;
   width: 350px;
   color: $dark-green;
   background-color: white;
-  margin: 10px;
+  margin: 5px;
   padding: 10px;
   border-radius: 8px;
   box-shadow: 0 0 3px #1C2B264D;
-  height: 50vh;
+  height: 53vh;
 
   .chat-header {
     height: 10%;
@@ -32,32 +32,4 @@
     overflow-y: auto;
     margin-bottom: 0;
   }
-
-  // .message-box {
-  //   position: relative;
-  //   bottom: -9px;
-  //   right: -4px;
-  // }
-
-  // h1 {
-  //   text-align: center;
-  //   font-size: 28px;
-  // }
-
-  // p{
-  //   margin: 5px 0;
-  //   font-size: 15px;
-  // }
-
-  // .message-box {
-  //   justify-content: center;
-  // }
-
-  // .open {
-  //   height: 50vh;
-  // }
-
-  // .closed {
-  //   height: 6vh;
-  // }
 }

@@ -1,8 +1,8 @@
-<div class="modal fade" id="exampleModal" tabindex="2" aria-labelledby="exampleModalLabel" aria-hidden="true" style="z-index: 1800;">
+<div class="modal fade" id="editModal" tabindex="2" aria-labelledby="editModalLabel" aria-hidden="true" style="z-index: 1800;">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel"><i class="fa-solid fa-map-location-dot"></i><i class="fa-solid fa-plus fa-2xs"></i>Your Itinerary</h1>
+        <h1 class="modal-title fs-5" id="editLabel"><i class="fa-solid fa-map-location-dot"></i><i class="fa-solid fa-plus fa-2xs"></i>Your Itinerary</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
 
@@ -13,8 +13,8 @@
 
           <div class="d-flex justify-content-start">
             <div class="form-inputs">
-              <%= f.input :title, placeholder: 'Enter title', input_html: { autocomplete: 'off' } %>
-              <%= f.button :submit, class: "btn btn-success"%>
+              <%= f.input :title, placeholder: 'Enter title' %>
+              <%= f.button :submit, class: "btn btn-success" %>
             </div>
           </div>
         <% end %>

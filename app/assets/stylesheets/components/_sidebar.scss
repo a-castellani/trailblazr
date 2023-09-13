@@ -18,7 +18,7 @@
     text-decoration: none;
   }
   h3:hover {
-    color: $light-blue;
+    color: rgb(140, 155, 147);
     cursor: pointer;
   }
 
@@ -27,15 +27,24 @@
   }
 
   #link {
+    color: white;
     text-decoration: none;
-    color: black;
+    cursor: pointer;
   }
 
   #link:hover {
-    color: $light-blue;
+    color: rgb(140, 155, 147);
   }
 }
 
 .accordion-item {
   border: none;
+}
+
+#add-new {
+  cursor: pointer;
+}
+
+#add-new:hover {
+  color: rgb(140, 155, 147);
 }

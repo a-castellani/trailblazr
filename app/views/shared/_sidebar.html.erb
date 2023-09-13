@@ -1,8 +1,8 @@
- <div class="sidebar">
+ <div class="sidebar border pe-4 h-100 bg-primary text-white">
   <nav id='dashboard'>
     <ul>
       <div class="accordion" id="accordionOne">
-        <li class="nav-item accordion-item">
+        <li class="">
           <h3 data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">My Itineraries <i class="fa-solid fa-plus fa-xs"></i></h3>
         </li>
         <% unless controller_name == 'itineraries' && action_name == 'index' %>
@@ -10,21 +10,21 @@
         <% else %>
           <ul class="sub-nav accordion-collapse collapse show" id="collapseOne" data-bs-parent="#accordionOne">
         <% end %>
-            <li class="sub-nav-item">
-              <p id="add-new" data-bs-toggle="modal" data-bs-target="#exampleModal">Add New Itinerary</p>
-            </li>
+            <div class="sub-nav-item">
+              <p id="add-new" data-bs-toggle="modal" data-bs-target="#exampleModal" class="m-0">Add New Itinerary</p>
+            </div>
             <%= render "itineraries/form", itinerary: Itinerary.new %>
             <% unless @itineraries.nil? %>
               <% @itineraries.each do |itinerary| %>
-                <li class="sub-nav-item"><p><%= link_to itinerary.title, itinerary_path(itinerary), class: "text-decoration-none", id: "link"%></p></li>
+                <div class="sub-nav-item"><p ><%= link_to itinerary.title, itinerary_path(itinerary), class: "text-decoration-none", id: "link" %></p></div>
               <% end %>
             <% end %>
           </ul>
       </div>
-      <li class="nav-item"><h3 class="button"><%= link_to 'Explore', activities_path, class: "text-decoration-none", id: "link"  %></h3></li>
+      <li class="nav-item"><h3 class="button"><%= link_to 'Explore', activities_path, class: "", id: "link"  %></h3></li>
 
       <div class="accordion" id="accordionThree">
-        <li class="nav-item accordion-item">
+        <li class="nav-item ">
           <h3 data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">Search <i class="fa-solid fa-magnifying-glass fa-2xs"></i></h3>
         </li>
         <div class="sub-nav accordion-collapse collapse" id="collapseThree" data-bs-parent="#accordionThree">
@@ -32,15 +32,12 @@
             <%= select_tag(:tags, options_for_select(@tags.collect{ |tag| [tag, tag]}), class: "form-control mb-1", :prompt => "What's your mood?") %>
             <%= select_tag(:category, options_for_select(@categories.collect{ |category| [category, category]}), class: "form-control mb-1", :prompt => "What do you want to do?") %>
             <%= select_tag(:location, options_for_select(@locations.collect{ |location| [location, location]}), class: "form-control mb-1", :prompt => "Where?") %>
-            <%= text_field_tag :number_of_people, params[:number_of_people], class: "form-control mb-1", placeholder: "How many people?", autocomplete: "off" %>
-            <%= submit_tag("Search", :class => "btn btn-primary mb-2" )%>
+            <%= text_field_tag :number_of_people, params[:number_of_people], class: "form-control mb-1", placeholder: "How many people?" , autocomplete: "off" %>
+            <%= submit_tag("Search", :class => "btn btn-outline-light mb-2 fw-bold" )%>
           <% end %>
         </div>
       </div>
 
-
-      <li class="nav-item"><h3>AI</h3></li>
-      <li class="nav-item"><h3>Settings</h3></li>
       <div class="accordion d-none" id="accordionTwo">
         <li class="nav-item accordion-item">
           <h3 data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">Selected itinerary</h3>

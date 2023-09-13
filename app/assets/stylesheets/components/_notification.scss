@@ -9,8 +9,7 @@ body {
   justify-content: center;
   width: 40px;
   height: 40px;
-  color: #333333;
-  background: #dddddd;
+  background: $primary;
   border: none;
   outline: none;
   border-radius: 50%;
@@ -19,6 +18,7 @@ body {
 
 .icon-button:hover {
   cursor: pointer;
+  background-color: rgb(140, 155, 147);
 }
 
 .icon-button:active {

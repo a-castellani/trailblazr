@@ -10,7 +10,7 @@
           <div class="daycard">
             <%= image_tag selection.activity.image_url, class: 'img' %>
             <div class="d-flex justify-content-between">
-              <h6><%= selection.activity.name.truncate(20, separator: ' ') %></h6>
+              <h6><%= selection.activity.name %></h6>
               <div class="d-flex justify-content-between m-1">
                 <div class="d-flex" data-controller="add-activity-to-day">
                   <%= link_to edit_selection_path(selection)  do %>
