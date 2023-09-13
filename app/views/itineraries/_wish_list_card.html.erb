@@ -1,8 +1,11 @@
 <div class="row wish-card-row">
   <h6>Wish List</h6>
+  <% if @selections_without_days.empty?  %>
+    <%= link_to 'Add new activity', activities_path, class: 'new_act rounded btn btn-primary' %>
+  <% else %>
   <div class="scrollable-box-y">
-    <% @selections_without_days.each do |selection| %>
-      <div class="d-flex align-items-center">
+  <% @selections_without_days.each do |selection| %>
+    <div class="d-flex align-items-center">
 
         <div class="col-9">
           <div class="card wish-card mb-2 shadow">
@@ -13,11 +16,15 @@
                   <div class="d-flex gap-1" data-controller="add-activity-to-day">
                     <%= link_to edit_selection_path(selection)  do %>
                       <i class="fa-regular fa-square-plus text-primary" data-action="click->add-activity-to-day#displayForm"></i>
-                      <%= link_to selection_path(selection), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}  do %>
-                        <i class="fa-regular fa-trash-can text-danger mx-1"></i>
-                      <% end %>
+
+
                     <% end %>
                   </div>
+                  <div data-controller="sweet-alert">
+                        <%= link_to selection_path(selection), data: {turbo_method: :delete, sweet_alert_target: :delete }  do %>
+                        <i class="fa-regular fa-trash-can text-danger mx-1"  data-action="click->sweet-alert#fireAlert"></i>
+                      <% end %>
+                      </div>
                 </div>
 
             </div>
@@ -27,7 +34,9 @@
           <%= image_tag selection.activity.image_url, class: 'wish-card-img shadow w-100 mb-2' %>
         </div>
       </div>
-    <% end %>
+
+  <% end %>
   </div>
+  <% end %>
 </div>
 <br>

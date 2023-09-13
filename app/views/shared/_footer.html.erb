@@ -1,2 +1,11 @@
-<h3>Inspiration</h3>
-<h3>Contact Us</h3>
+<div class="footer">
+  <div class="d-flex">
+    <%# <h4>TrailBlazr</h4>
+    <p>Contact Us</p> %>
+  </div>
+  <% if controller_name == 'itineraries' && action_name == 'show' %>
+    <div class="chatroom">
+    <%= render "itineraries/chat" %>
+    <% end %>
+</div>
+</div>

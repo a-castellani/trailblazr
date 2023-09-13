@@ -10,13 +10,14 @@ static targets = ["delete"]
 
   fireAlert() {
     Swal.fire({
+      background: '#f3e9dc',
       toast: true,
       title: 'Are you sure?',
       text: "You won't be able to revert this!",
       icon: 'warning',
       showCancelButton: true,
-      confirmButtonColor: '#d33',
-      cancelButtonColor: '#447A9E',
+      confirmButtonColor: '#5e3023',
+      cancelButtonColor: '#6C867A',
       confirmButtonText: 'Delete',
   })
     .then((result) => {
