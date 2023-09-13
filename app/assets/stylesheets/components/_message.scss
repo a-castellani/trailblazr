@@ -1,32 +1,18 @@
 .message {
   margin-top: 8px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  color: $dark-green;
+  display: flex;
+  justify-content: flex-start;
+  text-align: left;
   em {
     font-size: 11px;
   }
 }
-.collaborator_message {
-  text-align: left;
-  .content {
-    background-color: $sand;
-    color: $dark-green;
-    margin-left: 0;
-    margin-right: auto;
-  }
-}
-
-.my_message {
-  text-align: right;
-  .content {
-    background-color: $dark-green;
-    color: $sand;
-    margin-left: auto;
-    margin-right: 0;
-  }
-}
-
 
 .content {
   border-radius: 3px;
-  padding: 2px 9px;
-  width: 60%;
+  padding: 5px 10px;
+  background-color: $sand;
 }

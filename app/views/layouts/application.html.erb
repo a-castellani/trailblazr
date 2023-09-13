@@ -10,6 +10,20 @@
     <%= javascript_importmap_tags %>
     <link href="https://api.mapbox.com/mapbox-gl-js/v2.11.0/mapbox-gl.css" rel="stylesheet">
     <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.css" type="text/css">
+    <style>
+        <%= ".msg-#{current_user&.id}" %> {
+          background-color: #1C2B26ff !important;
+          color: #F2E4C6ff !important;
+        }
+        <%= ".cont-#{current_user&.id}" %> {
+          display: flex;
+          justify-content: flex-end;
+          text-align: right;
+        }
+        <%= ".name-#{current_user&.id}" %> {
+          display: none;
+        }
+      </style>
   </head>
 
   <body>
