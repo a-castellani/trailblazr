@@ -1,5 +1,5 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <div class="container-fluid">
+<div class="navbar nav-bar navbar-expand-sm navbar-light navbar-lewagon">
+  <div class="container-fluid g-0">
 
 <div class="d-flex align-items-center">
   <i class="navbar-brand fa-regular fa-compass fa-2xl nav-text" data-action="click->sidebar-toggler#fire"></i>
@@ -28,7 +28,7 @@
               <%# <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar", alt: "dropdown menu" %>
               <%= cl_image_tag current_user.photo.key, height: 40, width: 40, crop: :fill, style:"border-radius: 50%; box-shadow: 0 2px 5px #17122B; border: white 2px solid;", class: "avatar", alt: "dropdown menu"%>
             <% else %>
-              <%= image_tag "default-img.JPG", height: 40, width: 40, crop: :fill, class: "avatar", alt: "dropdown menu"%>
+              <%= image_tag "default-img.JPG", height: 40, width: 40, crop: :fill, class: "avatar me-2", alt: "dropdown menu"%>
             <% end %>
 
           </a>

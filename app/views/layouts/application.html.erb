@@ -32,9 +32,10 @@
       <%= yield %>
     <% else %>
 
-      <div class="container-fluid" data-controller="sidebar-toggler">
+      <div class="container-fluid g-0" data-controller="sidebar-toggler">
+        <%= render "shared/navbar" %>
         <div class="row section" >
-          <%= render "shared/navbar" %>
+
           <% unless controller_name == 'sessions' ||
           controller_name == 'passwords' ||
           controller_name == 'registrations' ||
