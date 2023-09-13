@@ -42,3 +42,9 @@
   border: 1px solid #ccc;
   padding: 10px;
 }
+
+.position-fix {
+  height: 100vh;
+  position: sticky;
+  top: 0;
+}
