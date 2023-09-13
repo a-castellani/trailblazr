@@ -15,7 +15,7 @@ class CollaborationPolicy < ApplicationPolicy
   end
 
   def destroy?
+    record.user == user || record.itinerary.collaborations.where(role: "owner").first.user == user
     # record.user.role == "admin"
-    true
   end
 end
