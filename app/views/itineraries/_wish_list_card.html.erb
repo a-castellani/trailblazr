@@ -8,7 +8,7 @@
           <div class="card wish-card mb-2 shadow">
             <div class="d-flex justify-content-between align-items-center mb-1">
 
-                <div class="fw-bold wish-card-text-title mb-0 pb-0"><%= selection.activity.name.truncate(70, separator: ' ') %></div>
+                <div class="fw-bold wish-card-text-title mb-0 pb-0"><%= selection.activity.name.truncate(66, separator: ' ') %></div>
                 <div class="d-flex justify-content-between">
                   <div class="d-flex gap-1" data-controller="add-activity-to-day">
                     <%= link_to edit_selection_path(selection)  do %>
