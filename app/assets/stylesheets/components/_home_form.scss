@@ -1,0 +1,68 @@
+.sec {
+  position: relative;
+  height: 75vh;
+  width: 100vw;
+  background-color: #003329;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  background: linear-gradient(#003329 30%, #359381);
+}
+
+.input-div {
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 15px;
+  padding: 15px;
+}
+
+.input-box {
+  height: 10vh;
+  border-radius: 20px;
+  background-color: $sand;
+  text-align: center;
+}
+.circle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  background-color: $sand;
+}
+.pulse {
+  position: absolute;
+  width: 136px;
+  height: 136px;
+  border-radius: 50%;
+  border: 2px solid $sand;
+  transform: scale3d(1, 1, 1);
+  transition-property: all;
+  transition-duration: 350ms;
+  transition-timing-function: cubic-bezier(0.53, -0.67, 0.73, 0.74);
+}
+.circle:hover .pulse {
+  transform: scale3d(1.1, 1.1, 1);
+  transition-timing-function: cubic-bezier(0.37, 0.74, 0.15, 1.65);
+}
+.icon {
+  color: $dark-green;
+  font-size: 1.7em;
+  transition-property: transform;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.53, -0.67, 0.73, 0.74);
+}
+  .icon i {
+    position: relative;
+    top: 3px;
+    left: -3px;
+    line-height: 1.5;
+  }
+.circle:hover .icon {
+  transform: scale3d(1.2, 1.2, 1);
+}
+

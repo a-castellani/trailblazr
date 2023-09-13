@@ -2,7 +2,7 @@
   <img src=<%= activity.image_url %> alt=<%= activity.name %>/>
   <div class="card-infos">
     <div>
-      <h4><%= activity.name.truncate(100) %></h4>
+      <h4><%= activity.name.truncate(32, separator: ' ') %></h4>
       <p class="mt-1" style="text-align: justify;"><%= activity.description.truncate(100, separator: ' ') %></p>
     </div>
   </div>

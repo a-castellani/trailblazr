@@ -1,22 +1,23 @@
 .daycard {
   overflow: hidden;
   background: white;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  height: 220px;
-  width: 200px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  height: 300px;
+  width: 270px;
   border-radius: 5px;
   margin-right: 15px;
+  position: relative;
 }
 
 .daycard > img {
-  max-height: 125px;
+  max-height: 180px;
   max-width: 100%;
   height: auto;
   object-fit: cover;
 }
 
 .daycard h6 {
-  font-size: 16px;
+  font-size: 18px;
   font-weight: bold;
   margin: 7px;
 }
@@ -25,6 +26,19 @@
   font-size: 12px;
   opacity: .7;
   margin: 7px;
+}
+
+#day-icons {
+  position: absolute;
+  color: $sand;
+  left: 200px;
+  top: 10px;
+
+}
+
+#linkday {
+  text-decoration: none;
+  color: $sand;
 }
 
 // .daycards {
