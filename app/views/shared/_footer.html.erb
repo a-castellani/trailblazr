@@ -1,11 +1,41 @@
 <div class="footer">
-  <div class="d-flex">
-    <%# <h4>TrailBlazr</h4>
-    <p>Contact Us</p> %>
-  </div>
-  <% if controller_name == 'itineraries' && action_name == 'show' %>
-    <div class="chatroom">
-    <%= render "itineraries/chat" %>
+  <div class="footer-items">
+    <% if controller_name == 'itineraries' && action_name == 'show' %>
+      <div class="chat-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-messages" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+          <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+          <path d="M21 14l-3 -3h-7a1 1 0 0 1 -1 -1v-6a1 1 0 0 1 1 -1h9a1 1 0 0 1 1 1v10" />
+          <path d="M14 15v2a1 1 0 0 1 -1 1h-7l-3 3v-10a1 1 0 0 1 1 -1h2" />
+        </svg>
+      </div>
+      <div class="chatroom" data-controller="chat-subscription" data-chat-subscription-itinerary-value="<%= @itinerary.id %>">
+
+        <div class="chat-header d-flex">
+          <h1>Chat</h1>
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-arrow-bar-to-down"
+              width="30" height="30" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M4 20l16 0" />
+            <path d="M12 14l0 -10" />
+            <path d="M12 14l4 -4" />
+            <path d="M12 14l-4 -4" />
+          </svg>
+        </div>
+
+        <div class="chat-messages" data-chat-subscription-target="messages">
+          <% @itinerary.messages.reverse_each do |message| %>
+            <%= render "messages/message", message: message %>
+          <% end %>
+        </div>
+
+        <div class="chat-box d-flex justify-content-center align-items-center">
+          <%= simple_form_for [@itinerary, @message], html: { data: { action: "turbo:submit-end->chat-subscription#resetForm" }, class: "d-flex" } do |f| %>
+            <%= f.input :content, label: false, placeholder: "Type your message here...", input_html: { autocomplete: "off" } %>
+            <%= f.submit "Send", class: "btn btn-primary mb-3" %>
+          <% end %>
+        </div>
+
+      </div>
     <% end %>
-</div>
+  </div>
 </div>

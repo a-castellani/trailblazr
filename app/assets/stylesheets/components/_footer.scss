@@ -1,8 +1,19 @@
 .footer {
   height: 70px;
-  background-color: white;
+  background-color: none;
   position: fixed;
-  left: 0;
+  right: 0;
   bottom: 0;
   width: 100%;
+  border-top: 1px solid $light-green;
+
+  .footer-items {
+    position: relative;
+  }
+
+  .chat-icon {
+    position: absolute;
+    right: 10px;
+    top: 6px;
+  }
 }

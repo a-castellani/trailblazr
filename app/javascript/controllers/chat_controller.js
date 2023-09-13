@@ -4,6 +4,10 @@ import { Controller } from "@hotwired/stimulus"
 export default class extends Controller {
   static targets = ["chatbox", "header", "arrow"]
 
+  connect() {
+    console.log("hello from chat")
+  }
+
   show() {
     this.headerTarget.classList.replace("closed", "open")
     this.chatboxTarget.classList.remove("d-none")
