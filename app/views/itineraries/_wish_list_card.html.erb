@@ -1,5 +1,8 @@
 <div class="row small-card-row">
   <h6>Wish List</h6>
+  <% if @selections_without_days.empty?  %>
+    <%= link_to 'Add new activity', activities_path, class: 'new_act rounded btn btn-primary' %>
+  <% else %>
   <% @selections_without_days.each do |selection| %>
     <div class="d-flex align-items-center">
       <div class="col-8">
@@ -32,6 +35,7 @@
     <div class="review-form d-none" data-reviewform-target="reviewbox">
       <%= render "reviews/reviewform", activity: selection.activity, selection: selection, review: @review%>
     </div>
+  <% end %>
   <% end %>
 </div>
 <br>
