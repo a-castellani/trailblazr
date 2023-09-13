@@ -20,7 +20,7 @@ header {
   color: #359381;
   pointer-events: none;
   margin-right: 500px;
-  padding: 10px 15px;
+  padding: 15px 30px;
 }
 .home-nav {
   display: flex;
@@ -55,6 +55,7 @@ header {
   height: 100vh;
   width: 106vw;
   left: 0;
+  margin-bottom: 80px;
 }
 
 #text {
@@ -67,6 +68,7 @@ header {
 
 }
 
+
 .parallax img {
   position: absolute;
   top: 0;
@@ -76,18 +78,28 @@ header {
 }
 
 
-// #connect {
-//   position: absolute;
-//   background-color: #003329;
-//   height: 70vh;
-//   z-index: 1;
-// }
 
 .sec {
   position: relative;
   height: 100vh;
   width: 100vw;
   background-color: #003329;
-  padding: 100px;
-  z-index: 5;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-top: 80px;
+
+}
+
+.input-div {
+  margin: 50px;
+}
+
+.input-box {
+  height: 10vh;
+  border-radius: 20px;
+}
+
+.search-button {
+  border-radius: 50%;
 }
