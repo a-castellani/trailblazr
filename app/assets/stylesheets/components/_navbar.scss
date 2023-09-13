@@ -10,3 +10,13 @@
 .navbar-lewagon .navbar-brand img {
   width: 40px;
 }
+
+.nav-text {
+ color: $primary
+}
+
+.nav-text:hover {
+  color: rgb(140, 155, 147);
+  cursor: pointer;
+}
+
