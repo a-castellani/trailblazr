@@ -13,9 +13,11 @@
                   <%= link_to edit_itinerary_path(@itinerary), method: :get, remote: true do %>
                       <i class="fa-solid fa-pen"></i>
                   <% end %>
-                  <%= link_to @itinerary, method: :delete, remote: true, data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
-                      <i class="fa-regular fa-trash-can"></i>
-                  <% end %>
+                  <div class="d-flex align-items-center" data-controller="sweet-alert">
+                    <%= button_to @itinerary, method: :delete, remote: true,  data: {turbo_method: :delete, sweet_alert_target: :delete }, class: "btn btn-default" do %>
+                        <i class="fa-regular fa-trash-can" data-action="click->sweet-alert#fireAlert" ></i>
+                    <% end %>
+                </div>
                 </div>
               <% end %>
             </div>
@@ -44,11 +46,13 @@
                     <% else %>
                       <%= image_tag "default-img.JPG", crop: :fill, class: "avatar-collaborations", alt: "user photo"%>
                     <% end %>
-                    <div id="delete-btn">
-                      <%= link_to user.collaborations.find_by(itinerary_id: @itinerary.id), method: :delete,remote: true, data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }, class: "button-collaborators" do %>
-                        <i class="fa-solid fa-x fa-2xs"></i>
+
+                    <div id="delete-btn" data-controller="sweet-alert">
+                      <%= link_to user.collaborations.find_by(itinerary_id: @itinerary.id), method: :delete, remote: true, data: { turbo_method: :delete, sweet_alert_target: :delete }, class: "button-collaborators" do %>
+                        <i class="fa-solid fa-x fa-2xs" data-action="click->sweet-alert#fireAlert"></i>
                       <% end %>
                     </div>
+
                   </div>
                 </div>
               <% end %>
