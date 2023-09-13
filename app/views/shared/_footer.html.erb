@@ -1,18 +1,19 @@
 <div class="footer">
-  <div class="footer-items">
+  <div class="footer-items" data-controller="chat">
     <% if controller_name == 'itineraries' && action_name == 'show' %>
-      <div class="chat-icon">
+      <div class="chat-icon" data-chat-target="icon" data-action="click->chat#show">
         <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-messages" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
           <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
           <path d="M21 14l-3 -3h-7a1 1 0 0 1 -1 -1v-6a1 1 0 0 1 1 -1h9a1 1 0 0 1 1 1v10" />
           <path d="M14 15v2a1 1 0 0 1 -1 1h-7l-3 3v-10a1 1 0 0 1 1 -1h2" />
         </svg>
       </div>
-      <div class="chatroom" data-controller="chat-subscription" data-chat-subscription-itinerary-value="<%= @itinerary.id %>">
+      <div class="chatroom d-none" data-controller="chat-subscription" data-chat-subscription-itinerary-value="<%= @itinerary.id %>"
+                                    data-chat-target="chatbox">
 
         <div class="chat-header d-flex">
           <h1>Chat</h1>
-          <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-arrow-bar-to-down"
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-arrow-bar-to-down" data-action="click->chat#hide"
               width="30" height="30" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
             <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
             <path d="M4 20l16 0" />
