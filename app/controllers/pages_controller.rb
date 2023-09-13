@@ -2,6 +2,7 @@ class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:home]
 
   def home
+    @user = current_user
     @activities = Activity.all
     @all_tags = []
     @activities.each do |activity|

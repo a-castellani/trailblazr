@@ -1,15 +1,18 @@
+<header>
+  <% if user_signed_in? %>
+    <h4 class="logo">Hello <%= @user.first_name %> !</h4>
+    <nav class="home-nav">
+        <strong><%= link_to "My Itineraries", itineraries_path %></strong>
+        <strong><%= link_to "Log Out", destroy_user_session_path, data: {turbo_method: :delete} %></strong>
+    </nav>
+  <% else %>
+    <nav class="home-nav">
+      <%= link_to "Login", new_user_session_path %>
+    </nav>
+  <% end %>
+</header>
 
-<% unless user_signed_in? %>
-  <div class="home-nav">
-    <%= link_to "Login", new_user_session_path %>
-  </div>
-<% else %>
-  <div class="home-nav">
-    <%= link_to "My Itineraries", itineraries_path %>
-  </div>
-<% end %>
-
-<section class="parallax" >
+<section class="parallax p-0 m-0" >
   <div data-controller="parallax" data-action="scroll->parallax#handleScroll">
     <div>
       <%= image_tag("hill1.png", id: "hill1", data: { parallax_target: "hill1" }) %>
@@ -35,13 +38,11 @@
     <div>
       <%= image_tag("leaf.png" ,id: "leaf",  data: { parallax_target: "leaf" }) %>
     </div>
-    <div id="connect">
     <div>
       <%= image_tag("plant.png", id: "plant") %>
     </div>
   </div>
 </section>
-    </div>
 
 <section class="sec">
   <div class="row">
@@ -50,7 +51,7 @@
         <%= select_tag(:tags, options_for_select(@tags.collect{ |tag| [tag, tag]}), class: "form-control", :prompt => "What's your mood?") %>
         <%= select_tag(:category, options_for_select(@categories.collect{ |category| [category, category]}), class: "form-control", :prompt => "What do you want to do?") %>
         <div>
-         <h1>TrailBlazr</h1>
+
         </div>
         <%= select_tag(:location, options_for_select(@locations.collect{ |location| [location, location]}), class: "form-control", :prompt => "Where?") %>
         <%= text_field_tag :number_of_people, params[:number_of_people], class: "form-control", placeholder: "How many people?"%>
@@ -58,8 +59,28 @@
       <% end %>
     </div>
   </div>
-
 </section>
-<%#
-<div class="banner">
-</div> %>
+
+<div class="input-form">
+  <div class="row justify-content-center">
+    <div class="col-4">
+      input north
+    </div>
+  </div>
+  <div class="row justify-content-start">
+    <div class="col-4">
+      input west
+    </div>
+    <div class="col-4">
+        search buttton
+    </div>
+    <div class="col-4">
+        input east
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-4">
+      input north
+    </div>
+  </div>
+</div>
