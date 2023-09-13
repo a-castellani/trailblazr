@@ -3,7 +3,7 @@
     <div>
       <p class="text-gray">
         <strong><%= notification.params[:itinerary_owner].first_name %> <%= notification.params[:itinerary_owner].last_name %></strong> has added you to the itinerary
-          <strong><%= link_to notification.params[:itinerary].title, itinerary_path(notification.params[:itinerary]) %></strong> as <em><%= notification.params[:collaboration].role.capitalize %></em>
+          <strong><%= link_to notification.params[:itinerary].title, itinerary_path(notification.params[:itinerary], notification_id: notification.id ) %></strong> as <em><%= notification.params[:collaboration].role.capitalize %></em>
       </p>
       <div class="d-flex justify-between mt-1">
         <p>

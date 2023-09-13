@@ -1,4 +1,4 @@
 <%= simple_form_for([@itinerary, @activity, @selection]) do |f| %>
-            <%= f.input :day %>
+            <%= f.input :day, input_html: { autocomplete: "off" }%>
             <%= f.submit %>
           <% end %>

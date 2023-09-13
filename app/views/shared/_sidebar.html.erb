@@ -32,7 +32,7 @@
             <%= select_tag(:tags, options_for_select(@tags.collect{ |tag| [tag, tag]}), class: "form-control mb-1", :prompt => "What's your mood?") %>
             <%= select_tag(:category, options_for_select(@categories.collect{ |category| [category, category]}), class: "form-control mb-1", :prompt => "What do you want to do?") %>
             <%= select_tag(:location, options_for_select(@locations.collect{ |location| [location, location]}), class: "form-control mb-1", :prompt => "Where?") %>
-            <%= text_field_tag :number_of_people, params[:number_of_people], class: "form-control mb-1", placeholder: "How many people?"%>
+            <%= text_field_tag :number_of_people, params[:number_of_people], class: "form-control mb-1", placeholder: "How many people?", autocomplete: "off" %>
             <%= submit_tag("Search", :class => "btn btn-primary mb-2" )%>
           <% end %>
         </div>

@@ -6,19 +6,6 @@ class ItinerariesController < ApplicationController
     @itineraries = policy_scope(current_user.itineraries)
   end
 
-  def new
-    @itinerary = Itinerary.new
-    authorize @itinerary
-
-    if @itinerary.save
-      # Collaboration.create(itinerary: @itinerary, user: current_user, role: "admin" )
-      Collaboration.create(itinerary: @itinerary, user: current_user, role: "admin", email: current_user.email )
-      redirect_to itinerary_path(@itinerary)
-    else
-      render :new, status: :unprocessable_entity
-    end
-  end
-
   def create
     @itinerary = Itinerary.new(itinerary_params)
     authorize @itinerary
@@ -37,6 +24,9 @@ class ItinerariesController < ApplicationController
     @collaboration = Collaboration.new(itinerary: @itinerary)
     @message = Message.new
     authorize @itinerary
+    if params.include?(:notification_id)
+      current_user.notifications.find(params[:notification_id]).mark_as_read!
+    end
 
     @selections = Selection.where(itinerary_id: @itinerary)
     if @selections
