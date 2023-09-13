@@ -1,0 +1,44 @@
+.wish-card {
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  padding: 10px;
+  height: 60px;
+}
+
+// .wish-card-position {
+//   position: fixed;
+//   right: 5px;
+// }
+
+.wish-card-img {
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  object-fit: contain;
+  max-height: 59px;
+}
+
+.wish-card-text-title {
+  font-size: 12px;
+  font-family: $headers-font;
+}
+
+.wish-card-row {
+  width: 500px;
+}
+
+.scrollable-box-y {
+  margin-right: 10px;
+  width: 400px;
+  height: 250px;
+  overflow-y: auto;
+  border: 1px solid #ccc;
+  padding: 10px;
+}
+
+.scrollable-box-x {
+  width: 450px;
+  height: 250px;
+  overflow-x: auto;
+  border: 1px solid #ccc;
+  padding: 10px;
+}
