@@ -28,7 +28,7 @@ export default class extends Controller {
     // console.log(this.hill5Target);
 
 
-if (value <= 500) {
+if (value <= 430) {
     this.textTarget.style.marginTop = value * 2.5 + "px";
     this.leafTarget.style.top = value * -1.5 + "px";
     this.leafTarget.style.left = value * 1.5 + "px";

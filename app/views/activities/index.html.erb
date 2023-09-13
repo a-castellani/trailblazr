@@ -1,22 +1,19 @@
-<div class="container">
-  <div class="d-flex">
-    <div class="cards">
-      <% if @activities.any? %>
-        <% @activities.each do |activity| %>
-          <%= link_to activity_path(activity), class: 'text-decoration-none text-white' do %>
-            <%= render "activities/card", activity: activity%>
-          <% end %>
+<div class="d-flex">
+  <div class="cards">
+    <% if @activities.any? %>
+      <% @activities.each do |activity| %>
+        <%= link_to activity_path(activity), class: 'text-decoration-none text-white' do %>
+          <%= render "activities/card", activity: activity%>
         <% end %>
-      <% else %>
-        <em>Sorry, no activities found.</em>
       <% end %>
-    </div>
+    <% else %>
+      <em>Sorry, no activities found.</em>
+    <% end %>
   </div>
+</div>
 
-  <div class="container" style="width: 100%; height: 600px;"
-    data-controller="map"
-    data-map-markers-value="<%= @markers.to_json %>"
-    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-  </div>
-
+<div class="container" style="width: 100%; height: 600px;"
+  data-controller="map"
+  data-map-markers-value="<%= @markers.to_json %>"
+  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
 </div>

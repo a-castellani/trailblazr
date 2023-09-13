@@ -18,8 +18,23 @@
 
 .show-card-description {
   width: 100%;
-  // margin-top: 5px;
   margin-left: 15px;
   margin-right: 15px;
+}
 
+// .align-right {
+//   display: flex;
+//   justify-content: start;
+//   width: 100%;
+// }
+
+.fix-width {
+  // width: 200px;
+  // align-items: end;
+  display: flex;
+  justify-content: space-between;
+}
+
+.fix-postion-bottom {
+  position: relative;
 }
