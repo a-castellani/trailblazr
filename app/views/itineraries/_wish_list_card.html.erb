@@ -1,14 +1,17 @@
-<div class="row small-card-row">
+<div class="row wish-card-row">
   <h6>Wish List</h6>
   <% if @selections_without_days.empty?  %>
     <%= link_to 'Add new activity', activities_path, class: 'new_act rounded btn btn-primary' %>
   <% else %>
+  <div class="scrollable-box-y">
   <% @selections_without_days.each do |selection| %>
     <div class="d-flex align-items-center">
-      <div class="col-8">
-        <div class="card small-card mb-2 shadow">
-          <div class="d-flex justify-content-between align-items-center mb-1">
-            <h6 class="fw-bold small-card-text-title mb-0 pb-0"><%= selection.activity.name.truncate(80, separator: ' ') %></h6>
+
+      <div class="col-9">
+          <div class="card wish-card mb-2 shadow">
+            <div class="d-flex justify-content-between align-items-center mb-1">
+
+            <h6 class="fw-bold small-card-text-title mb-0 pb-0"><%= selection.activity.name.truncate(66, separator: ' ') %></h6>
             <div class="d-flex justify-content-between">
 
               <div class="d-flex gap-1" data-controller="add-activity-to-day">
@@ -23,19 +26,17 @@
                   <% end %>
               </div>
 
-              <div><i class="fa-solid fa-star fa-sm d-none" data-action="click->reviewform#fire"></i></div>
             </div>
           </div>
         </div>
       </div>
-      <div>
-        <%= image_tag selection.activity.image_url, class: 'small-card-img shadow w-100 mb-2' %>
+
+      <div class="col-3">
+          <%= image_tag selection.activity.image_url, class: 'wish-card-img shadow w-100 mb-2' %>
+        </div>
       </div>
-    </div>
-    <div class="review-form d-none" data-reviewform-target="reviewbox">
-      <%= render "reviews/reviewform", activity: selection.activity, selection: selection, review: @review%>
-    </div>
   <% end %>
+  </div>
   <% end %>
 </div>
 <br>
