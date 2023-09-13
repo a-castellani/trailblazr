@@ -21,7 +21,7 @@ class ActivitiesController < ApplicationController
     end
 
     # The `geocoded` scope filters only activities with coordinates
-    @activities = Activity.geocoded
+    # @activities = Activity.geocoded
     @markers = @activities.geocoded.map do |activity|
       {
         lat: activity.latitude,
