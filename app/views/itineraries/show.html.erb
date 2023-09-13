@@ -9,10 +9,10 @@
               <%# Hide the links for unauthorized users: %>
               <% if policy(@itinerary).edit? && policy(@itinerary).destroy? %>
                 <div class="d-flex align-items-center">
-                  <%= button_to edit_itinerary_path(@itinerary), method: :get, remote: true, class: "btn btn-default" do %>
-                      <i class="fa-solid fa-pen"></i>
-                  <% end %>
-
+                  <button class="edit-itinerary" data-bs-toggle="modal" data-bs-target="#editModal">
+                    <i class="fa-solid fa-pen"></i>
+                  </button>
+                  <%= render "itineraries/editform", itinerary: @itinerary %>
                   <div class="d-flex align-items-center" data-controller="sweet-alert">
                     <%= button_to @itinerary, method: :delete, remote: true, data: {turbo_method: :delete, sweet_alert_target: :delete }, class: "btn btn-default" do %>
                         <i class="fa-regular fa-trash-can" data-action="click->sweet-alert#fireAlert"></i>
