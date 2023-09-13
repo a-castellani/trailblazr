@@ -114,7 +114,7 @@ User.destroy_all
 
 activities = [
   {
-  name: 'Full-day sea kayaking; find out how the Turquoise Coast got its name' ,
+  name: 'Kayaking on the Turquoise Coast' ,
   location: 'Lycian',
   duration: 1,
   category:'kayaking' ,
@@ -124,7 +124,7 @@ activities = [
   number_of_people: 20
   },
   {
-  name:  'Cycle to Ballydavid and on to Brandon Creek',
+  name:  'Cycle to Ballydavid',
   location: 'Ireland',
   duration: 1,
   category: 'cycling' ,
@@ -144,7 +144,7 @@ activities = [
   number_of_people: 18
   },
   {
-  name: 'Cycle around glorious West Lake',
+  name: 'Cycle around West Lake',
   location: 'Vietnam' ,
   duration:1 ,
   category: 'cycling',
@@ -169,14 +169,13 @@ activities = [
   duration: 1,
   category: 'kayaking',
   description: 'Today begins with a safety briefing and basic exercises to get used to the kayaks. Then we set off to paddle along the Turquoise Coast, visiting bays and coves with swimming stops. The route is flexible and depends on the conditions at the time, but in general this is the perfect place to learn the joys of paddling.
-
-  Our course should include interesting spots such as Cleopatra’s Bath, a beautiful bay with the ruins of a Roman baths said to have been built for the Egyptian queen, as well as quieter areas away from the yachties. Lunch is a picnic. In the late afternoon, we return to our base.',
+  Our course should include interesting spots such as Cleopatra’s Bath, as well as quieter areas away from the yachties. Lunch is a picnic. In the late afternoon, we return to our base.',
   tags: ['adventure'],
   image_url:'https://res.cloudinary.com/enchanting/q_70,f_auto,w_576,h_349/exodus-web/2023/05/ATK-4.jpg',
   number_of_people: 16
   },
   {
-  name: 'Visit Jerash then Amman city tour',
+  name: 'Visit Jerash and Amman',
   location: 'Jordan Decapolis',
   duration: '5 h',
   category: 'walking',
@@ -188,7 +187,7 @@ activities = [
   tags:['culture']
   },
   {
-  name: 'Circular walk in the heartland of the Prosecco region; visit one of the best local producers for wine tasting and learn about the wine-making process',
+  name: 'Walk in the Prosecco region',
   location: 'Italy Prosecco region',
   duration: '5 h',
   category: 'wine & walking',
@@ -198,7 +197,7 @@ activities = [
   tags:['culture']
   },
   {
-  name: 'Walk to Caños Santos Monastery; walk to the white village of Setenil',
+  name: 'Walk to Caños Santos Monastery',
   location: 'Andalucía',
   duration: '6 h',
   category: 'trekking',
@@ -210,7 +209,7 @@ activities = [
   tags:['culture']
   },
   {
-  name: 'Transfer to Hurghada; submarine ride and snorkelling in Red Sea',
+  name: 'Submarine ride in Red Sea',
   location: 'Egypt',
   duration: '6 h',
   category: 'submarine ride and snorkelling',
@@ -222,7 +221,7 @@ activities = [
   tags:['family', "adventure"]
   },
   {
-  name: 'Dogsledding instruction and tour in Riisitunturi National Park',
+  name: 'Dogsledding in Riisitunturi',
   location: 'Finland',
   duration: '5 h',
   category: 'dogsledding',
@@ -246,7 +245,7 @@ activities = [
   tags:['family']
   },
   {
-  name: 'Optional balloon ride; walk to Zemi valley',
+  name: 'Balloon ride walk to Zemi valley',
   location: 'Turkey',
   duration: 1,
   category: 'walking',
@@ -256,7 +255,7 @@ activities = [
   number_of_people: 16
   },
   {
-  name: 'Walking the Summit of Peña Main ',
+  name: 'Walking the Summit of Peña Main',
   location: 'Spain',
   duration:1 ,
   category: 'walking',
@@ -271,8 +270,7 @@ activities = [
   duration: 1,
   category: 'walking',
   description: 'Today is a very long, hard day as we leave very early, following the Khumbu Glacier northwards to Gorak Shep (17,008ft/5,184m). The trail undulates along the moraine with some short, steep sections. The trail is rocky as we are now on the lateral moraine of the Khumbu Glacier. It will take us about three hours to reach Gorak Shep, where we have a rest and something to eat. There are no lodges from here to Everest Base Camp and back, so we fill our water bottles and take snacks.
-  We start by walking across the sandy flat at Gorak Shep and climb onto the lateral moraine of the Khumbu Glacier. The trail ascends the side of the glacier for a couple of hours before finally descending onto the rocky glacial moraine itself. The trail winds up and down through fascinating ice seracs to the area known as Everest Base Camp, where in spring, we might see expedition teams in the distance as they prepare to climb the mountain. From Base Camp, we get close-up views of the Khumbu Ice Fall and we can appreciate just how difficult it is for climbers to negotiate through the huge ice blocks. After a short photo stop by the Base Camp rock, we retrace our steps to Gorak Shep
-  ',
+  We start by walking across the sandy flat at Gorak Shep and climb onto the lateral moraine of the Khumbu Glacier.',
   tags: ['adventure'],
   image_url:'https://res.cloudinary.com/enchanting/q_70,f_auto,w_576,h_349/exodus-web/2021/12/39821-3.jpg
   ',
@@ -289,18 +287,18 @@ activities = [
   number_of_people: 16
   },
   {
-  name: 'Morning at the Pyramids and Great Sphinx of Giza; optional visit to the Egyptian Museum',
+  name: 'Morning at the Pyramids',
   location: 'Pyramids, Egipt',
   duration: 3 ,
   category: 'walking',
   description: "Today we enjoy a half-day sightseeing tour of two ancient wonders. At Giza, the enigmatic Sphinx and Great Pyramids stand on the edge of the empty desert overlooking the city, providing a great contrast between ancient and modern Egypt. More than 4,000 years old, the pyramids are a testimony to the ingenuity and skill of their builders; in fact, the Great Pyramid, the largest of the pyramids here, is the only Wonder of the Ancient World that still stands.
-  The afternoon is free to relax at our hotel, explore Cairo, join an optional excursion to Saqqara, Memphis and Dahshur, or visit the Egyptian Museum – home to the largest collection of ancient Egyptian artefacts in the world, including the incredible golden riches of Tutankhamun's tomb." ,
+  The afternoon is free to relax at our hotel, explore Cairo, join an optional excursion to Saqqara, Memphis and Dahshur, or visit the Egyptian Museum the incredible golden riches of Tutankhamun's tomb." ,
   tags: ['family'],
   image_url: 'https://res.cloudinary.com/enchanting/q_70,f_auto,w_576,h_349/exodus-web/2021/12/gettyimages-1165153015-1.jpg',
   numer_of_people: 6
   },
   {
-  name: "Drive to the head of the Chamonix Valley; walk towards Switzerland via the trekking peak L'Aiguillette des Posettes and on to Col du Possettes and then descend back towards La Tour",
+  name: "Drive to Chamonix Valley",
   location: 'France',
   duration: 6,
   category: 'walking',
@@ -310,20 +308,19 @@ activities = [
   number_of_people: 6
   },
   {
-  name: 'Full day to visit the impressive sites of Pompeii and Vesuvius' ,
+  name: 'Visit Pompeii and Vesuvius' ,
   location: 'Pompei, Italy',
   duration: 8 ,
   category: 'walking',
   description: 'Today we descend from the Agerola hills and take a transfer (approximately 45 minutes) to Pompeii, once a thriving port town until the catastrophic eruption of Vesuvius spanning two days in 79 CE, during which the city was buried in ash and pumice. Lost for 1,700 years, Pompeii is now a Unesco World Heritage site as the perfectly preserved remains give us an amazing insight into life in a Roman city, complete with bathhouses, bakeries and homes – some of which still have walls adorned with detailed frescoes. You may take time to explore the site independently but we recommend opting for a detailed tour accompanied by a local guide, which can be hired locally for approximately €10 per person depending on the group size.
-  In the afternoon, we head to the famous volcano that looms over Naples, Mount Vesuvius. The vehicle will take you to an altitude of approximately 3,280ft (1,000m) and from there to the crater you will need to ascend on a path which is approximately 490ft (150m) long and quite steep in places. A local guide will then take you on a short walk along the crater rim, while explaining the fascinating history of Vesuvius and its volcanic activity. We return to the hotel by bus in the late afternoon.
-  Please note, during adverse weather conditions, such as fog, storms or heavy rain, the local authorities may decide to restrict or prevent access to Vesuvius. In the event this inclusion cannot be offered on your departure, we will take you to Herculaneum to visit its perfectly preserved remains and virtual museum, which give an amazing insight into the life of an ancient Roman city.
+  In the afternoon, we head to the famous volcano that looms over Naples, Mount Vesuvius. Please note, during adverse weather conditions, such as fog, storms or heavy rain, the local authorities may decide to restrict or prevent access to Vesuvius. In the event this inclusion cannot be offered on your departure, we will take you to Herculaneum to visit its perfectly preserved remains and virtual museum, which give an amazing insight into the life of an ancient Roman city.
   ' ,
   tags: ['family'],
   image_url: 'https://res.cloudinary.com/enchanting/q_70,f_auto,w_576,h_349/exodus-web/2022/05/microsoftteams-image_2-1.png',
   number_of_people: 6
   },
   {
-  name: 'Four game drives over in Pench National Park' ,
+  name: 'Drives over in Pench National Park' ,
   location: 'Pench National Park',
   duration: 10 ,
   category: 'walking',
@@ -344,7 +341,7 @@ activities = [
   numer_of_people: 10
   },
   {
-  name: 'Sharpen your photography skills on the vast plains of the Masai Mara',
+  name: 'Visit Masai Mara',
   location: 'Masai Mara',
   duration: 3,
   category: 'walking',
@@ -355,7 +352,7 @@ activities = [
   number_of_people: 10
   },
   {
-  name: 'Turtle snorkelling safari in South Male Atoll; cross into Ari Atoll' ,
+  name: 'Turtle snorkelling in Male Atoll' ,
   location: 'South Male Atoll',
   duration: 4,
   category: 'swimming',
@@ -515,3 +512,9 @@ Itinerary.all.each do |itinerary|
     Selection.create(itinerary_id: itinerary.id, activity_id: activity.id)
   end
 end
+
+
+# Amazing platform 🤩 !
+# Has been so smooth & simple booking through Trip!
+# Platform is super easy to use & they’ve really worked well to give the customers a well rounded experience whilst on it.
+# I had an issue with one of my bookings and they were super responsive & easy to work with, problem solved instantly. Will be using Trip again and again!
