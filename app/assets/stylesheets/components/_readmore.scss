@@ -1,6 +1,6 @@
 .readmore-y {
   width: 540px;
-  height: 190px;
+  height: 180px;
   overflow-y: auto;
   border: 1px solid #ccc;
   padding: 10px;
@@ -8,4 +8,13 @@
   // box-shadow: 0 0 15px rgba(0,0,0,0.2);
   border-radius: 5px;
   text-align: justify;
+}
+
+.info-box {
+  position: relative;
+}
+
+.info-box-child {
+  position: absolute;
+  bottom: 0px;
 }

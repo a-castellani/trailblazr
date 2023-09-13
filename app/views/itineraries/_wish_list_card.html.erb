@@ -3,14 +3,14 @@
   <% if @selections_without_days.empty?  %>
     <%= link_to 'Add new activity', activities_path, class: 'new_act rounded btn btn-primary' %>
   <% else %>
-    <div class="scrollable-box-y" data-controller="add-activity-to-day">
+    <div class="scrollable-box-y">
       <% @selections_without_days.each do |selection| %>
-        <div class="d-flex align-items-center">
+        <div class="d-flex align-items-center" data-controller="add-activity-to-day">
           <div class="col-9" >
             <div class="card wish-card mb-2 shadow" >
               <div class="d-flex justify-content-between align-items-center mb-1" >
                 <div class="fw-bold wish-card-text-title mb-0 pb-0"><%= selection.activity.name.truncate(66, separator: ' ') %></div>
-                <div class="d-flex justify-content-between">
+                <div class="d-flex justify-content-between align-items-center">
                   <div class="d-flex gap-1" >
                     <i class="fa-regular fa-square-plus text-primary" data-action="click->add-activity-to-day#displayForm"></i>
                   </div>
@@ -23,7 +23,6 @@
               </div>
             </div>
           </div>
-
           <div class="col-3">
             <%= image_tag selection.activity.image_url, class: 'wish-card-img shadow w-100 mb-2' %>
           </div>
@@ -36,6 +35,7 @@
               </div>
             <% end %>
           </div>
+
         </div>
       <% end %>
     </div>
