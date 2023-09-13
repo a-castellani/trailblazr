@@ -91,4 +91,13 @@ class ItinerariesController < ApplicationController
   def set_itinerary
     @itinerary = Itinerary.find(params[:id])
   end
+
+  # New sweet alert
+  def set_selections_with_days
+    if @itinerary != nil?
+      @selections = Selection.where(itinerary_id: @itinerary)
+      @selections_with_days = @selections.reject { |s| s.day.nil? }.group_by(&:day).sort_by(&:first)
+      @days = @selections_with_days.last[0] + 1
+    end
+  end
 end

@@ -7,18 +7,16 @@
           <% if current_user == @owner %>
             <div class="d-flex justify-content-start">
               <%# Hide the links for unauthorized users: %>
-              <% if policy(@itinerary).edit? %>
+              <% if policy(@itinerary).edit? && policy(@itinerary).destroy? %>
                 <div class="d-flex align-items-center">
                   <%= button_to edit_itinerary_path(@itinerary), method: :get, remote: true, class: "btn btn-default" do %>
                       <i class="fa-solid fa-pen"></i>
                   <% end %>
-                </div>
-              <% end %>
-              <% if policy(@itinerary).destroy? %>
-                <div class="d-flex align-items-center">
-                  <%= button_to @itinerary, method: :delete, remote: true, data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-default" do %>
-                      <i class="fa-regular fa-trash-can"></i>
-                  <% end %>
+                  <div class="d-flex align-items-center">
+                    <%= button_to @itinerary, method: :delete, remote: true, data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-default" do %>
+                        <i class="fa-regular fa-trash-can"></i>
+                    <% end %>
+                  </div>
                 </div>
               <% end %>
             </div>
@@ -26,16 +24,17 @@
         </div>
 
         <%# collaborations %>
-        <div>
+        <div class="m-3">
           <p data-toggle-target="button" data-action="click->toggle#toggle"><strong>Collaborators: </strong><% if current_user == @owner %><i class="fa-solid fa-user-plus"></i><% end %></p>
           <div class="d-flex">
             <div class="m-2">
-              <% if current_user.photo.attached? %>
-                <%= cl_image_tag current_user.photo.key, class: "avatar-collaborations", alt: "user photo"%>
-              <% else %>
-                <%= image_tag "default-img.JPG", class: "avatar-collaborations", alt: "user photo"%>
+              <% @itinerary.users.each do |user| %>
+                <% if @owner.photo.attached? %>
+                  <%= cl_image_tag @owner.photo.key, class: "avatar-collaborations", alt: "user photo"%>
+                <% else %>
+                  <%= image_tag "default-img.JPG", class: "avatar-collaborations", alt: "user photo"%>
+                <% end %>
               <% end %>
-              <%# <p> <%= " #{@owner.first_name} "</p> %>
             </div>
             <% @itinerary.users.each do |user| %>
               <% unless user == @owner %>
@@ -46,12 +45,12 @@
                     <% else %>
                       <%= image_tag "default-img.JPG", crop: :fill, class: "avatar-collaborations", alt: "user photo"%>
                     <% end %>
-                    <div id="delete-btn">
-                      <%= link_to user.collaborations.find_by(itinerary_id: @itinerary.id), method: :delete,remote: true, data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }, class: "button-collaborators" do %>
-                        <i class="fa-solid fa-x fa-2xs"></i>
+
+                    <div id="delete-btn" data-controller="sweet-alert">
+                      <%= link_to user.collaborations.find_by(itinerary_id: @itinerary.id), method: :delete, remote: true, data: { turbo_method: :delete, sweet_alert_target: :delete }, class: "button-collaborators" do %>
+                        <i class="fa-solid fa-x fa-2xs" data-action="click->sweet-alert#fireAlert"></i>
                       <% end %>
                     </div>
-                    <%# <p><%= " #{user.first_name} "</p> %>
                   </div>
                 </div>
               <% end %>
@@ -65,7 +64,11 @@
         </div><br>
 
         <%# selections %>
-        <%= render "day_card" %>
+        <div class="d-flex">
+          <div class="daycards">
+            <%= render "day_card" %>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -86,8 +89,8 @@
       <% end %>
     </div>
 
-    <div>
-     <%= render "itineraries/chat" %>
+    <div class="chat">
+      <%= render "itineraries/chat" %>
     </div>
   </div>
 
