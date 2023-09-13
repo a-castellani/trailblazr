@@ -52,7 +52,7 @@
           <%= select_tag(:tags, options_for_select(@tags.collect{ |tag| [tag, tag]}), class: "form-control input-box", :prompt => "What's your mood?") %>
         </div>
       </div>
-      <div class="row justify-content-start">
+      <div class="row justify-content-start mr-1">
         <div class="col-4 input-div">
           <%= select_tag(:category, options_for_select(@categories.collect{ |category| [category, category]}), class: "form-control input-box", :prompt => "What do you want to do?") %>
         </div>
