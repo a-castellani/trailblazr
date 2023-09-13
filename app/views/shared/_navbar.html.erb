@@ -1,7 +1,11 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container-fluid">
 
-    <i class="navbar-brand fa-regular fa-compass fa-2xl" data-action="click->sidebar-toggler#fire"></i>
+<div class="d-flex align-items-center">
+  <i class="navbar-brand fa-regular fa-compass fa-2xl nav-text" data-action="click->sidebar-toggler#fire"></i>
+    <%= link_to "TrailBlazr", root_path, class: "h5 m-0 text-decoration-none nav-text" %>
+</div>
+
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -11,10 +15,7 @@
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
           <li class="nav-item active">
-            <%= link_to "Home", root_path, class: "nav-link" %>
-          </li>
-          <li class="nav-item active">
-            <%= link_to "My Itineraries", itineraries_path , class: "nav-link" %>
+            <%= link_to "My Itineraries", itineraries_path , class: "nav-link fw-bold me-1 nav-text" %>
           </li>
           <li class="nav-item">
             <%= render 'notifications/notification_badge', user: current_user %>

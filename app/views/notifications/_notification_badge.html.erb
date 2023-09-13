@@ -1,7 +1,7 @@
 <div id="notification_badge_<%= user.id %>">
   <%= turbo_stream_from "user_#{user.id}_notifications" %>
   <%= button_to notifications_path, method: :get, remote: true, class: "icon-button" do %>
-    <span class="material-icons"><i class="fa-regular fa-bell"></i></span>
+    <span class="material-icons"><i class="fa-regular fa-bell text-white"></i></span>
     <% if user.notifications.unread.count > 0 %>
       <span class="icon-button__badge"><%= user.notifications.unread.count %></span>
     <% end %>
