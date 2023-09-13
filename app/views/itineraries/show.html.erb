@@ -10,9 +10,7 @@
                 <%# Hide the links for unauthorized users: %>
                 <% if policy(@itinerary).edit? && policy(@itinerary).destroy? %>
                   <div class="d-flex my-4">
-                    <button class="edit-itinerary" data-bs-toggle="modal" data-bs-target="#editModal">
-                      <i class="fa-solid fa-pen"></i>
-                    </button>
+                    <i class="fa-solid fa-pen" data-bs-toggle="modal" data-bs-target="#editModal"></i>
                     <%= render "itineraries/editform", itinerary: @itinerary %>
                     <div data-controller="sweet-alert">
                       <%= button_to @itinerary, method: :delete, remote: true, data: {turbo_method: :delete, sweet_alert_target: :delete }, class: "btn btn-default" do %>
@@ -64,7 +62,7 @@
   </div>
   <div class="col-4">
     <div class="position-fix">
-      <%= render "wish_list_card" %>
+      <%= render "wish_list_card"%>
     </div>
     <%# mapbox -> no map if empty itinerary %>
     <div class="ms-1">
