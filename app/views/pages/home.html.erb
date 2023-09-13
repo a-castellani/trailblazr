@@ -45,26 +45,26 @@
 </section>
 
 <section class="sec">
-  <div class="input-form ">
+  <div class="input-form w-100">
     <%= form_tag(activities_path, method: "get") do  %>
       <div class="row justify-content-center">
-        <div class="col-5 input-div">
+        <div class="col-4 input-div">
           <%= select_tag(:tags, options_for_select(@tags.collect{ |tag| [tag, tag]}), class: "form-control input-box", :prompt => "What's your mood?") %>
         </div>
       </div>
       <div class="row justify-content-start">
-        <div class="col-5 input-div">
+        <div class="col-4 input-div">
           <%= select_tag(:category, options_for_select(@categories.collect{ |category| [category, category]}), class: "form-control input-box", :prompt => "What do you want to do?") %>
         </div>
-        <div class="col-5 input-div center">
+        <div class="col-2 input-div">
           <%= submit_tag("Search", :class => "btn btn-primary search-button" )%>
         </div>
-        <div class="col-5 input-div">
+        <div class="col-4 input-div">
           <%= select_tag(:location, options_for_select(@locations.collect{ |location| [location, location]}), class: "form-control input-box", :prompt => "Where?") %>
         </div>
       </div>
       <div class="row justify-content-center">
-        <div class="col-5 input-div">
+        <div class="col-4 input-div">
           <%= text_field_tag :number_of_people, params[:number_of_people], class: "form-control input-box", placeholder: "How many people?"%>
         </div>
       </div>
