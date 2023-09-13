@@ -114,7 +114,7 @@ User.destroy_all
 
 activities = [
   {
-  name: 'Full-day sea kayaking on the Turquoise Coast' ,
+  name: 'Kayaking on the Turquoise Coast' ,
   location: 'Lycian',
   duration: 1,
   category:'kayaking' ,
@@ -124,7 +124,7 @@ activities = [
   number_of_people: 20
   },
   {
-  name:  'Cycle to Ballydavid and on to Brandon Creek',
+  name:  'Cycle to Ballydavid',
   location: 'Ireland',
   duration: 1,
   category: 'cycling' ,
@@ -144,7 +144,7 @@ activities = [
   number_of_people: 18
   },
   {
-  name: 'Cycle around glorious West Lake',
+  name: 'Cycle around West Lake',
   location: 'Vietnam' ,
   duration:1 ,
   category: 'cycling',
@@ -175,7 +175,7 @@ activities = [
   number_of_people: 16
   },
   {
-  name: 'Visit Jerash then Amman city tour',
+  name: 'Visit Jerash and Amman',
   location: 'Jordan Decapolis',
   duration: '5 h',
   category: 'walking',
@@ -187,7 +187,7 @@ activities = [
   tags:['culture']
   },
   {
-  name: 'Circular walk in the heartland of the Prosecco region',
+  name: 'Walk in the Prosecco region',
   location: 'Italy Prosecco region',
   duration: '5 h',
   category: 'wine & walking',
@@ -209,7 +209,7 @@ activities = [
   tags:['culture']
   },
   {
-  name: 'Submarine ride and snorkelling in Red Sea',
+  name: 'Submarine ride in Red Sea',
   location: 'Egypt',
   duration: '6 h',
   category: 'submarine ride and snorkelling',
@@ -221,7 +221,7 @@ activities = [
   tags:['family', "adventure"]
   },
   {
-  name: 'Dogsledding instruction in Riisitunturi',
+  name: 'Dogsledding in Riisitunturi',
   location: 'Finland',
   duration: '5 h',
   category: 'dogsledding',
@@ -255,7 +255,7 @@ activities = [
   number_of_people: 16
   },
   {
-  name: 'Walking the Summit of Peña Main ',
+  name: 'Walking the Summit of Peña Main',
   location: 'Spain',
   duration:1 ,
   category: 'walking',
@@ -287,7 +287,7 @@ activities = [
   number_of_people: 16
   },
   {
-  name: 'Morning at the Pyramids and Great Sphinx of Giza',
+  name: 'Morning at the Pyramids',
   location: 'Pyramids, Egipt',
   duration: 3 ,
   category: 'walking',
@@ -298,7 +298,7 @@ activities = [
   numer_of_people: 6
   },
   {
-  name: "Drive to the head of the Chamonix Valley",
+  name: "Drive to Chamonix Valley",
   location: 'France',
   duration: 6,
   category: 'walking',
@@ -308,7 +308,7 @@ activities = [
   number_of_people: 6
   },
   {
-  name: 'Visit the impressive sites of Pompeii and Vesuvius' ,
+  name: 'Visit Pompeii and Vesuvius' ,
   location: 'Pompei, Italy',
   duration: 8 ,
   category: 'walking',
@@ -320,7 +320,7 @@ activities = [
   number_of_people: 6
   },
   {
-  name: 'Four game drives over in Pench National Park' ,
+  name: 'Drives over in Pench National Park' ,
   location: 'Pench National Park',
   duration: 10 ,
   category: 'walking',
@@ -341,7 +341,7 @@ activities = [
   numer_of_people: 10
   },
   {
-  name: 'Sharpen your photography skills on Masai Mara',
+  name: 'Visit Masai Mara',
   location: 'Masai Mara',
   duration: 3,
   category: 'walking',
@@ -352,7 +352,7 @@ activities = [
   number_of_people: 10
   },
   {
-  name: 'Turtle snorkelling safari in South Male Atoll' ,
+  name: 'Turtle snorkelling in Male Atoll' ,
   location: 'South Male Atoll',
   duration: 4,
   category: 'swimming',

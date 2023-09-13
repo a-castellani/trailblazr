@@ -10,7 +10,7 @@
           <div class="daycard">
             <%= image_tag selection.activity.image_url, class: 'img' %>
             <div class="d-flex justify-content-between">
-              <h6><%= selection.activity.name.truncate(20, separator: ' ') %></h6>
+              <h6><%= selection.activity.name.truncate(30, separator: ' ') %></h6>
               <div class="d-flex justify-content-between m-1">
                 <div class="d-flex" data-controller="add-activity-to-day">
                   <%= link_to edit_selection_path(selection)  do %>
@@ -19,7 +19,7 @@
 
                   <div data-controller="sweet-alert">
                     <%= link_to selection_path(selection), data: {turbo_method: :delete, sweet_alert_target: :delete }  do %>
-                    <i class="fa-regular fa-trash-can text-danger mx-1" data-action="click->sweet-alert#fireAlert"></i>
+                    <i class="fa-regular fa-trash-can mx-1" data-action="click->sweet-alert#fireAlert"></i>
                     <% end %>
                   </div>
 
