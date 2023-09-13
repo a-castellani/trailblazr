@@ -1,44 +1,54 @@
-
-
 <div class="wish-card-row">
-  <h6 class="mt-3">Wish List</h6>
-  <% if @selections_without_days.empty?  %>
+  <div class="d-flex align-items-center">
+    <h6 class="mt-3">Wish List</h6>
     <%= link_to 'Add new activity', activities_path, class: 'new_act rounded btn btn-primary' %>
-  <% else %>
-    <div class="scrollable-box-y">
-      <% @selections_without_days.each do |selection| %>
-        <div class="d-flex align-items-center" data-controller="add-activity-to-day">
-          <div class="col-9" >
-            <div class="card wish-card mb-2 shadow" >
-              <div class="d-flex justify-content-between align-items-center mb-1" >
-                <div class="fw-bold wish-card-text-title mb-0 pb-0"><%= selection.activity.name.truncate(66, separator: ' ') %></div>
-                <div class="d-flex justify-content-between align-items-center">
-                  <div class="d-flex gap-1" >
-                    <i class="fa-regular fa-square-plus text-primary" data-action="click->add-activity-to-day#displayForm"></i>
-                  </div>
-                  <div data-controller="sweet-alert">
-                    <%= link_to selection_path(selection), data: {turbo_method: :delete, sweet_alert_target: :delete }  do %>
-                      <i class="fa-regular fa-trash-can text-danger mx-1"  data-action="click->sweet-alert#fireAlert"></i>
-                    <% end %>
-                  </div>
+  </div>
+
+  <div class="scrollable-box-y">
+    <% @selections_without_days.each do |selection| %>
+      <div class="d-flex align-items-center" data-controller="add-activity-to-day">
+        <div class="col-9" >
+          <div class="card wish-card mb-2 shadow" >
+            <div class="d-flex justify-content-between align-items-center mb-1" >
+              <div class="fw-bold wish-card-text-title mb-0 pb-0"><%= selection.activity.name.truncate(66, separator: ' ') %></div>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="d-flex gap-1" >
+                  <i class="fa-regular fa-square-plus text-primary" data-action="click->add-activity-to-day#displayForm"></i>
+                </div>
+                <div data-controller="sweet-alert">
+                  <%= link_to selection_path(selection), data: {turbo_method: :delete, sweet_alert_target: :delete }  do %>
+                    <i class="fa-regular fa-trash-can text-danger mx-1"  data-action="click->sweet-alert#fireAlert"></i>
+                  <% end %>
                 </div>
               </div>
             </div>
           </div>
-          <div class="col-3">
-            <%= image_tag selection.activity.image_url, class: 'wish-card-img shadow w-100 mb-2' %>
-          </div>
-          <div class="d-none" data-add-activity-to-day-target="form">
-            <%= simple_form_for(selection) do |f| %>
-              <div class="d-flex align-items-center">
-                <%= f.input :day, collection: 1..@selections_with_days.length + 1 %>
-                <%= f.submit class: 'mt-3 btn btn-primary' %>
-              </div>
-            <% end %>
-          </div>
         </div>
-      <% end %>
-    </div>
-  <% end %>
+        <div class="col-3">
+          <%= image_tag selection.activity.image_url, class: 'wish-card-img shadow w-100 mb-2' %>
+        </div>
+        <div class="d-none" data-add-activity-to-day-target="form">
+          <%= simple_form_for(selection) do |f| %>
+            <div class="d-flex align-items-center">
+              <%= f.input :day, collection: 1..@selections_with_days.length + 1 %>
+              <%= f.submit class: 'mt-3 btn btn-primary' %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+
+  </div>
+  <%# mapbox -> no map if empty itinerary %>
+  <div class="ms-1">
+    <% unless @selections_with_days.empty? %>
+      <div class="container mt-3" style="width: 100%; height: 300px;"
+        data-controller="map"
+        data-map-markers-value="<%= @markers.to_json %>"
+        data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+      </div>
+    <% end %>
+  </div>
+
 </div>
 <br>
