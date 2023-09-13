@@ -1,9 +1,8 @@
 <header>
   <% if user_signed_in? %>
-    <h4 class="logo">Hello <%= @user.first_name %> !</h4>
     <nav class="home-nav">
-        <strong><%= link_to "My Itineraries", itineraries_path %></strong>
-        <strong><%= link_to "Log Out", destroy_user_session_path, data: {turbo_method: :delete} %></strong>
+        <%= link_to "My Itineraries", itineraries_path, class: "font-weight-bold"%>
+        <%= link_to "Log Out", destroy_user_session_path, data: {turbo_method: :delete}, class: "font-weight-bold" %>
     </nav>
   <% else %>
     <nav class="home-nav">
@@ -52,13 +51,17 @@
           <%= select_tag(:tags, options_for_select(@tags.collect{ |tag| [tag, tag]}), class: "form-control input-box", :prompt => "What's your mood?") %>
         </div>
       </div>
-      <div class="row justify-content-start mr-1">
+      <div class="row justify-content-center">
         <div class="col-4 input-div">
           <%= select_tag(:category, options_for_select(@categories.collect{ |category| [category, category]}), class: "form-control input-box", :prompt => "What do you want to do?") %>
         </div>
-        <div class="col-2 input-div">
-          <%= submit_tag("Search", :class => "btn btn-primary search-button" )%>
-        </div>
+        <%= button_tag(type: 'submit', class: "circle col-2" ) do %>
+          <div class="pulse"></div>
+          <div class="icon">
+            <%=  content_tag(:i, "", class: "fa-solid fa-rocket icon") %>
+          </div>
+        <% end %>
+
         <div class="col-4 input-div">
           <%= select_tag(:location, options_for_select(@locations.collect{ |location| [location, location]}), class: "form-control input-box", :prompt => "Where?") %>
         </div>

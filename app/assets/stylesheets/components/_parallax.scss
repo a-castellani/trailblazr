@@ -11,22 +11,12 @@ header {
   left: 0;
   width: 100%;
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
   z-index: 100;
+  padding-top: 30px;
 }
 
-.logo {
-  color: #359381;
-  pointer-events: none;
-  margin-right: 500px;
-  padding: 15px 30px;
-}
-.home-nav {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-}
 
 .home-nav a {
   text-decoration: none;
@@ -34,7 +24,8 @@ header {
   border-radius: 20px;
   padding: 10px 15px;
   margin: 0 10px;
-  font-weight: bolder;
+  font-family: $headers-font;
+  font-weight: bold;
 }
 
 .home-nav a:hover {
@@ -55,7 +46,6 @@ header {
   height: 120vh;
   width: 106vw;
   left: 0;
-  margin-bottom: 80px;
 }
 
 #text {
@@ -77,35 +67,3 @@ header {
   pointer-events: none;
 }
 
-
-
-.sec {
-  position: relative;
-  height: 80vh;
-  width: 100vw;
-  background-color: #003329;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  margin-top: 80px;
-  padding-top: 10px;
-
-}
-
-.input-div {
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 15px;
-  padding: 15px;
-}
-
-.input-box {
-  height: 10vh;
-  border-radius: 20px;
-}
-
-.search-button {
-  border-radius: 100%;
-}
