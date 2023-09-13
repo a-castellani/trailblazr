@@ -7,27 +7,29 @@
     <div class="d-flex itinerarycard">
       <% selection.each do |selection| %>
         <div class="daycards" data-controller="reviewform">
-          <div class="daycard">
-            <%= image_tag selection.activity.image_url, class: 'img' %>
-            <div class="d-flex justify-content-between">
-              <h6><%= selection.activity.name.truncate(30, separator: ' ') %></h6>
-              <div class="d-flex justify-content-between m-1">
-                <div class="d-flex" data-controller="add-activity-to-day">
-                  <%= link_to edit_selection_path(selection)  do %>
-                    <i class="fa-solid fa-pen fa-square-plus text-primary" data-action="click->add-activity-to-day#displayForm"></i>
+          <div data-controller="dayicons">
+            <div class="daycard" data-action="mouseover->dayicons#display">
+              <div id="day-icons" class="d-flex d-none" data-controller="add-activity-to-day" data-dayicons-target="icons">
+                <%= link_to edit_selection_path(selection)  do %>
+                  <i class="fa-solid fa-pen fa-square-plus" id="linkday" data-action="click->add-activity-to-day#displayForm"></i>
+                <% end %>
+
+                <div data-controller="sweet-alert">
+                  <%= link_to selection_path(selection), data: {turbo_method: :delete, sweet_alert_target: :delete }  do %>
+                  <i class="fa-regular fa-trash-can mx-1" id="linkday" data-action="click->sweet-alert#fireAlert"></i>
                   <% end %>
+                </div>
 
-                  <div data-controller="sweet-alert">
-                    <%= link_to selection_path(selection), data: {turbo_method: :delete, sweet_alert_target: :delete }  do %>
-                    <i class="fa-regular fa-trash-can mx-1" data-action="click->sweet-alert#fireAlert"></i>
-                    <% end %>
-                  </div>
-
-                  <div><i class="fa-solid fa-star fa-sm" data-action="click->reviewform#fire"></i></div>
+                <div><i class="fa-solid fa-star fa-sm" data-action="click->reviewform#fire"></i></div>
+              </div>
+              <%= image_tag selection.activity.image_url, class: 'img' %>
+              <div class="d-flex justify-content-between">
+                <h6><%= selection.activity.name.truncate(40, separator: ' ') %></h6>
+                <div class="d-flex justify-content-between m-1">
                 </div>
               </div>
+              <p><%= selection.activity.description.truncate(140, separator: ' ') %></p>
             </div>
-            <p><%= selection.activity.description.truncate(100, separator: ' ') %></p>
           </div>
           <div class="review-form d-none" data-reviewform-target="reviewbox">
             <%= render "reviews/reviewform", activity: selection.activity, selection: selection, review: @review%>
