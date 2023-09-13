@@ -1,12 +1,10 @@
-  <div class="row show-card ">
+  <div class="show-card">
     <h2> <%= @activity.name %></h2>
-
     <div class="d-flex mt-3">
       <div class="show-card-img">
         <img src=<%= @activity.image_url %> alt=<%= @activity.name %>>
       </div>
-      <div class="col-6 ms-3" data-controller="toggle">
-
+      <div class="col-6 ms-3 info-box" data-controller="toggle">
         <div class="d-flex justify-content-between">
           <div class="d-flex align-items-center">
             <p><i class="fa-solid fa-clock fa-xl"></i> <strong><%= @activity.duration.to_i %> hours</strong></p>
@@ -28,7 +26,11 @@
           <% end %>
         </div>
 
-        <p style="text-align: justify;"> <%= @activity.description %></p>
+        <div class="info-box-child">
+          <div class="readmore-y">
+            <%= @activity.description %>
+          </div>
+        </div>
 
       </div>
     </div>

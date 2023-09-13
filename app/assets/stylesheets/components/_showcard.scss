@@ -34,3 +34,16 @@
   display: flex;
   justify-content: space-between;
 }
+
+.fix-postion-bottom {
+  position: relative;
+}
+
+.info-box {
+  position: relative;
+}
+
+.info-box-child {
+  position: absolute;
+  bottom: 0px;
+}
