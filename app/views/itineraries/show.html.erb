@@ -46,11 +46,13 @@
                     <% else %>
                       <%= image_tag "default-img.JPG", crop: :fill, class: "avatar-collaborations", alt: "user photo"%>
                     <% end %>
-                    <div id="delete-btn">
-                      <%= link_to user.collaborations.find_by(itinerary_id: @itinerary.id), method: :delete,remote: true, data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }, class: "button-collaborators" do %>
-                        <i class="fa-solid fa-x fa-2xs"></i>
+
+                    <div id="delete-btn" data-controller="sweet-alert">
+                      <%= link_to user.collaborations.find_by(itinerary_id: @itinerary.id), method: :delete, remote: true, data: { turbo_method: :delete, sweet_alert_target: :delete }, class: "button-collaborators" do %>
+                        <i class="fa-solid fa-x fa-2xs" data-action="click->sweet-alert#fireAlert"></i>
                       <% end %>
                     </div>
+
                   </div>
                 </div>
               <% end %>

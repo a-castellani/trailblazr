@@ -13,9 +13,13 @@
                 <%= link_to edit_selection_path(selection)  do %>
                   <i class="fa-solid fa-pen fa-square-plus text-primary" data-action="click->add-activity-to-day#displayForm"></i>
                 <% end %>
-                <%= link_to selection_path(selection), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}  do %>
-                  <i class="fa-regular fa-trash-can text-danger mx-1"></i>
-                <% end %>
+
+                <div data-controller="sweet-alert">
+                  <%= link_to selection_path(selection), data: {turbo_method: :delete, sweet_alert_target: :delete }  do %>
+                  <i class="fa-regular fa-trash-can text-danger mx-1" data-action="click->sweet-alert#fireAlert"></i>
+                  <% end %>
+                </div>
+
                 <div><i class="fa-solid fa-star fa-sm" data-action="click->reviewform#fire"></i></div>
               </div>
             </div>
