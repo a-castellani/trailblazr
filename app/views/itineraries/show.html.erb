@@ -2,67 +2,68 @@
   <div class="col-8">
     <div class="container d-flex justify-content-between">
       <div class="col-6 mx-3" data-controller="toggle">
-        <div class="d-flex" >
-          <h3 class="my-3 me-3"><%= @itinerary.title.capitalize %></h3>
-          <% if current_user == @owner %>
-            <div class="d-flex justify-content-start">
-              <%# Hide the links for unauthorized users: %>
-              <% if policy(@itinerary).edit? && policy(@itinerary).destroy? %>
-                <div class="d-flex align-items-center">
-                  <%= button_to edit_itinerary_path(@itinerary), method: :get, remote: true, class: "btn btn-default" do %>
-                      <i class="fa-solid fa-pen"></i>
-                  <% end %>
 
-                  <div class="d-flex align-items-center" data-controller="sweet-alert">
+        <div class="d-flex justify-content-between" >
+          <div class="d-flex" >
+            <h3 class="my-3"><%= @itinerary.title.capitalize %></h3>
+            <% if current_user == @owner %>
+              <div>
+                <%# Hide the links for unauthorized users: %>
+                <% if policy(@itinerary).edit? && policy(@itinerary).destroy? %>
+                  <div class="d-flex my-3" data-controller="sweet-alert">
+                    <%= button_to edit_itinerary_path(@itinerary), method: :get, remote: true, class: "btn btn-default" do %>
+                        <i class="fa-solid fa-pen"></i>
+                    <% end %>
                     <%= button_to @itinerary, method: :delete, remote: true, data: {turbo_method: :delete, sweet_alert_target: :delete }, class: "btn btn-default" do %>
-                        <i class="fa-regular fa-trash-can" data-action="click->sweet-alert#fireAlert"></i>
+                      <i class="fa-regular fa-trash-can" data-action="click->sweet-alert#fireAlert"></i>
                     <% end %>
                   </div>
-                </div>
-              <% end %>
-            </div>
-          <% end %>
-        </div>
-
-        <%# collaborations %>
-        <div class="m-3">
-          <p data-toggle-target="button" data-action="click->toggle#toggle"><strong>Collaborators: </strong><% if current_user == @owner %><i class="fa-solid fa-user-plus"></i><% end %></p>
-          <div class="d-flex">
-            <div class="m-2">
-              <% @itinerary.users.each do |user| %>
+                <% end %>
+              </div>
+            <% end %>
+          </div>
+          <div class="m-3 w-100">
+            <div class="d-flex">
+              <div class="m-1">
                 <% if @owner.photo.attached? %>
                   <%= cl_image_tag @owner.photo.key, class: "avatar-collaborations", alt: "user photo"%>
                 <% else %>
                   <%= image_tag "default-img.JPG", class: "avatar-collaborations", alt: "user photo"%>
                 <% end %>
-              <% end %>
-            </div>
-            <% @itinerary.users.each do |user| %>
-              <% unless user == @owner %>
-                <div class="d-flex">
-                  <div class="collaborators m-2">
-                    <% if user.photo.attached? %>
-                      <%= cl_image_tag user.photo.key, crop: :fill, class: "avatar-collaborations", alt: "user photo"%>
-                    <% else %>
-                      <%= image_tag "default-img.JPG", crop: :fill, class: "avatar-collaborations", alt: "user photo"%>
-                    <% end %>
-
-                    <div id="delete-btn" data-controller="sweet-alert">
-                      <%= link_to user.collaborations.find_by(itinerary_id: @itinerary.id), method: :delete, remote: true, data: { turbo_method: :delete, sweet_alert_target: :delete }, class: "button-collaborators" do %>
-                        <i class="fa-solid fa-x fa-2xs" data-action="click->sweet-alert#fireAlert"></i>
+              </div>
+              <% @itinerary.users.each do |user| %>
+                <% unless user == @owner %>
+                  <div class="d-flex">
+                    <div class="collaborators m-1">
+                      <% if user.photo.attached? %>
+                        <%= cl_image_tag user.photo.key, crop: :fill, class: "avatar-collaborations", alt: "user photo"%>
+                      <% else %>
+                        <%= image_tag "default-img.JPG", crop: :fill, class: "avatar-collaborations", alt: "user photo"%>
                       <% end %>
+
+                      <div id="delete-btn" data-controller="sweet-alert">
+                        <%= link_to user.collaborations.find_by(itinerary_id: @itinerary.id), method: :delete, remote: true, data: { turbo_method: :delete, sweet_alert_target: :delete }, class: "button-collaborators" do %>
+                          <i class="fa-solid fa-x fa-2xs" data-action="click->sweet-alert#fireAlert"></i>
+                        <% end %>
+                      </div>
                     </div>
                   </div>
+                <% end %>
+              <% end %>
+              <% if current_user == @owner %><i data-toggle-target="button" data-action="click->toggle#toggle" class="fa-solid fa-user-plus my-3"></i><% end %>
+            </div>
+            <div>
+              <% if current_user == @owner %>
+                <div class="container d-none" data-toggle-target="form">
+                  <%= render "itineraries/collaboration_form" %>
                 </div>
               <% end %>
-            <% end %>
-          </div>
-          <% if current_user == @owner %>
-            <div class="container d-none" data-toggle-target="form">
-              <%= render "itineraries/collaboration_form" %>
             </div>
-          <% end %>
-        </div><br>
+          </div>
+
+        </div>
+
+        <%# collaborations %>
 
         <%# selections %>
         <div class="d-flex">
