@@ -13,12 +13,10 @@
                   <div class="d-flex gap-1" data-controller="add-activity-to-day">
                     <%= link_to edit_selection_path(selection)  do %>
                       <i class="fa-regular fa-square-plus text-primary" data-action="click->add-activity-to-day#displayForm"></i>
+                      <%= link_to selection_path(selection), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}  do %>
+                        <i class="fa-regular fa-trash-can text-danger mx-1"></i>
+                      <% end %>
                     <% end %>
-                      <div data-controller="sweet-alert">
-                 <%= link_to selection_path(selection), data: {turbo_method: :delete, sweet_alert_target: :delete }  do %>
-                    <i class="fa-regular fa-trash-can text-danger mx-1" data-action="click->sweet-alert#fireAlert"></i>
-                  <% end %>
-              </div>
                   </div>
                 </div>
 
