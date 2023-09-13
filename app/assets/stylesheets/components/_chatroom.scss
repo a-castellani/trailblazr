@@ -5,14 +5,14 @@
   width: 350px;
   color: $dark-green;
   background-color: white;
-  margin: 10px;
+  margin: 5px;
   padding: 10px;
   border-radius: 8px;
   box-shadow: 0 0 3px #1C2B264D;
 
   h1 {
     text-align: center;
-    font-size: 28px;
+    font-size: 24px;
   }
 
   p{
@@ -30,6 +30,6 @@
   }
 
   .closed {
-    height: 6vh;
+    height: 4vh;
   }
 }
