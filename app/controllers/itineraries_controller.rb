@@ -51,9 +51,6 @@ class ItinerariesController < ApplicationController
     end
 
     @review = Review.new
-    # authorize @review
-    # @selection = Selection.find(params[:selection_id])
-    # @activity = Activity.find(params[:activity_id])
 
     # The `geocoded` scope filters only activities with coordinates
     @markers = (@selections_with_days.map { |p| p[1] }.flatten).map do |selection|
