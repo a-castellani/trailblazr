@@ -29,23 +29,13 @@
           <p data-toggle-target="button" data-action="click->toggle#toggle"><% if current_user == @owner %><i class="fa-solid fa-user-plus"></i><% end %></p>
           <div class="d-flex">
             <div class="m-2">
-              <% @itinerary.users.each do |user| %>
-                <% if @owner.photo.attached? %>
-                  <%= cl_image_tag @owner.photo.key, class: "avatar-collaborations", alt: "user photo"%>
-                <% else %>
-                  <%= image_tag "default-img.JPG", class: "avatar-collaborations", alt: "user photo"%>
-                <% end %>
-              <% end %>
+              <%= render "itineraries/avatar", user: @owner %>
             </div>
             <% @itinerary.users.each do |user| %>
               <% unless user == @owner %>
                 <div class="d-flex">
                   <div class="collaborators m-2">
-                    <% if user.photo.attached? %>
-                      <%= cl_image_tag user.photo.key, crop: :fill, class: "avatar-collaborations", alt: "user photo"%>
-                    <% else %>
-                      <%= image_tag "default-img.JPG", crop: :fill, class: "avatar-collaborations", alt: "user photo"%>
-                    <% end %>
+                    <%= render "itineraries/avatar", user: user %>
 
                     <div id="delete-btn" data-controller="sweet-alert">
                       <%= link_to user.collaborations.find_by(itinerary_id: @itinerary.id), method: :delete, remote: true, data: { turbo_method: :delete, sweet_alert_target: :delete }, class: "button-collaborators" do %>
