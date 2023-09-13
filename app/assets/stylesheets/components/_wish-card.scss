@@ -6,12 +6,14 @@
 }
 
 .wish-card-img {
-  border-top-right-radius: 5px;
-  border-bottom-right-radius: 5px;
-  // object-fit: contain;
+  // border-top-right-radius: 5px;
+  // border-bottom-right-radius: 5px;
+  border-radius: 5px;
   object-fit: cover;
-  height: auto;
-  // max-height: 70px;
+  height: 58px;
+  width: 100%;
+  margin-bottom: 1px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
 
 .wish-card-text-title {
@@ -24,7 +26,6 @@
 }
 
 .scrollable-box-y {
-  margin-right: 10px;
   width: 400px;
   height: 216px;
   overflow-y: auto;
@@ -48,10 +49,3 @@
   position: sticky;
   top: 0;
 }
-
-// .mapbox-wish {
-//   border: 1px solid #ccc;
-//   background-color: white;
-//   box-shadow: 0 0 15px rgba(0,0,0,0.2);
-//   border-radius: 5px;
-// }
