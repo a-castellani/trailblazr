@@ -6,17 +6,27 @@
 }
 
 .collaborators .button-collaborators {
-  background-color: rgb(204, 201, 201);
+  background-color: $sand;
   width: 15px;
   height: 15px;
   border-radius: 50%;
   position: absolute;
   top: -10px;
-  left: 25px;
+  left: 34px;
   text-decoration: none;
   padding: 0px 7px 1px 4px;
+  color: $search-btn-dark-mountain;
+}
+
+.collaborators .button-collaborators:hover {
+  background-color: $mountain-yellow-1;
 }
 
 #delete-btn {
   position: relative;
+}
+
+#deletex {
+  position: absolute;
+  top: 7px;
 }
