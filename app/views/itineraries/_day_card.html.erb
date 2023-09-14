@@ -1,8 +1,7 @@
 <div class="">
   <% @selections_with_days.each do |day, selection| %>
     <div class="d-flex">
-      <i class="fa-regular fa-calendar-days mx-2"></i>
-      <h6> Day <%= day %></h6>
+      <p><i class="fa-regular fa-calendar-days fa-xl"></i><h4 class="ms-2"> Day <%= day %></h4></p>
     </div>
     <div class="d-flex itinerarycard border">
       <% selection.each do |selection| %>
