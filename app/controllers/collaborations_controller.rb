@@ -41,7 +41,7 @@ class CollaborationsController < ApplicationController
       if current_user == @itinerary.collaborations.find_by(role: "owner").user
         redirect_to itinerary_path
       else
-        redirect_to itineraries_path
+        redirect_to activities_path
       end
     else
       flash[:alert] = "Unable to delete collaboration."
