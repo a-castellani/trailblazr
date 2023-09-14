@@ -2,10 +2,6 @@ class ItinerariesController < ApplicationController
   skip_before_action :authenticate_user!, only: :show
   before_action :set_itinerary, only: %i[show edit update destroy]
 
-  def index
-    @itineraries = policy_scope(current_user.itineraries)
-  end
-
   def create
     @itinerary = Itinerary.new(itinerary_params)
     authorize @itinerary

@@ -15,7 +15,7 @@
   </div>
   <div class="d-none" data-chat-target="chatbox">
     <div class="chat-messages" data-chat-subscription-target="messages">
-      <% @itinerary.messages.reverse_each do |message| %>
+      <% @itinerary.messages.each do |message| %>
         <%= render "messages/message", message: message %>
       <% end %>
     </div>
