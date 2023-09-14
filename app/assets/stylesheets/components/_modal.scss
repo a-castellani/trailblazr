@@ -1,13 +1,13 @@
 
 
 .fade {
-  backdrop-filter: blur(2px);
+  backdrop-filter: blur(3px);
 }
 
 .modal-content, .title-form {
   filter: brightness(120%);
   border-radius: 8px;
-  opacity: 0.91;
+  opacity: 0.88;
   color: $dark-green;
 
 }
