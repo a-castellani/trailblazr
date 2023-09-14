@@ -34,13 +34,19 @@ class CollaborationsController < ApplicationController
   end
 
   def destroy
+    @itinerary = @collaboration.itinerary
     authorize @collaboration
     if @collaboration.destroy
       flash[:notice] = "Collaboration was successfully deleted."
+      if current_user == @itinerary.collaborations.find_by(role: "owner").user
+        redirect_to itinerary_path
+      else
+        redirect_to itineraries_path
+      end
     else
       flash[:alert] = "Unable to delete collaboration."
+      redirect_to itinerary_path
     end
-    redirect_to itinerary_path
   end
 
   private
