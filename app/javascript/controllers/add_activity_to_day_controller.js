@@ -10,6 +10,6 @@ export default class extends Controller {
 
   displayForm() {
     // console.log('display form called')
-    this.formTarget.classList.remove("d-none")
+    this.formTarget.classList.toggle("d-none")
   }
 }
