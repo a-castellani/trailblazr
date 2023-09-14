@@ -17,7 +17,7 @@ static targets = ["delete"]
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#5e3023',
-      cancelButtonColor: '#6C867A',
+      cancelButtonColor: '#374C41ff',
       confirmButtonText: 'Delete',
   })
     .then((result) => {
