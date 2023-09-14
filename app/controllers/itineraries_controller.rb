@@ -61,7 +61,7 @@ class ItinerariesController < ApplicationController
   def destroy
     @itinerary.destroy
     authorize @itinerary
-    redirect_to itineraries_path
+    redirect_to activities_path
   end
 
   private
