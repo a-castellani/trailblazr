@@ -116,7 +116,7 @@ activities = [
   {
   name: 'Kayaking on the Turquoise Coast' ,
   location: 'Lycian',
-  duration: 1,
+  duration: 3,
   category:'kayaking' ,
   description: 'Today we spend a full day sea kayaking in the sheltered bay near Kekova Island. We start early, departing at 7.30am for a transfer (approximately 50 minutes) to Ucagiz village. After preparations and a technical briefing, we paddle towards the island and the site of a sunken city. Although it is no Atlantis, you can clearly make out the harbour walls and see the layout of rooms and houses below the water. Kayaking is an excellent low-impact way of exploring the site. Later, we paddle to the village of Simena for lunch. This spectacular spot is on a peninsula and is inaccessible by road. The village is overlooked by a hilltop Ottoman castle with excellent views of the whole bay. To participate, you must be able to swim and have the physique necessary to fit in the kayak.' ,
   tags: ['adventure'],
@@ -136,7 +136,7 @@ activities = [
   {
   name: 'Canoeing on the Dordogne',
   location: 'France',
-  duration: 1,
+  duration: 5,
   category: 'canoeing',
   description: "we take you upstream to the small hamlet of Thezel, just south of Beaulieu-sur-Dordogne for the briefing and canoeing lesson. Then it's an easy paddle down to Carennac. This is one of the Dordogne's most picturesque villages, with lovely 16th century houses",
   tags: ['adventure'],
@@ -146,7 +146,7 @@ activities = [
   {
   name: 'Cycle around West Lake',
   location: 'Vietnam' ,
-  duration:1 ,
+  duration:2 ,
   category: 'cycling',
   description: "After lunch, you'll pick up bikes before cycling to Ho Tay, the city's largest lake, to bike 15 miles around its circumference.  The ride provides a glimpse into modern and traditional Vietnamese life as fishermen wait for a catch and luxury rooftop restaurants compete for space. You'll stop at one of the many cafes to sip on delicious Vietnamese coffee and enjoy the lakeside views.",
   tags: ['adventure'],
@@ -166,7 +166,7 @@ activities = [
   {
   name: 'Sea kayaking in Göcek',
   location: 'Turkey',
-  duration: 1,
+  duration: 4,
   category: 'kayaking',
   description: 'Today begins with a safety briefing and basic exercises to get used to the kayaks. Then we set off to paddle along the Turquoise Coast, visiting bays and coves with swimming stops. The route is flexible and depends on the conditions at the time, but in general this is the perfect place to learn the joys of paddling.
   Our course should include interesting spots such as Cleopatra’s Bath, as well as quieter areas away from the yachties. Lunch is a picnic. In the late afternoon, we return to our base.',
@@ -227,7 +227,7 @@ activities = [
   category: 'dogsledding',
   description: 'This morning, we head to a husky farm on the edge of the neighbouring Riisitunturi National Park. We start with tuition on how to ride and drive the sled and the importance of caring for the huskies correctly. We then continue into the woods where our dog teams eagerly await our arrival, ready to take us on our 6mi (10km) mushing adventure. With the adults driving and the children sitting in the sled, we appreciate the serenity of this snow-laden landscape.
   Meals included: Breakfast, Lunch, Dinner',
-  image_url: 'https://res.cloudinary.com/enchanting/q_70,f_auto,w_576,h_349/exodus-web/2021/12/04374.jpg',
+  image_url: 'https://res.cloudinary.com/enchanting/q_70,f_auto,w_576,h_349,c_lfill,g_auto/exodus-web/2021/12/00078-finnish-family-adventure.png',
   number_of_people: 18,
   tags:['family']
   },
@@ -247,7 +247,7 @@ activities = [
   {
   name: 'Balloon ride walk to Zemi valley',
   location: 'Turkey',
-  duration: 1,
+  duration: 3,
   category: 'walking',
   description: ' Take part in the most iconic activity in Cappadocia – an early morning hot-air balloon ride then we have a short transfer before we start our trek in Zemi valley. The path leads us through orchards and mesmerising tunnels to a panoramic viewpoint, where we meet our bus and drive to Ayvalı. In the afternoon, we have a short walk through the Gomede Valley from Ayvalı to Mustafapaşa village where we stop for tea in a cafe. Mustafapaşa used to be one of the richest towns in Anatolia until the 1924 population exchange, which forced the Greeks living in Turkey to move to Greece and vice versa. You can spot the Greek influence in some of the architecture',
   tags: ['adventure'],
@@ -320,7 +320,7 @@ activities = [
   number_of_people: 6
   },
   {
-  name: 'Drives over in Pench National Park' ,
+  name: 'Drives over in Pench Park' ,
   location: 'Pench National Park',
   duration: 10 ,
   category: 'walking',
@@ -332,7 +332,7 @@ activities = [
   },
   {
   name: 'Full day in Murchison Falls National Park',
-  location: 'Murchison Falls National Park',
+  location: 'Uganda',
   duration: 8,
   category: 'walking',
   description: "We have an early morning game drive in Murchison Falls National Park. We transfer by ferry to the north side of the Nile where we embark on our game drive. The area is home to elephants, giraffes, buffalo and Ugandan kobs, plus the predators: lions and leopards. After lunch, we travel by boat up the Nile, passing hippos and crocodiles, searching for elephants and waterbuck that come to the river to drink. The cruise lasts about three hours and we travel upstream to the bottom of the falls, stopping near the Devil's Cauldron, the place where the water bursts through the narrow gorge and creates an outstanding rainbow.",
@@ -342,18 +342,18 @@ activities = [
   },
   {
   name: 'Visit Masai Mara',
-  location: 'Masai Mara',
+  location: 'Kenia',
   duration: 3,
   category: 'walking',
   description: 'Our days at Kicheche usually start early, with camp staff bringing tea, coffee, hot water and biscuits to the tent around 5am. One of the huge benefits of staying within the conservancies is that game drives start right from camp and we can be in position on the plains by first light. For photographers, this means the all-important golden hour is always maximised. Depending on the movement of the game and tips from the bush telegraph, drives can be a moveable feast. Some days we may find ourselves on a full-day safari (approximately 13 hours) while other days might be broken into morning and afternoon drives. Paul and his team will try to make good calls when it comes to sightings and will always aim to be in the best position for viewing. They will be trying their hardest to ensure that photographic opportunities are frequent, but they will not be dashing around ticking off species like mainstream safari companies. Early starts are the order of the day, and we normally find shade for lunch in a beautiful spot and to relax. Unless, that is, we come across a migration crossing or hunting cheetah. These drives are not endurance tests but a full day out on the plains can be quite tiring. They also involve patience, as a hungry cheetah will often wait many hours before making their move.
   Mealtimes are a delight under the stars or in the mess tent if there is bad weather. It is the game and scenery that make this area so incredible. Camp can often have a lion pride nearby, and their call accompanied by a hyena cackle is an occasional night-time companion. The property is very relaxing for those hours in the middle of the day between game drives and the haute cuisine and hot showers are a big bonus. These luxurious trappings sometimes belie the fact that the camp is right in the heart of the most prolific savannah on Earth.',
   tags: ['safari'],
-  image_url: 'https://res.cloudinary.com/enchanting/q_70,f_auto,w_576,h_349/exodus-web/2017/09/PA-Hero-single-Kenya-WYX-e1660913497692.jpg',
+  image_url: 'https://res.cloudinary.com/enchanting/q_70,f_auto,w_576,h_349,c_lfill,g_auto/exodus-web/2023/08/craig-stevenson-gf3-v7Pmp7M-unsplash.jpg',
   number_of_people: 10
   },
   {
   name: 'Turtle snorkelling in Male Atoll' ,
-  location: 'South Male Atoll',
+  location: 'Maldives',
   duration: 4,
   category: 'swimming',
   description: 'This morning our first stop will be a reef located on the east side of the atoll which offers the strong possibility of a number of turtle sightings. The reef is shallow but dense with corals which provide turtles with an abundant food source. As with all Maldivian reefs there will also be plenty of fish to observe including Box fish, Porcupine fish and schools of Banner fish. The remainder of the day we will cross into Ari Atoll and head south towards the island of Dhangethi. Dependent on the sailing conditions if there is time there, will be the opportunity this afternoon to take a further snorkel trip before making a visit to the local island of Dhangethi where we will take a traditional Maldivian afternoon tea. Dhangethi is a typical Maldivian fishing island with an interesting story to tell concerning the moon and a Maldives Sultan!',
@@ -362,7 +362,7 @@ activities = [
   image_url: 'https://res.cloudinary.com/enchanting/q_70,f_auto,w_576,h_349/exodus-web/2021/12/43561.jpg'
   },
   {
-  name: 'Wildlife walk in Cahuita National Park',
+  name: 'Wildlife walk in Cahuita',
   location: 'Costa Rica',
   duration: 6,
   category: 'walking',
@@ -518,3 +518,13 @@ end
 # Has been so smooth & simple booking through Trip!
 # Platform is super easy to use & they’ve really worked well to give the customers a well rounded experience whilst on it.
 # I had an issue with one of my bookings and they were super responsive & easy to work with, problem solved instantly. Will be using Trip again and again!
+
+
+# An unforgettable experience
+# My husband and I joined this tour as novice photographers. The experience blew us away. The level of service from our drivers and camp staff was exceptional. Paul Goldstein is an amazing photographer and worked tirelessly to get us great photo opps. I can’t think of a single negative thing to say about the accommodations, either. It was a memorable experience through and through, and we made new like-minded friends that we’re excited to travel with in the future. We are already considering future trips with Paul.
+
+
+# An excellent reminder of the beauty and contrasts of Andalucia. Each day is different. Based at the lovely Cortijo made everything so easy. Simple but comfortable rooms, a lovely small pool at the end of each day and the friendliest service from Joke and Cartouche. They create a relaxed but efficient mood – and top quality food at the end of each day. But the biggest credit goes to Michael – undoubtedly the best guide I have experienced. The schedule means there is always time to relax in the pool followed by a drink before dinner.
+
+
+# Lovely walks. Fantastic guide whose knowledge of all things fauna, ornithogical, geological and historic was as impressive as it was compelling. Great organiser. The 14 person team of ramblers gelled immediately and made the week very special. A wonderful adventure.

@@ -15,7 +15,7 @@
 .card h4 {
   font-size: 19px;
   // font-weight: bold;
-  margin: 0;
+  margin-bottom: 5px;
 }
 
 .card p {
@@ -27,8 +27,4 @@
 
 .card .card-infos {
   padding: 16px;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  position: relative;
 }
