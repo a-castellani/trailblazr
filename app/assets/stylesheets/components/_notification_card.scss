@@ -1,10 +1,35 @@
 .notification-container {
   width: 422px;
   margin: 26px auto;
-  color: $sand;
   h1 {
     text-align: center;
     color: $dark-green;
+  }
+}
+
+.read {
+  color: #374C41ff;
+  a:link {
+    color: #374C41ff;
+  }
+  a:visited {
+    color: #374C41ff;
+  }
+  .notification-card{
+    background-color: #77ba9780;
+  }
+}
+
+.unread {
+  color: $sand;
+  a:link {
+    color: $sand;
+  }
+  a:visited {
+    color: $sand;
+  }
+  .notification-card{
+    background-color: #374C41ff;
   }
 }
 
@@ -18,7 +43,6 @@
   margin-left: auto;
   height: 100px;
   border-radius: 6px;
-  background-color: #374C41ff;
   padding: 10px 5px;
   box-shadow: 0 0 5px #374C414D;
 }
