@@ -4,20 +4,20 @@
       <div data-controller="toggle">
         <div class="d-flex" >
           <div class="d-flex">
-            <h1 class="my-3"><%= @itinerary.title.capitalize %></h1>
+            <h1 class="d-flex align-items-center me-3"><%= @itinerary.title %></h1>
             <% if current_user == @owner %>
               <div class="d-flex justify-content-start">
                 <%# Hide the links for unauthorized users: %>
                 <% if policy(@itinerary).edit? && policy(@itinerary).destroy? %>
-                  <div class="d-flex my-4">
+                  <div class="d-flex align-items-center">
                     <i class="fa-solid fa-pen" data-bs-toggle="modal" data-bs-target="#editModal"></i>
                     <%= render "itineraries/editform", itinerary: @itinerary %>
                     <div data-controller="sweet-alert">
                       <%= button_to @itinerary, method: :delete, remote: true, data: {turbo_method: :delete, sweet_alert_target: :delete }, class: "btn btn-default" do %>
-                          <i class="fa-regular fa-trash-can" data-action="click->sweet-alert#fireAlert"></i>
+                        <i class="fa-regular fa-trash-can" data-action="click->sweet-alert#fireAlert"></i>
                       <% end %>
                     </div>
-                    <i data-toggle-target="button" data-action="click->toggle#toggle" class="fa-solid fa-user-plus my-2 mx-3"></i> <% if current_user == @owner %><% end %>
+                    <i data-toggle-target="button" data-action="click->toggle#toggle" class="fa-solid fa-user-plus"></i> <% if current_user == @owner %><% end %>
                   </div>
                 <% end %>
               </div>
@@ -50,7 +50,6 @@
             </div>
           </div>
         </div>
-        <%# collaborations %>
         <%# selections %>
         <div class="d-flex">
           <div class="daycards">
@@ -64,15 +63,6 @@
     <div class="position-fix">
       <%= render "wish_list_card"%>
     </div>
-    <%# mapbox -> no map if empty itinerary %>
-    <div class="ms-1">
-      <% unless @selections_with_days.empty? %>
-        <div class="container mt-3" style="width: 100%; height: 300px;"
-          data-controller="map"
-          data-map-markers-value="<%= @markers.to_json %>"
-          data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-        </div>
-      <% end %>
-    </div>
+
   </div>
 </div>
