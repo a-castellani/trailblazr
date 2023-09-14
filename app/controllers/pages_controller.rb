@@ -22,4 +22,8 @@ class PagesController < ApplicationController
     end
     @locations = @all_locations.uniq.sort!
   end
+
+  # def contact
+
+  # end
 end
