@@ -8,7 +8,7 @@
             <% if notification.read? %>
               <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-circle-check-filled" width="25" height="25" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
                 <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                <path d="M17 3.34a10 10 0 1 1 -14.995 8.984l-.005 -.324l.005 -.324a10 10 0 0 1 14.995 -8.336zm-1.293 5.953a1 1 0 0 0 -1.32 -.083l-.094 .083l-3.293 3.292l-1.293 -1.292l-.094 -.083a1 1 0 0 0 -1.403 1.403l.083 .094l2 2l.094 .083a1 1 0 0 0 1.226 0l.094 -.083l4 -4l.083 -.094a1 1 0 0 0 -.083 -1.32z" stroke-width="0" fill="#B4B343ff" />
+                <path d="M17 3.34a10 10 0 1 1 -14.995 8.984l-.005 -.324l.005 -.324a10 10 0 0 1 14.995 -8.336zm-1.293 5.953a1 1 0 0 0 -1.32 -.083l-.094 .083l-3.293 3.292l-1.293 -1.292l-.094 -.083a1 1 0 0 0 -1.403 1.403l.083 .094l2 2l.094 .083a1 1 0 0 0 1.226 0l.094 -.083l4 -4l.083 -.094a1 1 0 0 0 -.083 -1.32z" stroke-width="1" fill="#B4B343B3" />
               </svg>
             <% else %>
               <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-circle-dashed" width="25" height="25" viewBox="0 0 24 24" stroke-width="1.5" stroke="#B4B343ff" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -29,7 +29,7 @@
         <div>
           <p class="info">
             <strong><%= notification.params[:itinerary_owner].first_name %> <%= notification.params[:itinerary_owner].last_name %></strong> has added you to the itinerary
-              <strong><%= link_to notification.params[:itinerary].title, itinerary_path(notification.params[:itinerary], notification_id: notification.id ) %></strong> as <em><%= notification.params[:collaboration].role.capitalize %></em>
+              <strong><%= link_to notification.params[:itinerary].title, itinerary_path(notification.params[:itinerary], notification_id: notification.id ), class: "text-decoration-none" %></strong> as <em><%= notification.params[:collaboration].role.capitalize %></em>
           </p>
           <p class="received">
             <em>Received on <%= notification.created_at.to_date %></em>
