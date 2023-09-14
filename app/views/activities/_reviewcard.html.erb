@@ -1,9 +1,9 @@
-<div class="card">
-  <div class="card-infos">
+<div class="reviewcard">
+  <div class="reviewcard-infos">
     <div>
-      <h4><%= review.user.first_name %></h4>
-      <p><%= review.created_at %></p>
-      <p><%= review.content %></p>
+      <h6><%= review.user.first_name %></h6>
+      <p><%= review.created_at.strftime("%d/%m/%Y, %l:%M %p") %></p>
+      <p><%= review.content.truncate(350, separator: ' ') %></p>
     </div>
   </div>
 </div>
