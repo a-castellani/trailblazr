@@ -3,7 +3,8 @@
     <div>
       <h6><%= review.user.first_name %></h6>
       <p><%= review.created_at.strftime("%d/%m/%Y, %l:%M %p") %></p>
-      <p><%= review.content.truncate(350, separator: ' ') %></p>
+      <br>
+      <p><%= review.content.truncate(380, separator: ' ') %></p>
     </div>
   </div>
 </div>

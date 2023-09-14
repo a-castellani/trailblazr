@@ -1,24 +1,30 @@
 .reviewcard {
   background: white;
   box-shadow: 0 0 10px rgba(0,0,0,0.1);
-  height: 340px;
-  width: 320px;
-  margin-right: 10px;
+  height: 350px;
+  width: 392px;
+  margin-right: 14px;
   border-radius: 5px;
 }
 
-.card h6 {
-  font-size: 16px;
+.reviewcard .reviewcard-infos h6 {
+  font-size: 20px;
   // font-weight: bold;
-  margin-bottom: 5px;
+  margin-bottom: 25px;
+  margin-top: 15px;
 }
 
-.card p {
-  font-size: 12px;
+.reviewcard .reviewcard-infos p {
+  font-size: 16px;
   opacity: .7;
   margin: 0;
 }
 
 .reviewcard .reviewcard-infos {
   padding: 16px;
+}
+
+#star {
+  margin-top: 13px;
+  margin-left: 5px;
 }
