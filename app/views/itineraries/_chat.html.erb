@@ -14,16 +14,16 @@
     </svg>
   </div>
   <div class="d-none" data-chat-target="chatbox">
-    <div class="message-box">
-      <%= simple_form_for [@itinerary, @message], html: { data: { action: "turbo:submit-end->chat-subscription#resetForm" }, class: "d-flex" } do |f| %>
-        <%= f.input :content, class: "col-10", label: false, placeholder: "Type your message here..."%>
-        <%= f.submit "Send", class: "btn btn-primary mb-3" %>
+    <div class="chat-messages" data-chat-subscription-target="messages">
+      <% @itinerary.messages.reverse_each do |message| %>
+        <%= render "messages/message", message: message %>
       <% end %>
     </div>
 
-    <div data-chat-subscription-target="messages">
-      <% @itinerary.messages.reverse_each do |message| %>
-        <%= render "messages/message", message: message %>
+    <div class="message-box">
+      <%= simple_form_for [@itinerary, @message], html: { data: { action: "turbo:submit-end->chat-subscription#resetForm" }, class: "d-flex" } do |f| %>
+        <%= f.input :content, label: false, placeholder: "Type your message here...", input_html: { autocomplete: "off" } %>
+        <%= f.submit "Send", class: "btn btn-primary mb-3" %>
       <% end %>
     </div>
   </div>

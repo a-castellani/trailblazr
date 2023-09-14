@@ -1,35 +1,50 @@
 .chatroom{
   position: fixed;
-  bottom: -9px;
-  right: -4px;
+  bottom: 15px;
+  right: 13px;
   width: 350px;
   color: $dark-green;
   background-color: white;
-  margin: 5px;
   padding: 10px;
   border-radius: 8px;
   box-shadow: 0 0 3px #1C2B264D;
+  height: 53vh;
 
-  h1 {
-    text-align: center;
-    font-size: 24px;
-  }
-
-  p{
-    margin: 5px 0;
-    font-size: 15px;
-  }
-
-  .message-box {
+  .chat-header {
+    height: 10%;
     justify-content: center;
+    border-bottom: 1px solid $light-green;
+    h1 {
+      margin-right: 5px;
+      font-size: 25px;
+    }
   }
 
-  .open {
-    height: 50vh;
-    overflow-y: scroll;
+  .chat-box {
+    position: fixed;
+    right: 22px;
+    bottom: 10px;
+    border-top: 1px solid $light-green;
+    padding-top: 5px;
+    width: 332px;
+
+    .form-control {
+      width: 265px;
+      font-size: 14px;
+    }
+    
+    .btn {
+      font-size: 14px;
+    }
   }
 
-  .closed {
-    height: 4vh;
+  .chat-messages {
+    max-height: 275px;
+    overflow-y: auto;
+    margin-bottom: 0;
+  }
+
+  p {
+    font-size: 13px;
   }
 }
