@@ -1,0 +1,41 @@
+.notification-container {
+  width: 422px;
+  margin: 26px auto;
+  color: $sand;
+  h1 {
+    text-align: center;
+    color: $dark-green;
+  }
+}
+
+.notif-cent {
+  width: 422px;
+  margin: 0 auto;
+}
+
+.notification-card {
+  margin-top: 5px;
+  margin-left: auto;
+  height: 100px;
+  border-radius: 6px;
+  background-color: #374C41ff;
+  padding: 10px 5px;
+  box-shadow: 0 0 5px #374C414D;
+}
+
+.info {
+  margin-bottom: 1px !important;
+}
+
+.received {
+  font-size: 12px;
+  color: rgba(128, 128, 128, 1);
+}
+
+#notifications {
+  padding: 2px 2px !important;
+}
+
+#read {
+  padding: 2px 2px !important;
+}

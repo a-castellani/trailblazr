@@ -1,13 +1,18 @@
-<h1>Notifications</h1>
-<ul class="notification_card" id="notifications">
-  <% current_user.notifications.unread.each do |notification| %>
-    <%= render "notifications/notification", notification: notification %>
-    <% end %>
-</ul>
+<div class="notification-container">
+  <h1>Notifications</h1>
+  <div>
+    <ul id="notifications" class="box">
+      <% current_user.notifications.unread.each do |notification| %>
+        <%= render "notifications/notification", notification: notification %>
+        <% end %>
+    </ul>
+  </div>
 
-<strong><p style="text-decoration: underline;">Read Notifications:</p></strong>
-<ul class="notification_card read">
-  <% current_user.notifications.read.last(5).reverse_each do |notification| %>
-    <%= render "notifications/notification", notification: notification %>
-    <% end %>
-</ul>
+  <div>
+    <ul id="notifications" class="box">
+      <% current_user.notifications.read.last(5).reverse_each do |notification| %>
+        <%= render "notifications/notification", notification: notification %>
+        <% end %>
+    </ul>
+  </div>
+</div>
