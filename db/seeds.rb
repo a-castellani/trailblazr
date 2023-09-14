@@ -514,7 +514,7 @@ Itinerary.all.each do |itinerary|
 end
 
 
-# Amazing platform 🤩 !
+# Amazing trip 🤩 !
 # Has been so smooth & simple booking through Trip!
 # Platform is super easy to use & they’ve really worked well to give the customers a well rounded experience whilst on it.
 # I had an issue with one of my bookings and they were super responsive & easy to work with, problem solved instantly. Will be using Trip again and again!
