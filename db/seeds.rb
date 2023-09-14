@@ -176,7 +176,7 @@ activities = [
   },
   {
   name: 'Visit Jerash and Amman',
-  location: 'Jordan Decapolis',
+  location: 'Jordan',
   duration: '5 h',
   category: 'walking',
   description: "This morning we drive north to the ruined city of Jerash, known as Gerasa in ancient times, which is awash with imposing colonnades, ancient temples and theatres. This was one of the 10 wealthy, self-governing cities of the Decapolis during Roman times, and was famous throughout the Roman world for its affluent lifestyle. Buried for centuries under blown sand, Jerash is the only city of the Decapolis to have survived, with a dramatic oval forum, colonnaded main streets which remarkably have the drains still intact, two theatres and the impressive Temple of Zeus.
@@ -188,7 +188,7 @@ activities = [
   },
   {
   name: 'Walk in the Prosecco region',
-  location: 'Italy Prosecco region',
+  location: 'Italy',
   duration: '5 h',
   category: 'wine & walking',
   description: "Today's walk takes us to the heartland of the Prosecco Hills, namely Valdobbiadene, San Pietro di Barbozza and San Stefano. The majority of the winemakers are based right here, among the steep terraced hills, which are arguably the prettiest in the Veneto region. Our walk follows a mix of human-made tracks and paths twisting through the vineyards, and offers spectacular views of the fertile landscape and hillside hamlets. During the walk we will have the opportunity to visit the Pietrovecchio winery, one of the top local prosecco producers. After a general introduction to the winery and its history, we can sample different varieties of prosecco during a guided wine-tasting (included)." ,
@@ -198,7 +198,7 @@ activities = [
   },
   {
   name: 'Walk to Caños Santos Monastery',
-  location: 'Andalucía',
+  location: 'Spain',
   duration: '6 h',
   category: 'trekking',
   description: 'Today we set out from Cortijo Rosario, walking through Algamitas farmland to the abandoned monastery of Caños Santos, where we will have lunch. In the afternoon, follow the Ruta de los Molinos along the river that runs through the white village of Setenil de las Bodegas. Built under the overhanging ledge of a gorge, Setenil is not only known for having standout architecture but also for bars, restaurants and food shops, which are the best in the region. We have free time to discover Setenil and later return to the cortijo by private minibus.
@@ -278,7 +278,7 @@ activities = [
   },
   {
   name: 'Mt Toubkal Climb',
-  location: 'Morrocco',
+  location: 'Morocco',
   duration: 1,
   category: 'walking',
   description: 'We make an early start from basecamp for the ascent of Mount Toubkal, climbing steeply through scree before traversing the southern ridge to reach the summit at 13,671ft (4,167m). After enjoying magnificent panoramas, we descend to basecamp. We have the rest of the afternoon free to reflect on our achievement.',
@@ -288,7 +288,7 @@ activities = [
   },
   {
   name: 'Morning at the Pyramids',
-  location: 'Pyramids, Egipt',
+  location: 'Egipt',
   duration: 3 ,
   category: 'walking',
   description: "Today we enjoy a half-day sightseeing tour of two ancient wonders. At Giza, the enigmatic Sphinx and Great Pyramids stand on the edge of the empty desert overlooking the city, providing a great contrast between ancient and modern Egypt. More than 4,000 years old, the pyramids are a testimony to the ingenuity and skill of their builders; in fact, the Great Pyramid, the largest of the pyramids here, is the only Wonder of the Ancient World that still stands.
@@ -309,7 +309,7 @@ activities = [
   },
   {
   name: 'Visit Pompeii and Vesuvius' ,
-  location: 'Pompei, Italy',
+  location: 'Italy',
   duration: 8 ,
   category: 'walking',
   description: 'Today we descend from the Agerola hills and take a transfer (approximately 45 minutes) to Pompeii, once a thriving port town until the catastrophic eruption of Vesuvius spanning two days in 79 CE, during which the city was buried in ash and pumice. Lost for 1,700 years, Pompeii is now a Unesco World Heritage site as the perfectly preserved remains give us an amazing insight into life in a Roman city, complete with bathhouses, bakeries and homes – some of which still have walls adorned with detailed frescoes. You may take time to explore the site independently but we recommend opting for a detailed tour accompanied by a local guide, which can be hired locally for approximately €10 per person depending on the group size.
@@ -373,7 +373,7 @@ activities = [
   },
   {
   name: 'Walk to visit Kalibash villages',
-  location: 'kalibash villages',
+  location: 'Kalibash',
   duration: 5,
   category: 'walking',
   description: 'After breakfast, we spend the day exploring the area surrounding the unique Kalibash villages of Magura and Pestera, where the houses are built along mountain ridges with deep ravines and valleys in between. We visit these traditional houses and learn about the history of the settlements, which were built against the medieval invasions of Mongols, Tartars and Turks. Distance covered: 12km.' ,
@@ -514,7 +514,7 @@ Itinerary.all.each do |itinerary|
 end
 
 
-# Amazing platform 🤩 !
+# Amazing trip 🤩 !
 # Has been so smooth & simple booking through Trip!
 # Platform is super easy to use & they’ve really worked well to give the customers a well rounded experience whilst on it.
 # I had an issue with one of my bookings and they were super responsive & easy to work with, problem solved instantly. Will be using Trip again and again!
