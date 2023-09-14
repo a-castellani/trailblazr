@@ -21,13 +21,25 @@
   }
 
   .chat-box {
-    width: 100%;
+    position: fixed;
+    right: 22px;
+    bottom: 10px;
     border-top: 1px solid $light-green;
     padding-top: 5px;
+    width: 332px;
+
+    .form-control {
+      width: 265px;
+      font-size: 14px;
+    }
+    
+    .btn {
+      font-size: 14px;
+    }
   }
 
   .chat-messages {
-    max-height: 280px;
+    max-height: 275px;
     overflow-y: auto;
     margin-bottom: 0;
   }
