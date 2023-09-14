@@ -41,39 +41,3 @@
     </div>
   </li>
 <% end %>
-
-<div class="d-none">
-  <p class="text-gray">
-          <strong><%= notification.params[:itinerary_owner].first_name %> <%= notification.params[:itinerary_owner].last_name %></strong> has added you to the itinerary
-            <strong><%= link_to notification.params[:itinerary].title, itinerary_path(notification.params[:itinerary], notification_id: notification.id ) %></strong> as <em><%= notification.params[:collaboration].role.capitalize %></em>
-        </p>
-        <div class="d-flex justify-between mt-1">
-          <p>
-            Received on <%= notification.created_at.to_date %>
-          </p>
-          <div class="mx-5">
-            <%= link_to toggle_read_notification_path(notification), data: { turbo_method: :patch }, class: "text-decoration-none" do %>
-              <% if notification.read? %>
-                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-circle-check-filled" width="25" height="25" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                  <path d="M17 3.34a10 10 0 1 1 -14.995 8.984l-.005 -.324l.005 -.324a10 10 0 0 1 14.995 -8.336zm-1.293 5.953a1 1 0 0 0 -1.32 -.083l-.094 .083l-3.293 3.292l-1.293 -1.292l-.094 -.083a1 1 0 0 0 -1.403 1.403l.083 .094l2 2l.094 .083a1 1 0 0 0 1.226 0l.094 -.083l4 -4l.083 -.094a1 1 0 0 0 -.083 -1.32z" stroke-width="0" fill="currentColor" />
-                </svg>
-                Read
-              <% else %>
-                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-circle-dashed" width="25" height="25" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                  <path d="M8.56 3.69a9 9 0 0 0 -2.92 1.95" />
-                  <path d="M3.69 8.56a9 9 0 0 0 -.69 3.44" />
-                  <path d="M3.69 15.44a9 9 0 0 0 1.95 2.92" />
-                  <path d="M8.56 20.31a9 9 0 0 0 3.44 .69" />
-                  <path d="M15.44 20.31a9 9 0 0 0 2.92 -1.95" />
-                  <path d="M20.31 15.44a9 9 0 0 0 .69 -3.44" />
-                  <path d="M20.31 8.56a9 9 0 0 0 -1.95 -2.92" />
-                  <path d="M15.44 3.69a9 9 0 0 0 -3.44 -.69" />
-                </svg>
-                Unread
-              <% end %>
-            <% end %>
-          </div>
-        </div>
-</div>
