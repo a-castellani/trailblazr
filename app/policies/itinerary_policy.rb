@@ -7,7 +7,7 @@ class ItineraryPolicy < ApplicationPolicy
   end
 
   def show?
-    true
+    record.users.include?(user)
   end
 
   def create?
