@@ -4,7 +4,14 @@ import { Controller } from "@hotwired/stimulus"
 export default class extends Controller {
   static targets = ["button", "form"]
 
+
   toggle() {
-    this.formTarget.classList.toggle("d-none")
+    const errorMessageElement = this.formTarget.querySelector(".invalid-feedback");
+
+    if (errorMessageElement) {
+      this.formTarget.classList.remove("d-none");
+    } else {
+      this.formTarget.classList.toggle("d-none");
+    }
   }
 }

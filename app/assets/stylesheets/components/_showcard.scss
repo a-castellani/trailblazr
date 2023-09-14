@@ -3,6 +3,7 @@
   box-shadow: 0 0 10px rgba(0,0,0,0.1);
   padding: 25px 25px;
   border: 1px solid lightgray;
+  position: relative;
 }
 
 .show-card-img > img {
@@ -36,5 +37,7 @@
 }
 
 .fix-postion-bottom {
-  position: relative;
+  position: absolute;
+  left: 0px;
+  right: 0px;
 }
