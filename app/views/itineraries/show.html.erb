@@ -4,12 +4,12 @@
       <div data-controller="toggle">
         <div class="d-flex" >
           <div class="d-flex">
-            <h1 class="my-3"><%= @itinerary.title.capitalize %></h1>
+            <h1 class="d-flex align-items-center me-3"><%= @itinerary.title %></h1>
             <% if current_user == @owner %>
               <div class="d-flex justify-content-start">
                 <%# Hide the links for unauthorized users: %>
                 <% if policy(@itinerary).edit? && policy(@itinerary).destroy? %>
-                  <div class="d-flex my-4">
+                  <div class="d-flex align-items-center">
                     <i class="fa-solid fa-pen" data-bs-toggle="modal" data-bs-target="#editModal"></i>
                     <%= render "itineraries/editform", itinerary: @itinerary %>
                     <div data-controller="sweet-alert">
@@ -17,7 +17,7 @@
                         <i class="fa-regular fa-trash-can" data-action="click->sweet-alert#fireAlert"></i>
                       <% end %>
                     </div>
-                    <i data-toggle-target="button" data-action="click->toggle#toggle" class="fa-solid fa-user-plus my-2 mx-3"></i> <% if current_user == @owner %><% end %>
+                    <i data-toggle-target="button" data-action="click->toggle#toggle" class="fa-solid fa-user-plus"></i> <% if current_user == @owner %><% end %>
                   </div>
                 <% end %>
               </div>

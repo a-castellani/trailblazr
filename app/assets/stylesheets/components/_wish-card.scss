@@ -3,6 +3,7 @@
   border-bottom-left-radius: 5px;
   padding: 10px;
   height: 60px;
+  // position: relative;
 }
 
 .wish-card-img {
@@ -34,6 +35,8 @@
   background-color: white;
   box-shadow: 0 0 10px rgba(0,0,0,0.1);
   border-radius: 5px;
+  // position: absolute;
+  // right: 5px;
 }
 
 .scrollable-box-x {
