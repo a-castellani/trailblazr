@@ -16,9 +16,9 @@
       <div class="chatroom d-none" data-controller="chat-subscription" data-chat-subscription-itinerary-value="<%= @itinerary.id %>"
                                     data-chat-target="chatbox">
 
-        <div class="chat-header d-flex">
+        <div class="chat-header d-flex" data-action="click->chat#hide">
           <h1>Chat</h1>
-          <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-arrow-bar-to-down" data-action="click->chat#hide"
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-arrow-bar-to-down"
               width="30" height="30" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
             <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
             <path d="M4 20l16 0" />
