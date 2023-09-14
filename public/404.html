@@ -5,7 +5,7 @@
     min-height: 300px;
     width: 100%;
     overflow: hidden;
-    background: url(https://s-media-cache-ak0.pinimg.com/originals/11/4a/ae/114aae7aedae0793d141c1864aa31952.jpg);
+    background: url("https://s-media-cache-ak0.pinimg.com/originals/11/4a/ae/114aae7aedae0793d141c1864aa31952.jpg");
     background-size: cover;
     }
     body {
@@ -58,7 +58,7 @@
 
   <script>
     // Glitch Line Vars
-    var glitch_lines = 15,
+    let glitch_lines = 15,
       glitch_line_duration_min = 100,
       glitch_line_duration_max = 500,
       glitch_line_timer_min = 100,
@@ -69,7 +69,7 @@
       glitch_line_height_max = 50;
 
     // Glitch Move Vars
-    var glitch_move_color_1 = '#08FFF2',
+    let glitch_move_color_1 = '#08FFF2',
       glitch_move_color_2 = '#FC0DFF',
       glitch_move_original_color = '#585E62',
       glitch_move_opacity = .2,
@@ -83,7 +83,7 @@
       glitch_move_amount_max = 10;
 
     // Do you want to autostart on page load?
-    var glitch_autostart = 1;
+    let glitch_autostart = 1;
 
     // Start Glitch on page load.
     window.onload = function() {
