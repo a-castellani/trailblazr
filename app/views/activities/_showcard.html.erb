@@ -15,13 +15,13 @@
           </div>
         </div>
 
-        <div class="flex d-none" data-toggle-target="form">
+        <div class="info-box flex d-none" data-toggle-target="form">
           <%= simple_form_for [@activity, @selection], html: { class: "fix-width" } do |f| %>
             <div class="col-11">
               <%= f.association :itinerary, label: false, collection: @itineraries, :selected => @last_itinerary %>
             </div>
-            <div class="col-1 ms-1">
-              <%= f.submit "+", class: "btn btn-primary mb-3 ms-1" %>
+            <div class="col-1">
+              <%= f.submit "+", class: "btn btn-primary mb-3 add-btn-position-fix" %>
             </div>
           <% end %>
         </div>
@@ -34,7 +34,8 @@
 
       </div>
     </div>
-    <div class="container mt-3" style="width: 100%; height: 500px;"
+
+    <div class="fix-postion-bottom mt-3" style="width: 100%; height: 500px;"
       data-controller="map"
       data-map-markers-value="<%= @markers.to_json %>"
       data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
